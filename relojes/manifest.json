@@ -1,0 +1,2408 @@
+{
+  "category_count": 9,
+  "product_count": 240,
+  "max_image_side": 900,
+  "max_image_bytes": 81920,
+  "products": [
+    {
+      "code": "BAR-001",
+      "name": "barberia1",
+      "category": "Barbería",
+      "slug": "barberia",
+      "image": "barberia/imagenes/bar-001.webp",
+      "bytes": 47436,
+      "width": 592,
+      "height": 592
+    },
+    {
+      "code": "BAR-002",
+      "name": "barberia2",
+      "category": "Barbería",
+      "slug": "barberia",
+      "image": "barberia/imagenes/bar-002.webp",
+      "bytes": 24044,
+      "width": 592,
+      "height": 592
+    },
+    {
+      "code": "COL-001",
+      "name": "bautista",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-001.webp",
+      "bytes": 44028,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-002",
+      "name": "benito perez",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-002.webp",
+      "bytes": 36734,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-003",
+      "name": "centro cristiano",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-003.webp",
+      "bytes": 39776,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-004",
+      "name": "colegio kerygma",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-004.webp",
+      "bytes": 43410,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-005",
+      "name": "colegio militar",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-005.webp",
+      "bytes": 38490,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-006",
+      "name": "cruz castro",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-006.webp",
+      "bytes": 41768,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-007",
+      "name": "divina providencia",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-007.webp",
+      "bytes": 26874,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-008",
+      "name": "emanuel",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-008.webp",
+      "bytes": 55558,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-009",
+      "name": "JOHN NEVINS ANDREWS",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-009.webp",
+      "bytes": 27552,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-010",
+      "name": "juan bueno",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-010.webp",
+      "bytes": 55984,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-011",
+      "name": "la esperanza",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-011.webp",
+      "bytes": 35384,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-012",
+      "name": "liceo el salvador",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-012.webp",
+      "bytes": 44240,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-013",
+      "name": "lidia salman de vargas",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-013.webp",
+      "bytes": 34270,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-014",
+      "name": "madre de la iglesia",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-014.webp",
+      "bytes": 38630,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "COL-015",
+      "name": "maria auxiliadora",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-015.webp",
+      "bytes": 30340,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-016",
+      "name": "medalla milagrosa",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-016.webp",
+      "bytes": 53856,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-017",
+      "name": "montessori",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-017.webp",
+      "bytes": 43972,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-018",
+      "name": "san francisco",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-018.webp",
+      "bytes": 43290,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-019",
+      "name": "san jose",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-019.webp",
+      "bytes": 38208,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-020",
+      "name": "san lorenzo",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-020.webp",
+      "bytes": 34880,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-021",
+      "name": "san luis",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-021.webp",
+      "bytes": 32376,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "COL-022",
+      "name": "san vicente de paul",
+      "category": "Colegios",
+      "slug": "colegios",
+      "image": "colegios/imagenes/col-022.webp",
+      "bytes": 43982,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-001",
+      "name": "10",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-001.webp",
+      "bytes": 63136,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-002",
+      "name": "11",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-002.webp",
+      "bytes": 60640,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-003",
+      "name": "12",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-003.webp",
+      "bytes": 57836,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-004",
+      "name": "13",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-004.webp",
+      "bytes": 71522,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-005",
+      "name": "14",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-005.webp",
+      "bytes": 38462,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-006",
+      "name": "17",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-006.webp",
+      "bytes": 44310,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-007",
+      "name": "18",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-007.webp",
+      "bytes": 38886,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-008",
+      "name": "20",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-008.webp",
+      "bytes": 68034,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-009",
+      "name": "21",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-009.webp",
+      "bytes": 55840,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-010",
+      "name": "22",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-010.webp",
+      "bytes": 56084,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-011",
+      "name": "23",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-011.webp",
+      "bytes": 41578,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-012",
+      "name": "30",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-012.webp",
+      "bytes": 70936,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-013",
+      "name": "32",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-013.webp",
+      "bytes": 79894,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-014",
+      "name": "33",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-014.webp",
+      "bytes": 79392,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-015",
+      "name": "34",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-015.webp",
+      "bytes": 79008,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-016",
+      "name": "35",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-016.webp",
+      "bytes": 30110,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-017",
+      "name": "36",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-017.webp",
+      "bytes": 57012,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-018",
+      "name": "37",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-018.webp",
+      "bytes": 41840,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-019",
+      "name": "38",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-019.webp",
+      "bytes": 42124,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-020",
+      "name": "AGUILA",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-020.webp",
+      "bytes": 71842,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-021",
+      "name": "Alianza2",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-021.webp",
+      "bytes": 36484,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-022",
+      "name": "alianza 3d",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-022.webp",
+      "bytes": 30726,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-023",
+      "name": "alianza blanco",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-023.webp",
+      "bytes": 78726,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-024",
+      "name": "Alianza",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-024.webp",
+      "bytes": 34346,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-025",
+      "name": "barca3",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-025.webp",
+      "bytes": 43552,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-026",
+      "name": "barca4",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-026.webp",
+      "bytes": 51662,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-027",
+      "name": "barsa1",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-027.webp",
+      "bytes": 33524,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-028",
+      "name": "barsa2",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-028.webp",
+      "bytes": 51572,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-029",
+      "name": "base4",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-029.webp",
+      "bytes": 76838,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-030",
+      "name": "base (2)",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-030.webp",
+      "bytes": 39830,
+      "width": 650,
+      "height": 650
+    },
+    {
+      "code": "DEP-031",
+      "name": "base",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-031.webp",
+      "bytes": 46500,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-032",
+      "name": "baseS",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-032.webp",
+      "bytes": 58174,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-033",
+      "name": "ChatGPT Image 20 may 2026, 02 15 30 p.m",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-033.webp",
+      "bytes": 81528,
+      "width": 650,
+      "height": 650
+    },
+    {
+      "code": "DEP-034",
+      "name": "ChatGPT Image 20 may 2026, 03 53 04 p.m",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-034.webp",
+      "bytes": 81150,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "DEP-035",
+      "name": "ChatGPT Image 20 may 2026, 12 51 30 p.m",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-035.webp",
+      "bytes": 80728,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "DEP-036",
+      "name": "fas",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-036.webp",
+      "bytes": 31814,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-037",
+      "name": "firpo equiipo",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-037.webp",
+      "bytes": 78804,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-038",
+      "name": "isidro",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-038.webp",
+      "bytes": 57252,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-039",
+      "name": "madrid2",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-039.webp",
+      "bytes": 81768,
+      "width": 800,
+      "height": 800
+    },
+    {
+      "code": "DEP-040",
+      "name": "madrid3",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-040.webp",
+      "bytes": 80588,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-041",
+      "name": "madrid4",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-041.webp",
+      "bytes": 78454,
+      "width": 750,
+      "height": 750
+    },
+    {
+      "code": "DEP-042",
+      "name": "madrid5",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-042.webp",
+      "bytes": 78050,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-043",
+      "name": "madrid",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-043.webp",
+      "bytes": 70764,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-044",
+      "name": "magico",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-044.webp",
+      "bytes": 47682,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-045",
+      "name": "rm1",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-045.webp",
+      "bytes": 78454,
+      "width": 750,
+      "height": 750
+    },
+    {
+      "code": "DEP-046",
+      "name": "rm3",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-046.webp",
+      "bytes": 80588,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-047",
+      "name": "rm4",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-047.webp",
+      "bytes": 70764,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "DEP-048",
+      "name": "rm5",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-048.webp",
+      "bytes": 81768,
+      "width": 800,
+      "height": 800
+    },
+    {
+      "code": "DEP-049",
+      "name": "rm",
+      "category": "Deportes",
+      "slug": "deportes",
+      "image": "deportes/imagenes/dep-049.webp",
+      "bytes": 78050,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-001",
+      "name": "3 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-001.webp",
+      "bytes": 78190,
+      "width": 800,
+      "height": 800
+    },
+    {
+      "code": "ESV-002",
+      "name": "4 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-002.webp",
+      "bytes": 70364,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-003",
+      "name": "5 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-003.webp",
+      "bytes": 56064,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-004",
+      "name": "6 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-004.webp",
+      "bytes": 39050,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "ESV-005",
+      "name": "7 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-005.webp",
+      "bytes": 76296,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-006",
+      "name": "8 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-006.webp",
+      "bytes": 39242,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "ESV-007",
+      "name": "9 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-007.webp",
+      "bytes": 77740,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-008",
+      "name": "10 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-008.webp",
+      "bytes": 77398,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-009",
+      "name": "11 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-009.webp",
+      "bytes": 81052,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-010",
+      "name": "12 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-010.webp",
+      "bytes": 60792,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-011",
+      "name": "13 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-011.webp",
+      "bytes": 81528,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-012",
+      "name": "14 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-012.webp",
+      "bytes": 74860,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-013",
+      "name": "15 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-013.webp",
+      "bytes": 68942,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-014",
+      "name": "16 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-014.webp",
+      "bytes": 40268,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-015",
+      "name": "17 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-015.webp",
+      "bytes": 40392,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-016",
+      "name": "18 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-016.webp",
+      "bytes": 79138,
+      "width": 800,
+      "height": 800
+    },
+    {
+      "code": "ESV-017",
+      "name": "19 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-017.webp",
+      "bytes": 80556,
+      "width": 800,
+      "height": 800
+    },
+    {
+      "code": "ESV-018",
+      "name": "20 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-018.webp",
+      "bytes": 57152,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-019",
+      "name": "21 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-019.webp",
+      "bytes": 63504,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-020",
+      "name": "22 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-020.webp",
+      "bytes": 74748,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-021",
+      "name": "23 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-021.webp",
+      "bytes": 58290,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-022",
+      "name": "24 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-022.webp",
+      "bytes": 73752,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-023",
+      "name": "25 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-023.webp",
+      "bytes": 64318,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-024",
+      "name": "26 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-024.webp",
+      "bytes": 73486,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-025",
+      "name": "27 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-025.webp",
+      "bytes": 66760,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-026",
+      "name": "28 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-026.webp",
+      "bytes": 81186,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-027",
+      "name": "29 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-027.webp",
+      "bytes": 71750,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-028",
+      "name": "30 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-028.webp",
+      "bytes": 62144,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-029",
+      "name": "31 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-029.webp",
+      "bytes": 73270,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-030",
+      "name": "32 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-030.webp",
+      "bytes": 68018,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-031",
+      "name": "33 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-031.webp",
+      "bytes": 68644,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-032",
+      "name": "34 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-032.webp",
+      "bytes": 81272,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-033",
+      "name": "35 (2)",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-033.webp",
+      "bytes": 68940,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-034",
+      "name": "RELOJ CATEDRAL",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-034.webp",
+      "bytes": 76782,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-035",
+      "name": "SURD",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-035.webp",
+      "bytes": 80702,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "ESV-036",
+      "name": "SURF",
+      "category": "El Salvador",
+      "slug": "el-salvador",
+      "image": "el-salvador/imagenes/esv-036.webp",
+      "bytes": 81920,
+      "width": 850,
+      "height": 850
+    },
+    {
+      "code": "MUS-001",
+      "name": "3",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-001.webp",
+      "bytes": 74206,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-002",
+      "name": "4",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-002.webp",
+      "bytes": 58608,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-003",
+      "name": "5",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-003.webp",
+      "bytes": 45194,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-004",
+      "name": "6",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-004.webp",
+      "bytes": 40730,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-005",
+      "name": "7",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-005.webp",
+      "bytes": 51886,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-006",
+      "name": "8",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-006.webp",
+      "bytes": 57666,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-007",
+      "name": "9",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-007.webp",
+      "bytes": 70228,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-008",
+      "name": "39",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-008.webp",
+      "bytes": 35964,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-009",
+      "name": "AC",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-009.webp",
+      "bytes": 59226,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-010",
+      "name": "ACDC",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-010.webp",
+      "bytes": 23944,
+      "width": 592,
+      "height": 592
+    },
+    {
+      "code": "MUS-011",
+      "name": "BEAT001",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-011.webp",
+      "bytes": 37644,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-012",
+      "name": "BEAT002",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-012.webp",
+      "bytes": 29442,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-013",
+      "name": "BEAT003",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-013.webp",
+      "bytes": 51510,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-014",
+      "name": "BEAT004",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-014.webp",
+      "bytes": 40740,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-015",
+      "name": "BEAT005",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-015.webp",
+      "bytes": 44670,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-016",
+      "name": "bts1",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-016.webp",
+      "bytes": 68500,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-017",
+      "name": "bts2 (2)",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-017.webp",
+      "bytes": 23674,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-018",
+      "name": "BTS",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-018.webp",
+      "bytes": 20570,
+      "width": 592,
+      "height": 592
+    },
+    {
+      "code": "MUS-019",
+      "name": "dl1",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-019.webp",
+      "bytes": 75724,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-020",
+      "name": "dl",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-020.webp",
+      "bytes": 33266,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "MUS-021",
+      "name": "im1",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-021.webp",
+      "bytes": 63106,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-022",
+      "name": "im2",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-022.webp",
+      "bytes": 50968,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-023",
+      "name": "im3",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-023.webp",
+      "bytes": 80174,
+      "width": 600,
+      "height": 600
+    },
+    {
+      "code": "MUS-024",
+      "name": "KISS",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-024.webp",
+      "bytes": 39294,
+      "width": 592,
+      "height": 592
+    },
+    {
+      "code": "MUS-025",
+      "name": "LED ZEPPELIN (2)",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-025.webp",
+      "bytes": 13246,
+      "width": 425,
+      "height": 425
+    },
+    {
+      "code": "MUS-026",
+      "name": "luismi2 (2)",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-026.webp",
+      "bytes": 33718,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-027",
+      "name": "luismi2",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-027.webp",
+      "bytes": 67438,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-028",
+      "name": "luismi3",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-028.webp",
+      "bytes": 36852,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-029",
+      "name": "luismi4",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-029.webp",
+      "bytes": 43444,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-030",
+      "name": "luismi",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-030.webp",
+      "bytes": 39268,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-031",
+      "name": "MARLEY",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-031.webp",
+      "bytes": 27994,
+      "width": 592,
+      "height": 592
+    },
+    {
+      "code": "MUS-032",
+      "name": "META",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-032.webp",
+      "bytes": 75344,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-033",
+      "name": "nw1",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-033.webp",
+      "bytes": 48330,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-034",
+      "name": "nw2",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-034.webp",
+      "bytes": 65200,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-035",
+      "name": "pink2",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-035.webp",
+      "bytes": 81436,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-036",
+      "name": "pink3",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-036.webp",
+      "bytes": 80408,
+      "width": 850,
+      "height": 850
+    },
+    {
+      "code": "MUS-037",
+      "name": "PINK FLOYD",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-037.webp",
+      "bytes": 42802,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-038",
+      "name": "QUEEN",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-038.webp",
+      "bytes": 28520,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-039",
+      "name": "rhcp2",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-039.webp",
+      "bytes": 22708,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-040",
+      "name": "rhcp3",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-040.webp",
+      "bytes": 61526,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-041",
+      "name": "rhcp",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-041.webp",
+      "bytes": 64106,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-042",
+      "name": "ROLLING STONES",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-042.webp",
+      "bytes": 41998,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-043",
+      "name": "shakira",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-043.webp",
+      "bytes": 64126,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-044",
+      "name": "stones1",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-044.webp",
+      "bytes": 56950,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-045",
+      "name": "stones2",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-045.webp",
+      "bytes": 68058,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-046",
+      "name": "stones",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-046.webp",
+      "bytes": 75982,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-047",
+      "name": "td2",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-047.webp",
+      "bytes": 64344,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-048",
+      "name": "td",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-048.webp",
+      "bytes": 81720,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-049",
+      "name": "TS2",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-049.webp",
+      "bytes": 60560,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "MUS-050",
+      "name": "TS3",
+      "category": "Música",
+      "slug": "musica",
+      "image": "musica/imagenes/mus-050.webp",
+      "bytes": 53132,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PTB-001",
+      "name": "g2",
+      "category": "Para tu bar",
+      "slug": "para-tu-bar",
+      "image": "para-tu-bar/imagenes/ptb-001.webp",
+      "bytes": 35170,
+      "width": 754,
+      "height": 900
+    },
+    {
+      "code": "PTB-002",
+      "name": "g3",
+      "category": "Para tu bar",
+      "slug": "para-tu-bar",
+      "image": "para-tu-bar/imagenes/ptb-002.webp",
+      "bytes": 35058,
+      "width": 870,
+      "height": 900
+    },
+    {
+      "code": "PTB-003",
+      "name": "IMG 20230526 142856612",
+      "category": "Para tu bar",
+      "slug": "para-tu-bar",
+      "image": "para-tu-bar/imagenes/ptb-003.webp",
+      "bytes": 64196,
+      "width": 845,
+      "height": 900
+    },
+    {
+      "code": "PTB-004",
+      "name": "IMG 20230526 143709443",
+      "category": "Para tu bar",
+      "slug": "para-tu-bar",
+      "image": "para-tu-bar/imagenes/ptb-004.webp",
+      "bytes": 38700,
+      "width": 675,
+      "height": 900
+    },
+    {
+      "code": "PTB-005",
+      "name": "IMG 20230526 143837312",
+      "category": "Para tu bar",
+      "slug": "para-tu-bar",
+      "image": "para-tu-bar/imagenes/ptb-005.webp",
+      "bytes": 39480,
+      "width": 675,
+      "height": 900
+    },
+    {
+      "code": "PTB-006",
+      "name": "p2",
+      "category": "Para tu bar",
+      "slug": "para-tu-bar",
+      "image": "para-tu-bar/imagenes/ptb-006.webp",
+      "bytes": 29252,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PTB-007",
+      "name": "p4",
+      "category": "Para tu bar",
+      "slug": "para-tu-bar",
+      "image": "para-tu-bar/imagenes/ptb-007.webp",
+      "bytes": 33206,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PTB-008",
+      "name": "r1",
+      "category": "Para tu bar",
+      "slug": "para-tu-bar",
+      "image": "para-tu-bar/imagenes/ptb-008.webp",
+      "bytes": 28896,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "PTB-009",
+      "name": "r2",
+      "category": "Para tu bar",
+      "slug": "para-tu-bar",
+      "image": "para-tu-bar/imagenes/ptb-009.webp",
+      "bytes": 26832,
+      "width": 831,
+      "height": 900
+    },
+    {
+      "code": "PTB-010",
+      "name": "r2",
+      "category": "Para tu bar",
+      "slug": "para-tu-bar",
+      "image": "para-tu-bar/imagenes/ptb-010.webp",
+      "bytes": 31112,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PTB-011",
+      "name": "s1",
+      "category": "Para tu bar",
+      "slug": "para-tu-bar",
+      "image": "para-tu-bar/imagenes/ptb-011.webp",
+      "bytes": 34538,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "PTB-012",
+      "name": "s3",
+      "category": "Para tu bar",
+      "slug": "para-tu-bar",
+      "image": "para-tu-bar/imagenes/ptb-012.webp",
+      "bytes": 29694,
+      "width": 850,
+      "height": 850
+    },
+    {
+      "code": "PEL-001",
+      "name": "27",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-001.webp",
+      "bytes": 51532,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-002",
+      "name": "AVENGERS (2)",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-002.webp",
+      "bytes": 46206,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-003",
+      "name": "barbi6",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-003.webp",
+      "bytes": 45454,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-004",
+      "name": "barbie5",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-004.webp",
+      "bytes": 26586,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "PEL-005",
+      "name": "barbie7",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-005.webp",
+      "bytes": 78624,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-006",
+      "name": "barbie8",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-006.webp",
+      "bytes": 45454,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-007",
+      "name": "base3",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-007.webp",
+      "bytes": 41684,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-008",
+      "name": "BATMAN001 (2)",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-008.webp",
+      "bytes": 54214,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-009",
+      "name": "BATMAN002 (2)",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-009.webp",
+      "bytes": 44028,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-010",
+      "name": "batman2",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-010.webp",
+      "bytes": 52898,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-011",
+      "name": "batman3",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-011.webp",
+      "bytes": 81424,
+      "width": 850,
+      "height": 850
+    },
+    {
+      "code": "PEL-012",
+      "name": "BATMAN 003 (2)",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-012.webp",
+      "bytes": 30334,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-013",
+      "name": "EL PADRINO (2)",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-013.webp",
+      "bytes": 44774,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-014",
+      "name": "HARRY POTTER (2)",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-014.webp",
+      "bytes": 58122,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-015",
+      "name": "HARRY POTTER",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-015.webp",
+      "bytes": 58122,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-016",
+      "name": "hp2",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-016.webp",
+      "bytes": 38636,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-017",
+      "name": "hp3",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-017.webp",
+      "bytes": 32730,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-018",
+      "name": "hp4",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-018.webp",
+      "bytes": 76374,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-019",
+      "name": "hp5",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-019.webp",
+      "bytes": 63068,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-020",
+      "name": "hp6",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-020.webp",
+      "bytes": 64582,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-021",
+      "name": "hp7",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-021.webp",
+      "bytes": 45364,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-022",
+      "name": "hp",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-022.webp",
+      "bytes": 60080,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-023",
+      "name": "IRON MAN",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-023.webp",
+      "bytes": 39070,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "PEL-024",
+      "name": "spider2",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-024.webp",
+      "bytes": 81714,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-025",
+      "name": "STAR WARS001",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-025.webp",
+      "bytes": 27946,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-026",
+      "name": "STAR WARS 002",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-026.webp",
+      "bytes": 55488,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-027",
+      "name": "SW2",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-027.webp",
+      "bytes": 59810,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-028",
+      "name": "sw3",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-028.webp",
+      "bytes": 29174,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-029",
+      "name": "SW004 (2)",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-029.webp",
+      "bytes": 78834,
+      "width": 800,
+      "height": 800
+    },
+    {
+      "code": "PEL-030",
+      "name": "sw4",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-030.webp",
+      "bytes": 66128,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-031",
+      "name": "SW005 (2)",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-031.webp",
+      "bytes": 38954,
+      "width": 500,
+      "height": 500
+    },
+    {
+      "code": "PEL-032",
+      "name": "sw5",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-032.webp",
+      "bytes": 36308,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "PEL-033",
+      "name": "sw6",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-033.webp",
+      "bytes": 38374,
+      "width": 600,
+      "height": 600
+    },
+    {
+      "code": "PEL-034",
+      "name": "sw7",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-034.webp",
+      "bytes": 38502,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "PEL-035",
+      "name": "sw8",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-035.webp",
+      "bytes": 38710,
+      "width": 600,
+      "height": 600
+    },
+    {
+      "code": "PEL-036",
+      "name": "sw9",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-036.webp",
+      "bytes": 39108,
+      "width": 500,
+      "height": 500
+    },
+    {
+      "code": "PEL-037",
+      "name": "sw10",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-037.webp",
+      "bytes": 39162,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "PEL-038",
+      "name": "sw11",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-038.webp",
+      "bytes": 32870,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "PEL-039",
+      "name": "SW 003 (3)",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-039.webp",
+      "bytes": 15054,
+      "width": 425,
+      "height": 425
+    },
+    {
+      "code": "PEL-040",
+      "name": "SW",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-040.webp",
+      "bytes": 38776,
+      "width": 600,
+      "height": 600
+    },
+    {
+      "code": "PEL-041",
+      "name": "trans2",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-041.webp",
+      "bytes": 38542,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "PEL-042",
+      "name": "trans",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-042.webp",
+      "bytes": 81284,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-043",
+      "name": "wolverine2",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-043.webp",
+      "bytes": 64122,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-044",
+      "name": "wolverine",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-044.webp",
+      "bytes": 23608,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-045",
+      "name": "xmen2",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-045.webp",
+      "bytes": 58580,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-046",
+      "name": "xmen3",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-046.webp",
+      "bytes": 64390,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-047",
+      "name": "xmen4",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-047.webp",
+      "bytes": 38652,
+      "width": 500,
+      "height": 500
+    },
+    {
+      "code": "PEL-048",
+      "name": "xmen5",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-048.webp",
+      "bytes": 80236,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "PEL-049",
+      "name": "xmen6",
+      "category": "Películas",
+      "slug": "peliculas",
+      "image": "peliculas/imagenes/pel-049.webp",
+      "bytes": 37650,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "REL-001",
+      "name": "cris1",
+      "category": "Religiosos",
+      "slug": "religiosos",
+      "image": "religiosos/imagenes/rel-001.webp",
+      "bytes": 49022,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "REL-002",
+      "name": "cris2",
+      "category": "Religiosos",
+      "slug": "religiosos",
+      "image": "religiosos/imagenes/rel-002.webp",
+      "bytes": 36986,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "REL-003",
+      "name": "cris3",
+      "category": "Religiosos",
+      "slug": "religiosos",
+      "image": "religiosos/imagenes/rel-003.webp",
+      "bytes": 81452,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-001",
+      "name": "don bosco",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-001.webp",
+      "bytes": 40968,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-002",
+      "name": "einstein",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-002.webp",
+      "bytes": 25310,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-003",
+      "name": "esen",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-003.webp",
+      "bytes": 18034,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "UNI-004",
+      "name": "evangelica",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-004.webp",
+      "bytes": 33254,
+      "width": 700,
+      "height": 700
+    },
+    {
+      "code": "UNI-005",
+      "name": "gavidia",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-005.webp",
+      "bytes": 31824,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-006",
+      "name": "masferrer",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-006.webp",
+      "bytes": 30884,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-007",
+      "name": "matias",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-007.webp",
+      "bytes": 43144,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-008",
+      "name": "nueva san salvador",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-008.webp",
+      "bytes": 25398,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-009",
+      "name": "panamericana",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-009.webp",
+      "bytes": 37384,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-010",
+      "name": "pedagogica",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-010.webp",
+      "bytes": 24662,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-011",
+      "name": "politecnica",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-011.webp",
+      "bytes": 30012,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-012",
+      "name": "uca",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-012.webp",
+      "bytes": 20322,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-013",
+      "name": "ues",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-013.webp",
+      "bytes": 58870,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-014",
+      "name": "uma",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-014.webp",
+      "bytes": 35762,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-015",
+      "name": "unasa",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-015.webp",
+      "bytes": 34940,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-016",
+      "name": "unicaes",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-016.webp",
+      "bytes": 43538,
+      "width": 900,
+      "height": 900
+    },
+    {
+      "code": "UNI-017",
+      "name": "utec",
+      "category": "Universidades",
+      "slug": "universidades",
+      "image": "universidades/imagenes/uni-017.webp",
+      "bytes": 57628,
+      "width": 900,
+      "height": 900
+    }
+  ]
+}
