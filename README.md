@@ -41,7 +41,7 @@ Revisado el 2026-10-18:
 
 ## Continuar desde ChatGPT
 
-- En una experiencia de ChatGPT compatible, conecta la app oficial de GitHub y autoriza únicamente los repositorios necesarios. La disponibilidad depende del plan y del espacio de trabajo.
+- En una experiencia de ChatGPT compatible, conecta la app oficial de GitHub y autoriza únicamente los repositorios necesarios. Consulta [Conectar GitHub a ChatGPT](https://help.openai.com/en/articles/11145903-connecting-github-to-chatgpt). La disponibilidad depende del plan y del espacio de trabajo.
 - ChatGPT puede consultar contenido permitido del repositorio bajo demanda. Esa conexión no da acceso al disco de esta PC, no sincroniza carpetas locales y es de solo lectura.
 - Para editar y sincronizar archivos locales, usa Codex abierto sobre el checkout local, o trabaja en GitHub mediante Codex con la conexión aprobada.
 - Puedes pedir a ChatGPT que revise una ruta concreta (por ejemplo `15-anos/index.html`) y luego llevar las instrucciones a Codex. No compartas contraseñas, tokens, datos de clientes ni archivos privados en prompts.
@@ -78,6 +78,7 @@ La raíz contiene `index.html`, pero no se confirmó la configuración de Pages 
 - [ ] Instalar/activar `gh` en Windows y completar autenticación local.
 - [ ] Clonar y conectar el checkout local a la rama remota.
 - [ ] Ejecutar la auditoría local y revisar los feeds CSV completos.
+- [x] Añadir importador no destructivo, auditor y optimizador a `tools/` en la rama de trabajo.
 - [ ] Confirmar configuración de GitHub Pages.
-- [ ] Definir carpetas de importación/exportación autorizadas para Guanaprints e Imprenta Francia.
+- [x] Preparar carpetas vacías de entrada, procesados, exportación, respaldo y registros para Guanaprints e Imprenta Francia.
 - [ ] Probar optimización de imágenes conservando originales y preparar flujo de exportación Meta.
