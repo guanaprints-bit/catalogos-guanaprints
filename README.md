@@ -77,3 +77,18 @@ La URL pública [guanaprints-bit.github.io/catalogos-guanaprints](https://guanap
 - [x] Preparar carpetas vacías de entrada, procesados, exportación, respaldo y registros para Guanaprints e Imprenta Francia.
 - [x] Probar importación, optimización y respaldo con una copia de una imagen del catálogo; originales intactos.
 - [ ] Validar la exportación CSV para Meta Commerce Manager con sus requisitos actuales.
+
+## Catálogo de Facebook / Meta e imágenes de respaldo
+
+`Catalogo_Facebook_Imagenes.csv` conecta cada producto de los cuatro feeds Meta con su URL de imagen, la ruta de imagen del repositorio y su SHA-256. El inventario actual comprende 450 filas de feeds y 262 URLs únicas; todas las imágenes referenciadas están presentes en el checkout local. Las imágenes originales ya están en GitHub y Codex/ChatGPT puede localizarlas por este manifiesto y sus rutas públicas.
+
+Hay una copia byte por byte independiente en el PC, fuera del repositorio para no subir otra vez los activos: `%USERPROFILE%\Documents\Codex\Guanaprints\backups\catalogo-facebook\respaldo-20261018`. Contiene 262 archivos de imagen, los cuatro CSV originales, `manifest-productos.csv`, `manifest-imagenes.csv` y hashes. No se borraron ni optimizaron los originales.
+
+Para crear otro snapshot fechado desde la raíz del checkout, indica un destino nuevo:
+
+```powershell
+python tools/resguardar_catalogo_meta.py "$env:USERPROFILE\Documents\Codex\Guanaprints\backups\catalogo-facebook\respaldo-AAAA-MM-DD"
+```
+
+El script aborta si el destino ya existe, solo acepta las URLs HTTPS del repositorio/sitio Guanaprints, valida las imágenes, verifica SHA-256 y no modifica los feeds. Meta necesita URLs HTTPS públicas en `image_link`; las copias locales sirven para recuperar y volver a subir imágenes, no sustituyen esas URLs en el feed.
+
