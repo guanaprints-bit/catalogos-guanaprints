@@ -93,7 +93,8 @@ def main() -> int:
     if not args.dry_run:
         destination.mkdir(parents=True, exist_ok=True)
         existed = manifest.exists()
-        with manifest.open("a", encoding="utf-8-sig", newline="") as stream:
+        encoding = "utf-8" if existed else "utf-8-sig"
+        with manifest.open("a", encoding=encoding, newline="") as stream:
             writer = csv.writer(stream)
             if not existed:
                 writer.writerow(["source", "sha256", "destination", "status"])
