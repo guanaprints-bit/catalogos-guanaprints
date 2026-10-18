@@ -19,7 +19,7 @@ Revisado el 2026-10-18:
 - Rama de trabajo preparada: `codex/configuracion-inicial-20261018`.
 - Inventario del árbol `main`: 813 archivos, incluidas 502 imágenes.
 - Los CSV `Catalogo_bodas_Meta.csv` y `Catalogo_bodas_Meta_v2.csv` tienen el mismo contenido (mismo hash de blob). Se conservan ambos; la auditoría puede señalar duplicados.
-- En este equipo: Git 2.53.0 y Python 3.14.3 están disponibles. GitHub CLI (`gh`) no está instalado.
+- En este equipo: Git 2.53.0, Python 3.14.3 y Pillow están disponibles. GitHub CLI (`gh`) no está instalado.
 - No se encontró una copia local en las carpetas de trabajo de Codex revisadas. El clon en `C:\Users\Ramon\Documents\Codex\Guanaprints\catalogos-guanaprints` queda pendiente: el Git de la sesión no pudo completar TLS y `winget` no pudo iniciarse. No se guardaron credenciales ni tokens en el proyecto.
 - La rama remota existe, pero todavía no se ha configurado el checkout local ni el acceso Git por HTTPS.
 
@@ -78,7 +78,7 @@ La raíz contiene `index.html`, pero no se confirmó la configuración de Pages 
 - [ ] Instalar/activar `gh` en Windows y completar autenticación local.
 - [ ] Clonar y conectar el checkout local a la rama remota.
 - [ ] Ejecutar la auditoría local y revisar los feeds CSV completos.
-- [x] Añadir importador no destructivo, auditor y optimizador a `tools/` en la rama de trabajo.
+- [x] Añadir importador, auditor, optimizador y respaldo ZIP con SHA-256 a `tools/` en la rama de trabajo.
 - [ ] Confirmar configuración de GitHub Pages.
 - [x] Preparar carpetas vacías de entrada, procesados, exportación, respaldo y registros para Guanaprints e Imprenta Francia.
-- [ ] Probar optimización de imágenes conservando originales y preparar flujo de exportación Meta.
+- [ ] Ejecutar las herramientas sobre una copia local del catálogo y revisar la exportación Meta.
