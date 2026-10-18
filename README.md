@@ -58,7 +58,7 @@ Revisado el 2026-10-18:
 
 ## Auditoría de enlaces, imágenes y CSV
 
-Después de clonar, desde la raíz del repositorio:
+Desde la raíz del checkout actual:
 
 ```powershell
 python tools/auditar_catalogos.py .
@@ -75,10 +75,10 @@ La raíz contiene `index.html`, pero no se confirmó la configuración de Pages 
 - [x] Diagnóstico limitado de Git y Python.
 - [x] Acceso de lectura/escritura confirmado mediante la conexión GitHub de Codex.
 - [x] Rama remota para cambios preparada.
-- [ ] Instalar/activar `gh` en Windows y completar autenticación local.
-- [ ] Clonar y conectar el checkout local a la rama remota.
-- [ ] Ejecutar la auditoría local y revisar los feeds CSV completos.
+- [x] GitHub Desktop autenticado y checkout local en la rama de trabajo; GitHub CLI no requerido.
+- [x] Auditoría local: 792 archivos, 502 imágenes, 6 CSV; cero referencias locales rotas y cero avisos de estructura CSV.
+- [ ] Revisar los 197 grupos de hashes repetidos para distinguir duplicados intencionales y revisar los feeds CSV en Commerce Manager.
 - [x] Añadir importador, auditor, optimizador y respaldo ZIP con SHA-256 a `tools/` en la rama de trabajo.
 - [ ] Confirmar configuración de GitHub Pages.
 - [x] Preparar carpetas vacías de entrada, procesados, exportación, respaldo y registros para Guanaprints e Imprenta Francia.
-- [ ] Ejecutar las herramientas sobre una copia local del catálogo y revisar la exportación Meta.
+- [ ] Ejecutar importación, optimización y respaldo con archivos seleccionados; revisar la exportación Meta.
