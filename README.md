@@ -19,24 +19,16 @@ Revisado el 2026-10-18:
 - Rama de trabajo preparada: `codex/configuracion-inicial-20261018`.
 - Inventario del árbol `main`: 813 archivos, incluidas 502 imágenes.
 - Los CSV `Catalogo_bodas_Meta.csv` y `Catalogo_bodas_Meta_v2.csv` tienen el mismo contenido (mismo hash de blob). Se conservan ambos; la auditoría puede señalar duplicados.
-- En este equipo: Git 2.53.0, Python 3.14.3 y Pillow están disponibles. GitHub CLI (`gh`) no está instalado.
-- No se encontró una copia local en las carpetas de trabajo de Codex revisadas. El clon en `C:\Users\Ramon\Documents\Codex\Guanaprints\catalogos-guanaprints` queda pendiente: el Git de la sesión no pudo completar TLS y `winget` no pudo iniciarse. No se guardaron credenciales ni tokens en el proyecto.
-- La rama remota existe, pero todavía no se ha configurado el checkout local ni el acceso Git por HTTPS.
+- En este equipo: Git 2.53.0, Python 3.14.3, Pillow y GitHub Desktop 3.6.6 están disponibles. GitHub Desktop está conectado a `guanaprints-bit`; no se instaló GitHub CLI porque este flujo no lo necesita.
+- Checkout de trabajo limpio: `C:\\Users\\Ramon\\Documents\\Codex\\Guanaprints\\catalogos-guanaprints`, rama local `codex/configuracion-inicial-20261018`, siguiendo `origin/codex/configuracion-inicial-20261018`.
+- Se conservó intacta la copia anterior `C:\\Users\\Ramon\\Documents\\GitHub\\catalogos-guanaprints` en `main`. No se incorporaron sus 8 commits pendientes ni se reemplazaron sus 94 PNG; la nueva copia de trabajo está separada. No se guardaron credenciales ni tokens en el proyecto.
 
 ## Continuar desde Codex en Windows
 
-1. Instala GitHub CLI desde una fuente oficial (por ejemplo, Microsoft `winget` o la página oficial de GitHub CLI) cuando Windows permita iniciar el instalador.
-2. En una terminal de Windows, ejecuta `gh auth login` y completa el inicio de sesión en el navegador. Nunca pegues ni guardes tokens en archivos del repositorio.
-3. Clona el repositorio y cambia a la rama de trabajo:
-
-   ```powershell
-   $dest = "$env:USERPROFILE\Documents\Codex\Guanaprints\catalogos-guanaprints"
-   git clone https://github.com/guanaprints-bit/catalogos-guanaprints.git $dest
-   git -C $dest fetch origin
-   git -C $dest switch --track origin/codex/configuracion-inicial-20261018
-   ```
-
-4. Abre esa carpeta como proyecto en Codex. Revisa `git status` antes y después de cada tarea; usa commits pequeños y revisables. Publica cambios solo desde la rama de trabajo y revisa el diff antes de abrir un PR o integrar a `main`.
+1. Abre `C:\\Users\\Ramon\\Documents\\Codex\\Guanaprints\\catalogos-guanaprints` como proyecto en Codex.
+2. GitHub Desktop gestiona la sincronización de la rama con la cuenta conectada. Usa Fetch/Pull para recibir cambios y revisa los diffs antes de confirmar commits o publicar.
+3. Mantén los cambios en `codex/configuracion-inicial-20261018` hasta revisarlos. `main` sigue siendo la rama principal; no integres a ella sin revisar el diff.
+4. GitHub CLI no hace falta para este checkout. Nunca pegues ni guardes tokens en archivos del repositorio.
 5. Para Imprenta Francia, crea un repositorio/carpeta aparte cuando se conozca su URL. No mezcles activos ni credenciales entre empresas.
 
 ## Continuar desde ChatGPT
