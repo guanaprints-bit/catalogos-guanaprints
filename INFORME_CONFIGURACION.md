@@ -18,16 +18,17 @@ Se usó una copia de `15-anos/imagenes/01.jpg`; el original del repositorio no s
 
 - Se configuró `http.sslBackend=openssl` solamente en la configuración local de este checkout. Con ello, `git ls-remote` y `git fetch origin` completaron correctamente sin almacenar credenciales.
 - El intento seguro `git push --dry-run` no autenticado falló porque Git Credential Manager no puede persistir/leer credenciales de Windows en este contexto aislado (`wincredman`). No se mostró ni guardó ningún token.
-- GitHub Desktop sigue siendo el método autenticado para sincronizar y publicar desde esta PC. El checkout estaba limpio y alineado con la rama remota al realizar la prueba.
+- GitHub Desktop sigue siendo el método autenticado para sincronizar y publicar desde esta PC. La rama local se mantuvo alineada con la remota.
 
 ## GitHub Pages
 
-Estado: pendiente de comprobar/configurar desde la sesión web de la cuenta. GitHub Desktop está autenticado, pero el navegador de Codex abrió la página de configuración de GitHub sin sesión y mostró la pantalla de acceso. No se cambió la configuración de Pages ni se publicó el sitio desde este paso.
+La URL pública [https://guanaprints-bit.github.io/catalogos-guanaprints/](https://guanaprints-bit.github.io/catalogos-guanaprints/) respondió el 2026-10-18 y mostró la página del catálogo de bodas con 94 modelos. Esto confirma que Pages sirve contenido públicamente; no se modificó la configuración ni se publicó un cambio nuevo.
 
-Para terminar, inicia sesión en GitHub en el navegador de Codex y revisa **Settings → Pages** del repositorio. La fuente prevista en la documentación actual es la rama `main`, carpeta raíz (`/`); confirma la opción y la URL que muestre GitHub antes de anunciar el catálogo. No se modificó `main`.
+No se pudo abrir Settings → Pages porque el navegador de Codex no tenía una sesión iniciada en GitHub. Por ello, la fuente exacta de publicación (rama y carpeta) no fue inspeccionada. La selección no impedía servir el catálogo en la URL verificada.
 
 ## Próximos pasos
 
-1. Completar la sesión web de GitHub para consultar y, si corresponde, activar Pages con fuente `main` y `/`.
-2. Si se necesita usar `git push` desde terminal, completar el inicio de sesión de Git Credential Manager en el contexto Windows del usuario. Hasta entonces, usar GitHub Desktop para operaciones autenticadas.
+1. Opcional: iniciar sesión en GitHub en el navegador de Codex y confirmar en **Settings → Pages** la fuente configurada y la última implementación.
+2. Para usar `git push` desde terminal, iniciar Git Credential Manager en el contexto Windows del usuario. Hasta entonces, usar GitHub Desktop para operaciones autenticadas.
 3. Revisar los 197 grupos de hashes repetidos detectados por la auditoría; no se borró ningún archivo.
+4. Revisar los feeds CSV en Commerce Manager y validar una exportación de prueba antes de reemplazar un feed existente.
