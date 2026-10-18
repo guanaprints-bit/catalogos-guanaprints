@@ -20,13 +20,14 @@ Revisado el 2026-10-18:
 - Inventario del árbol `main`: 813 archivos, incluidas 502 imágenes.
 - Los CSV `Catalogo_bodas_Meta.csv` y `Catalogo_bodas_Meta_v2.csv` tienen el mismo contenido (mismo hash de blob). Se conservan ambos; la auditoría puede señalar duplicados.
 - En este equipo: Git 2.53.0, Python 3.14.3, Pillow y GitHub Desktop 3.6.6 están disponibles. GitHub Desktop está conectado a `guanaprints-bit`; no se instaló GitHub CLI porque este flujo no lo necesita.
-- Checkout de trabajo limpio: `C:\\Users\\Ramon\\Documents\\Codex\\Guanaprints\\catalogos-guanaprints`, rama local `codex/configuracion-inicial-20261018`, siguiendo `origin/codex/configuracion-inicial-20261018`.
-- Se conservó intacta la copia anterior `C:\\Users\\Ramon\\Documents\\GitHub\\catalogos-guanaprints` en `main`. No se incorporaron sus 8 commits pendientes ni se reemplazaron sus 94 PNG; la nueva copia de trabajo está separada. No se guardaron credenciales ni tokens en el proyecto.
+- Checkout de trabajo: `C:\\Users\\Ramon\\Documents\\Codex\\Guanaprints\\catalogos-guanaprints`, rama local `codex/configuracion-inicial-20261018`, siguiendo `origin/codex/configuracion-inicial-20261018`.
+- Se conservó intacta la copia anterior `C:\\Users\\Ramon\\Documents\\GitHub\\catalogos-guanaprints` en `main`. No se incorporaron sus 8 commits pendientes ni se reemplazaron sus 94 PNG. No se guardaron credenciales ni tokens en el proyecto.
+- En este checkout, `http.sslBackend=openssl` está configurado localmente para evitar el fallo Schannel de la sesión aislada. `git ls-remote` y `git fetch` funcionan. El Credential Manager no permitió una prueba de push desde esta sesión; usa GitHub Desktop para las operaciones autenticadas.
 
 ## Continuar desde Codex en Windows
 
 1. Abre `C:\\Users\\Ramon\\Documents\\Codex\\Guanaprints\\catalogos-guanaprints` como proyecto en Codex.
-2. GitHub Desktop gestiona la sincronización de la rama con la cuenta conectada. Usa Fetch/Pull para recibir cambios y revisa los diffs antes de confirmar commits o publicar.
+2. GitHub Desktop gestiona la sincronización autenticada de la rama con la cuenta conectada. Usa Fetch/Pull para recibir cambios y revisa los diffs antes de confirmar commits o publicar.
 3. Mantén los cambios en `codex/configuracion-inicial-20261018` hasta revisarlos. `main` sigue siendo la rama principal; no integres a ella sin revisar el diff.
 4. GitHub CLI no hace falta para este checkout. Nunca pegues ni guardes tokens en archivos del repositorio.
 5. Para Imprenta Francia, crea un repositorio/carpeta aparte cuando se conozca su URL. No mezcles activos ni credenciales entre empresas.
@@ -60,7 +61,7 @@ La auditoría debe ser de solo lectura y reportar enlaces locales rotos, imágen
 
 ## GitHub Pages
 
-La raíz contiene `index.html`, pero no se confirmó la configuración de Pages ni se publicó ningún cambio en `main`. Verifica Settings > Pages y el estado del último deployment antes de anunciar una URL pública. La rama `main` y la raíz fueron el origen indicado anteriormente por este proyecto.
+La URL pública [guanaprints-bit.github.io/catalogos-guanaprints](https://guanaprints-bit.github.io/catalogos-guanaprints/) respondió el 2026-10-18 y mostró el catálogo de bodas con 94 modelos. Pages ya está activo y no hizo falta cambiar ajustes ni publicar a `main`. No se pudo inspeccionar la opción de fuente de Pages porque el navegador de Codex estaba desconectado; la URL y el contenido servido sí se comprobaron.
 
 ## Estado y pendientes
 
@@ -68,9 +69,11 @@ La raíz contiene `index.html`, pero no se confirmó la configuración de Pages 
 - [x] Acceso de lectura/escritura confirmado mediante la conexión GitHub de Codex.
 - [x] Rama remota para cambios preparada.
 - [x] GitHub Desktop autenticado y checkout local en la rama de trabajo; GitHub CLI no requerido.
+- [x] Git de terminal: backend OpenSSL local configurado; lectura y fetch remotos verificados. La autenticación de escritura por Git Credential Manager no funciona desde esta sesión aislada.
 - [x] Auditoría local: 792 archivos, 502 imágenes, 6 CSV; cero referencias locales rotas y cero avisos de estructura CSV.
 - [ ] Revisar los 197 grupos de hashes repetidos para distinguir duplicados intencionales y revisar los feeds CSV en Commerce Manager.
 - [x] Añadir importador, auditor, optimizador y respaldo ZIP con SHA-256 a `tools/` en la rama de trabajo.
-- [ ] Confirmar configuración de GitHub Pages.
+- [x] Confirmar que GitHub Pages sirve el catálogo; URL y 94 modelos verificados. La selección exacta de fuente en Settings no se inspeccionó.
 - [x] Preparar carpetas vacías de entrada, procesados, exportación, respaldo y registros para Guanaprints e Imprenta Francia.
-- [ ] Ejecutar importación, optimización y respaldo con archivos seleccionados; revisar la exportación Meta.
+- [x] Probar importación, optimización y respaldo con una copia de una imagen del catálogo; originales intactos.
+- [ ] Validar la exportación CSV para Meta Commerce Manager con sus requisitos actuales.
