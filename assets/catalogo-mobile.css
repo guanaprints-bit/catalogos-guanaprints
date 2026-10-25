@@ -1,0 +1,44 @@
+/* Regla de Guanaprints: un producto por fila en todos los teléfonos. */
+@media (max-width: 767px) {
+  html { -webkit-text-size-adjust: 100%; }
+  body { font-size: 16px; }
+  .grid,
+  .categories,
+  .product {
+    grid-template-columns: minmax(0, 1fr) !important;
+    gap: 24px !important;
+  }
+  .grid > *, .categories > *, .product > * { min-width: 0; }
+  .card { width: 100%; }
+  .card div { padding: 18px; }
+  .card img,
+  .product img,
+  main > img {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    max-height: none;
+    object-fit: contain;
+  }
+  .card h2 { font-size: 1.25rem; line-height: 1.35; }
+  .card p, .card span { font-size: 1rem; line-height: 1.65; }
+  .card .hashtags { font-size: .9rem; overflow-wrap: anywhere; }
+  .card a.consultar-modelo,
+  .card a.cta,
+  .product a.button,
+  #ficha-producto a.cotizar {
+    box-sizing: border-box;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 48px;
+    padding: 12px 16px;
+    font-size: 1rem;
+    line-height: 1.5;
+    text-align: center;
+    white-space: normal;
+  }
+  .tools { flex-direction: column; align-items: stretch; }
+  .tools input { box-sizing: border-box; width: 100%; max-width: none; }
+}
