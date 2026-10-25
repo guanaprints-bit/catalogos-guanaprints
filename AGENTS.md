@@ -20,3 +20,17 @@
 - Cada producto debe tener un copy propio basado en su imagen, persuasivo y
   emocional, y hashtags del tema/personaje/artista además de los generales.
 - Las consultas y pedidos se realizan por WhatsApp; cobertura nacional.
+
+## Fichas, búsqueda y publicación
+
+- Los 240 relojes tienen fichas propias en `relojes/modelos/`. Conservar sus
+  direcciones y códigos cuando se actualicen contenidos.
+- `contenido/copys-productos.json` conserva los copys y hashtags aprobados.
+  `relojes/manifest.json` conserva el inventario y las imágenes originales.
+- Regenerar páginas con `python scripts/actualizar_catalogo.py` (requiere Pillow).
+- Los nuevos listados deben mantener búsqueda por producto, precio visible,
+  enlace a la ficha y acceso por WhatsApp. Nunca añadir carrito ni compra directa.
+- Mantener `sitemap.xml`, los feeds de Meta y las fuentes editoriales apuntando
+  a las fichas actuales. No sustituirlas por fragmentos `#` de categorías.
+- Mostrar fotografías o diseños existentes sin inventar fotos del taller,
+  testimonios, horarios, dirección exacta ni condiciones comerciales.
