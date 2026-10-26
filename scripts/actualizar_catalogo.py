@@ -47,17 +47,29 @@ def page(path,title,description,content,photo=None,schema=None,search=False,stic
  head+='<link rel="stylesheet" href="'+E(rel('assets/catalogo.css',path))+'?v=20261024-2">'
  if schema:head+=ld(schema)
  if search:head+='<script defer src="'+E(rel('assets/catalogo-buscar.js',path))+'?v=20261024-2"></script>'
+ head+='<link rel="stylesheet" href="'+E(rel('assets/consejos-eventos.css',path))+'?v=20261025" data-event-tips-style="true">'
  head+='<link rel="stylesheet" href="'+E(rel('assets/catalogo-mobile.css',path))+'?v=20261024" data-guanaprints-mobile="single-column"></head>'
  result=head+'<body>'+header(path)+'<main id="contenido">'+content+'</main>'+footer()+f'<a class="button floating-whatsapp" href="{E(wa(sticky_message))}">Pedir por WhatsApp</a></body></html>'
  target=ROOT/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(result)
 def steps():
  return '<section class="section"><h2>De tu idea a su regalo favorito</h2><div class="steps"><div class="step"><span>01</span><strong>Elige un diseño</strong>Guarda el código o abre su ficha. También puedes contarnos una idea propia.</div><div class="step"><span>02</span><strong>Cuéntanos para quién es</strong>Envía por WhatsApp el nombre, la foto, la dedicatoria o el logotipo que deseas incluir.</div><div class="step"><span>03</span><strong>Coordinamos tu pedido</strong>Revisamos contigo la personalización, el precio final y la fecha de entrega antes de producir.</div></div></section>'
+def editorial_tip(e,listing=False):
+ if not e.get('tip_text'):return ''
+ kind='Consejo para tus 15 años' if e['id'].startswith('INV15-') else 'Consejo para tu boda'
+ tag='details' if listing else 'section'
+ opening=f'<{tag} class="event-tip" data-event-tip="{E(e["id"])}">'
+ heading=f'<summary>{E(kind)}: {E(e["tip_title"])}</summary>' if listing else f'<p class="tip-kicker">{E(kind)}</p><h2>{E(e["tip_title"])}</h2>'
+ source=json.loads(e['tip_source'])
+ body=f'<p>{E(e["tip_text"])}</p><p>{E(e["tip_action"])}</p>'
+ return opening+heading+body+f'<p class="tip-source">Lectura relacionada: <a href="{E(source[1])}" target="_blank" rel="noopener noreferrer">{E(source[0])}</a>.</p><p class="tip-hashtags">{E(e["hashtags"])}</p></{tag}>'
+
 def card(e,path):
  code=e['id'];isclock=code in clocks;price='$20' if isclock else '$1.50 por pieza'
  kind=clocks[code]['slug'] if isclock else 'bodas' if code.startswith('BOD-') else '15-anos'
  summary=e['copy'].split(' Consulta la personalización')[0].split(' Personalizamos los nombres')[0].split(' Hagamos que lleve tu nombre')[0]
  text=wa('Hola Guanaprints, me interesa '+e['title']+'. '+e['link']+' Quiero personalizarlo con: __. Mi municipio es: __.')
- return f'<article class="card" id="{code.lower()}" data-category="{E(kind)}" data-search="{E(e["title"]+" "+e["hashtags"]+" "+code)}"><a class="product-link" href="{E(rel(e["link"],path))}">{image(e["image"],path,e["title"])}<div class="card-content"><span class="code">{E(code)}</span><h2>{E(e["title"].rsplit(" · ",1)[0])}</h2></div></a><div class="card-content"><p class="price">{price}</p><p class="summary-copy">{E(summary)}</p><a class="secondary" href="{E(rel(e["link"],path))}">Ver diseño y personalización</a><a class="button" href="{E(text)}">Lo quiero · WhatsApp</a></div></article>'
+ result=f'<article class="card" id="{code.lower()}" data-category="{E(kind)}" data-search="{E(e["title"]+" "+e["hashtags"]+" "+code)}"><a class="product-link" href="{E(rel(e["link"],path))}">{image(e["image"],path,e["title"])}<div class="card-content"><span class="code">{E(code)}</span><h2>{E(e["title"].rsplit(" · ",1)[0])}</h2></div></a><div class="card-content"><p class="price">{price}</p><p class="summary-copy">{E(summary)}</p><a class="secondary" href="{E(rel(e["link"],path))}">Ver diseño y personalización</a><a class="button" href="{E(text)}">Lo quiero · WhatsApp</a></div></article>'
+ return result.replace('</article>',editorial_tip(e,True)+'</article>') if e.get('tip_text') else result
 def search_controls(placeholder='Artista, equipo, personaje o código…',filters=False):
  options=''
  if filters:
@@ -128,7 +140,9 @@ page(path,'Regalos personalizados y corte láser en El Salvador','Regalos que co
 # Feeds y fuentes apuntan a las fichas nuevas; no cambian IDs ni precios.
 for path in [ROOT/'Catalogo_bodas_Meta.csv',ROOT/'Catalogo_bodas_Meta_v2.csv',ROOT/'Catalogo_bodas_Meta_optimizado.csv',ROOT/'Catalogo_invitaciones_Meta.csv',ROOT/'15-anos/Catalogo_15_anos_Meta.csv',ROOT/'relojes/catalogo-meta.csv']:
  with path.open(encoding='utf-8-sig') as f:rows=list(csv.DictReader(f))
- for row in rows:row['link']=byid[row['id']]['link']
+ for row in rows:
+  entry=byid[row['id']];row['link']=entry['link']
+  if entry.get('tip_text'):row['description']=entry['copy']+'\n\n'+entry['tip_title']+'\n'+entry['tip_text']+'\n'+entry['tip_action']+'\n\n'+entry['hashtags']
  with path.open('w',newline='',encoding='utf-8') as f:
   w=csv.DictWriter(f,fieldnames=list(rows[0]),lineterminator='\n');w.writeheader();w.writerows(rows)
 (ROOT/'contenido/copys-productos.json').write_text(json.dumps(products,ensure_ascii=False,indent=2)+'\n')
@@ -150,6 +164,13 @@ for group in ['bodas','15-anos/modelos']:
    return ld(d)
   s=re.sub(r'<script type="application/ld\+json">(.*?)</script>',complete,s,flags=re.S)
   if group=='bodas' and 'class="precio-publicado"' not in s:s=s.replace('</h1>','</h1><p class="precio-publicado"><strong>Precio publicado: $1.50 USD por pieza.</strong> Confirma cantidad, materiales y personalización al cotizar.</p>',1)
+  entry=byid.get(('BOD-' if group=='bodas' else 'INV15-')+p.stem)
+  if entry and entry.get('tip_text'):
+   s=re.sub(r'<section class="event-tip".*?</section>','',s,flags=re.S)
+   s=s.replace('<h2>Personaliza tu invitación</h2>',editorial_tip(entry)+'<h2>Personaliza tu invitación</h2>',1)
+   s=re.sub(r'<p class="hashtags">.*?</p>','',s,flags=re.S)
+   if 'data-event-tips-style' not in s:
+    s=s.replace('<link rel="stylesheet" href="'+rel('assets/catalogo-mobile.css',str(p.relative_to(ROOT)))+'?v=20261024"','<link rel="stylesheet" href="'+rel('assets/consejos-eventos.css',str(p.relative_to(ROOT)))+'?v=20261025" data-event-tips-style="true"><link rel="stylesheet" href="'+rel('assets/catalogo-mobile.css',str(p.relative_to(ROOT)))+'?v=20261024"',1)
   p.write_text(s)
 # Dimensiones explícitas para reservar el espacio de cada foto.
 for p in ROOT.rglob('*.html'):
