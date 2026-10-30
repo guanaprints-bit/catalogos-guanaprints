@@ -44,7 +44,7 @@ def page(path,title,description,content,photo=None,schema=None,search=False,stic
  head=f'<!doctype html><html lang="es-SV"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)} | Guanaprints</title><meta name="description" content="{E(description)}"><link rel="canonical" href="{E(canonical)}"><meta property="og:type" content="website"><meta property="og:locale" content="es_SV"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:url" content="{E(canonical)}">'
  if photo:head+=f'<meta property="og:image" content="{E(photo if photo.startswith(BASE) else BASE+photo)}">'
  if path=='index.html':head+='<meta name="google-site-verification" content="wBo-JQszuI1huwOrFrhJ-RZWMH4cTw--sT9o-FhQ0bQ">'
- head+='<link rel="stylesheet" href="'+E(rel('assets/catalogo.css',path))+'?v=20261024-2">'
+ head+='<link rel="stylesheet" href="'+E(rel('assets/catalogo.css',path))+'?v=20261029-4">'
  if path=='index.html' and (ROOT/path).exists():
   import re
   redesign=re.search(r'<style id="guanaprints-redesign">.*?</style>',(ROOT/path).read_text(),re.S)
@@ -53,8 +53,10 @@ def page(path,title,description,content,photo=None,schema=None,search=False,stic
  if search:head+='<script defer src="'+E(rel('assets/catalogo-buscar.js',path))+'?v=20261024-2"></script>'
  head+='<link rel="stylesheet" href="'+E(rel('assets/consejos-eventos.css',path))+'?v=20261025" data-event-tips-style="true">'
  head+='<link rel="stylesheet" href="'+E(rel('assets/catalogo-mobile.css',path))+'?v=20261024" data-guanaprints-mobile="single-column"></head>'
- result=head+'<body>'+header(path)+'<main id="contenido">'+content+'</main>'+footer()+f'<script defer src="{E(rel("assets/wa-producto.js",path))}"></script></body></html>'
- target=ROOT/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(result)
+ result=head+'<body>'+header(path)+'<main id="contenido">'+content+'</main>'+footer()+f'<script defer src="{E(rel("assets/wa-producto.js",path))}?v=20261030-1"></script><script defer src="https://guanaprints-bit.github.io/catalogos-guanaprints/assets/guardados.js?v=20261030-1"></script></body></html>'
+ target=ROOT/path
+ if path=='index.html' and target.exists() and 'guanaprints-redesign' in target.read_text():return
+ target.parent.mkdir(parents=True,exist_ok=True);target.write_text(result)
 def steps():
  return '<section class="section"><h2>De tu idea a su regalo favorito</h2><div class="steps"><div class="step"><span>01</span><strong>Elige un diseño</strong>Guarda el código o abre su ficha. También puedes contarnos una idea propia.</div><div class="step"><span>02</span><strong>Cuéntanos para quién es</strong>Envía por WhatsApp el nombre, la foto, la dedicatoria o el logotipo que deseas incluir.</div><div class="step"><span>03</span><strong>Coordinamos tu pedido</strong>Revisamos contigo la personalización, el precio final y la fecha de entrega antes de producir.</div></div></section>'
 def editorial_tip(e,listing=False):
