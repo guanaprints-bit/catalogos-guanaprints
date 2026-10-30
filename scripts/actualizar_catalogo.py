@@ -9,7 +9,7 @@ from urllib.parse import quote,urlparse
 from PIL import Image
 
 ROOT=Path(__file__).resolve().parents[1]
-BASE='https://guanaprints-bit.github.io/catalogos-guanaprints/'
+BASE='https://guanaprints.com/'
 PHONE='50372892625'
 E=lambda s:html.escape(str(s),quote=True)
 products=json.loads((ROOT/'contenido/copys-productos.json').read_text())
@@ -53,7 +53,7 @@ def page(path,title,description,content,photo=None,schema=None,search=False,stic
  if search:head+='<script defer src="'+E(rel('assets/catalogo-buscar.js',path))+'?v=20261024-2"></script>'
  head+='<link rel="stylesheet" href="'+E(rel('assets/consejos-eventos.css',path))+'?v=20261025" data-event-tips-style="true">'
  head+='<link rel="stylesheet" href="'+E(rel('assets/catalogo-mobile.css',path))+'?v=20261024" data-guanaprints-mobile="single-column"></head>'
- result=head+'<body>'+header(path)+'<main id="contenido">'+content+'</main>'+footer()+f'<script defer src="{E(rel("assets/wa-producto.js",path))}?v=20261030-1"></script><script defer src="https://guanaprints-bit.github.io/catalogos-guanaprints/assets/guardados.js?v=20261030-1"></script></body></html>'
+ result=head+'<body>'+header(path)+'<main id="contenido">'+content+'</main>'+footer()+f'<script defer src="{E(rel("assets/wa-producto.js",path))}?v=20261030-1"></script><script defer src="https://guanaprints.com/assets/guardados.js?v=20261030-1"></script></body></html>'
  target=ROOT/path
  if path=='index.html' and target.exists() and 'guanaprints-redesign' in target.read_text():return
  target.parent.mkdir(parents=True,exist_ok=True);target.write_text(result)
