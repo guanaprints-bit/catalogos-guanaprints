@@ -45,11 +45,15 @@ def page(path,title,description,content,photo=None,schema=None,search=False,stic
  if photo:head+=f'<meta property="og:image" content="{E(photo if photo.startswith(BASE) else BASE+photo)}">'
  if path=='index.html':head+='<meta name="google-site-verification" content="wBo-JQszuI1huwOrFrhJ-RZWMH4cTw--sT9o-FhQ0bQ">'
  head+='<link rel="stylesheet" href="'+E(rel('assets/catalogo.css',path))+'?v=20261024-2">'
+ if path=='index.html' and (ROOT/path).exists():
+  import re
+  redesign=re.search(r'<style id="guanaprints-redesign">.*?</style>',(ROOT/path).read_text(),re.S)
+  if redesign:head+=redesign.group(0)
  if schema:head+=ld(schema)
  if search:head+='<script defer src="'+E(rel('assets/catalogo-buscar.js',path))+'?v=20261024-2"></script>'
  head+='<link rel="stylesheet" href="'+E(rel('assets/consejos-eventos.css',path))+'?v=20261025" data-event-tips-style="true">'
  head+='<link rel="stylesheet" href="'+E(rel('assets/catalogo-mobile.css',path))+'?v=20261024" data-guanaprints-mobile="single-column"></head>'
- result=head+'<body>'+header(path)+'<main id="contenido">'+content+'</main>'+footer()+f'<a class="button floating-whatsapp" href="{E(wa(sticky_message))}">Pedir por WhatsApp</a></body></html>'
+ result=head+'<body>'+header(path)+'<main id="contenido">'+content+'</main>'+footer()+f'<script defer src="{E(rel("assets/wa-producto.js",path))}"></script></body></html>'
  target=ROOT/path;target.parent.mkdir(parents=True,exist_ok=True);target.write_text(result)
 def steps():
  return '<section class="section"><h2>De tu idea a su regalo favorito</h2><div class="steps"><div class="step"><span>01</span><strong>Elige un diseño</strong>Guarda el código o abre su ficha. También puedes contarnos una idea propia.</div><div class="step"><span>02</span><strong>Cuéntanos para quién es</strong>Envía por WhatsApp el nombre, la foto, la dedicatoria o el logotipo que deseas incluir.</div><div class="step"><span>03</span><strong>Coordinamos tu pedido</strong>Revisamos contigo la personalización, el precio final y la fecha de entrega antes de producir.</div></div></section>'
