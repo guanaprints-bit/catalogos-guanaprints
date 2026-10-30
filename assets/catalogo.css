@@ -35,3 +35,10 @@ h1,h2,h3,.brand{font-family:Fraunces,Georgia,serif;letter-spacing:-.02em;line-he
 /* Las tarjetas del catálogo se abren pulsando su foto o nombre: sin botones duplicados. */
 .card .card-content > a.secondary:not(.fav),
 .card .card-content > a.wa-producto { display:none!important; }
+
+/* Vista de catálogo: solo foto, nombre y descripción; precio y pedido en ficha. */
+.grid .card .price,.grid .card .secondary,.grid .card .wa-producto,
+#productos .card .price,#productos .card .secondary,#productos .card .wa-producto,
+.card:not(.product) > .card-content > .price,
+.card:not(.product) > .card-content > .secondary,
+.card:not(.product) > .card-content > .wa-producto{display:none!important}
