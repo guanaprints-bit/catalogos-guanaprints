@@ -1,0 +1,110 @@
+{
+  "negocio": {
+    "nombre": "Guanaprints",
+    "url": "https://guanaprints.com/",
+    "ubicacion": "Santa Ana, El Salvador, en el local de Imprenta Francia",
+    "whatsapp": "+50372892625",
+    "whatsapp_link": "https://wa.me/50372892625",
+    "envio": "Gratis a todo El Salvador",
+    "facebook": "https://www.facebook.com/guanaprints/",
+    "instagram": "https://www.instagram.com/guanaprints/",
+    "horario": null,
+    "direccion_exacta": null,
+    "formas_pago": null,
+    "entrega": "La fecha se confirma por WhatsApp según producto, cantidad, aprobación y destino."
+  },
+  "productos": [
+    {
+      "id": "relojes",
+      "nombre": "Relojes personalizados en MDF",
+      "precio_desde": 20,
+      "moneda": "USD",
+      "url": "https://guanaprints.com/relojes/",
+      "personalizacion": [
+        "nombre",
+        "foto",
+        "dedicatoria",
+        "logotipo"
+      ],
+      "categorias": [
+        {
+          "id": "barberia",
+          "disenos": 2,
+          "url": "https://guanaprints.com/relojes/barberia/"
+        },
+        {
+          "id": "colegios",
+          "disenos": 22,
+          "url": "https://guanaprints.com/relojes/colegios/"
+        },
+        {
+          "id": "deportes",
+          "disenos": 49,
+          "url": "https://guanaprints.com/relojes/deportes/"
+        },
+        {
+          "id": "el-salvador",
+          "disenos": 36,
+          "url": "https://guanaprints.com/relojes/el-salvador/"
+        },
+        {
+          "id": "musica",
+          "disenos": 50,
+          "url": "https://guanaprints.com/relojes/musica/"
+        },
+        {
+          "id": "para-tu-bar",
+          "disenos": 12,
+          "url": "https://guanaprints.com/relojes/para-tu-bar/"
+        },
+        {
+          "id": "peliculas",
+          "disenos": 49,
+          "url": "https://guanaprints.com/relojes/peliculas/"
+        },
+        {
+          "id": "religiosos",
+          "disenos": 3,
+          "url": "https://guanaprints.com/relojes/religiosos/"
+        },
+        {
+          "id": "universidades",
+          "disenos": 17,
+          "url": "https://guanaprints.com/relojes/universidades/"
+        }
+      ]
+    },
+    {
+      "id": "bodas",
+      "nombre": "Invitaciones de boda",
+      "disenos": 94,
+      "url": "https://guanaprints.com/bodas/",
+      "precio": "Confirmar según modelo y cantidad"
+    },
+    {
+      "id": "15-anos",
+      "nombre": "Invitaciones de quince años",
+      "disenos": 74,
+      "url": "https://guanaprints.com/15-anos/",
+      "precio": "Confirmar según modelo y cantidad"
+    },
+    {
+      "id": "corte-laser",
+      "nombre": "Corte y grabado láser en MDF",
+      "url": "https://guanaprints.com/corte-laser/",
+      "precio": "Cotizar con medidas, cantidad e idea"
+    }
+  ],
+  "proceso_de_pedido": [
+    "Elegir un diseño o describir la idea.",
+    "Enviar por WhatsApp código, cantidades y detalles de personalización.",
+    "Confirmar precio, diseño y fecha de entrega antes de producir."
+  ],
+  "fuentes": [
+    "https://guanaprints.com/",
+    "https://guanaprints.com/buscar/",
+    "https://guanaprints.com/preguntas-frecuentes/",
+    "https://guanaprints.com/pedidos-y-envios/"
+  ],
+  "notas": "Los valores null son datos no confirmados. No inferirlos ni prometer disponibilidad. Los recuentos corresponden al catálogo revisado el 30 de octubre de 2026."
+}
