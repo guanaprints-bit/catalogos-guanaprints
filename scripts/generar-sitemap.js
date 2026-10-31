@@ -17,7 +17,7 @@ function walk(dir, relative = '') {
       if (/<meta\s+[^>]*name=["']robots["'][^>]*content=["'][^"']*noindex/i.test(content)) continue;
       const canonical = content.match(/<link\s+[^>]*rel=["']canonical["'][^>]*href=["']([^"']+)["']/i);
       const expected = rel === 'index.html' ? '/' : rel.endsWith('/index.html') ? '/' + rel.slice(0, -10) : '/' + rel;
-      const url = new URL(expected, domain).href;
+      const url = new URL(expected.replace(/\.html$/, ''), domain).href;
       if (canonical && canonical[1] !== url) continue;
       urls.add(url);
     }

@@ -40,7 +40,7 @@ def header(path):
 def footer():
  return '<footer class="site-footer"><div class="wrap"><strong>Un detalle con tu historia.</strong><p>Guanaprints · Regalos personalizados y corte láser. Atención en el local de Imprenta Francia, Santa Ana. Envíos gratis a todo El Salvador.</p><p><a href="'+wa('Hola Guanaprints, ¿me comparten la ubicación y cómo coordinar mi pedido?')+'">Consultar ubicación y entrega por WhatsApp</a> · <a href="https://www.facebook.com/guanaprints/" rel="noopener">Facebook</a></p></div></footer>'
 def page(path,title,description,content,photo=None,schema=None,search=False,sticky_message='Hola Guanaprints, quiero consultar un regalo personalizado.'):
- canonical=BASE+(path[:-10] if path.endswith('index.html') else path)
+ canonical=BASE+(path[:-10] if path.endswith('index.html') else re.sub(r'\.html$', '', path))
  head=f'<!doctype html><html lang="es-SV"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)} | Guanaprints</title><meta name="description" content="{E(description)}"><link rel="canonical" href="{E(canonical)}"><meta property="og:type" content="website"><meta property="og:locale" content="es_SV"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:url" content="{E(canonical)}">'
  if photo:head+=f'<meta property="og:image" content="{E(photo if photo.startswith(BASE) else BASE+photo)}">'
  if path=='index.html':head+='<meta name="google-site-verification" content="wBo-JQszuI1huwOrFrhJ-RZWMH4cTw--sT9o-FhQ0bQ">'
@@ -191,7 +191,17 @@ for p in ROOT.rglob('*.html'):
   w,h=Image.open(f).size
   return tag[:-1]+f' width="{w}" height="{h}">'
  s=re.sub(r'<img\b[^>]*>',dims,s);p.write_text(s)
-urls=[BASE,BASE+'bodas/',BASE+'15-anos/',BASE+'relojes/',BASE+'corte-laser/',BASE+'buscar/']+[BASE+'relojes/'+k+'/' for k in categories]+[e['link'] for e in products]
+# Normaliza solo las referencias SEO del head; conserva las fichas y sus enlaces.
+urls=[]
+for p in ROOT.rglob('*.html'):
+ s=p.read_text()
+ head, separator, body=s.partition('</head>')
+ if not separator:continue
+ head=re.sub(r'https://guanaprints\.com/[^"\'<>\s]*?\.html(?=["\'<>?#\s])',lambda m:m[0][:-5],head)
+ p.write_text(head+separator+body)
+ if p.name=='404.html' or re.search(r'<meta\b[^>]*name=["\']robots["\'][^>]*content=["\'][^"\']*noindex',head,re.I):continue
+ canonical=re.search(r'<link\b[^>]*rel=["\']canonical["\'][^>]*href=["\']([^"\']+)["\']',head,re.I)
+ if canonical and canonical[1].startswith(BASE):urls.append(canonical[1])
 ET.register_namespace('','http://www.sitemaps.org/schemas/sitemap/0.9');ns='{http://www.sitemaps.org/schemas/sitemap/0.9}'
 root=ET.Element(ns+'urlset')
 for u in sorted(set(urls)):ET.SubElement(ET.SubElement(root,ns+'url'),ns+'loc').text=u
