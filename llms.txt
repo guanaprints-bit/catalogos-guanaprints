@@ -36,3 +36,9 @@
 ## Datos estructurados de referencia
 
 - [Base de conocimiento](https://guanaprints.com/guanaprints-kb.json): productos, categorías, contacto y proceso de pedido. Los datos no confirmados se indican con null.
+
+## Guías de compra
+
+- [Cómo elegir un reloj personalizado: foto o diseño temático](https://guanaprints.com/guias/reloj-con-foto-o-tematico/): Compara un reloj con foto y uno temático. Qué fotografía enviar, cómo preparar una dedicatoria y cómo pedir un reloj personalizado en El Salvador.
+- [Cómo elegir invitaciones de boda o quince años](https://guanaprints.com/guias/elegir-invitaciones-boda-quince-anos/): Guía para elegir invitaciones personalizadas: modelo, colores, legibilidad, cantidad y datos del evento. Catálogos de Guanaprints en El Salvador.
+- [Qué enviar para cotizar corte y grabado láser en MDF](https://guanaprints.com/guias/cotizar-corte-grabado-laser-mdf/): Cómo solicitar una cotización de corte o grabado láser en MDF: diferencias, medidas, cantidad, archivo y uso de la pieza. Guanaprints, Santa Ana.

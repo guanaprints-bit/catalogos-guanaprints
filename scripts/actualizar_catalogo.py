@@ -210,3 +210,5 @@ print('Listo: 240 fichas, búsqueda en 408 diseños, galería MDF, portada y sit
 # Mantener las mejoras SEO y la información comercial en cada regeneración.
 from optimizar_seo import main as optimizar_seo
 optimizar_seo()
+import runpy
+runpy.run_path(str(ROOT / 'scripts/mejorar_descubrimiento.py'), run_name='__main__')

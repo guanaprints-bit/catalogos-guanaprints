@@ -26,7 +26,8 @@ En teléfonos se muestra siempre un solo producto por fila.
 1. Editar los copys individuales en `contenido/copys-productos.json`.
 2. Mantener los datos de imagen e inventario de relojes en `relojes/manifest.json`.
 3. Ejecutar `python scripts/actualizar_catalogo.py` con Python y Pillow.
-4. Revisar fichas, búsqueda, enlaces, precios y diseño móvil antes de publicar.
+4. Ejecutar `python scripts/optimizar_seo.py` y después `python scripts/mejorar_descubrimiento.py` para conservar metadatos, guías, datos estructurados y navegación.
+5. Ejecutar `python scripts/verificar_seo.py` y revisar fichas, búsqueda, enlaces, precios y diseño móvil antes de publicar.
 
 El generador sincroniza las páginas, los feeds, el inventario y el sitemap.
 Las URLs anteriores de categorías y sus anclas siguen funcionando.

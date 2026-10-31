@@ -106,5 +106,24 @@
     "https://guanaprints.com/preguntas-frecuentes/",
     "https://guanaprints.com/pedidos-y-envios/"
   ],
-  "notas": "Los valores null son datos no confirmados. No inferirlos ni prometer disponibilidad. Los recuentos corresponden al catálogo revisado el 30 de octubre de 2026."
+  "notas": "Los valores null son datos no confirmados. No inferirlos ni prometer disponibilidad. Los recuentos corresponden al catálogo revisado el 30 de octubre de 2026.",
+  "guias": [
+    {
+      "titulo": "Cómo elegir un reloj personalizado: foto o diseño temático",
+      "url": "https://guanaprints.com/guias/reloj-con-foto-o-tematico/"
+    },
+    {
+      "titulo": "Cómo elegir invitaciones de boda o quince años",
+      "url": "https://guanaprints.com/guias/elegir-invitaciones-boda-quince-anos/"
+    },
+    {
+      "titulo": "Qué enviar para cotizar corte y grabado láser en MDF",
+      "url": "https://guanaprints.com/guias/cotizar-corte-grabado-laser-mdf/"
+    }
+  ],
+  "canal_de_pedidos": {
+    "tipo": "WhatsApp",
+    "url": "https://wa.me/50372892625",
+    "chat_ia_en_sitio": false
+  }
 }

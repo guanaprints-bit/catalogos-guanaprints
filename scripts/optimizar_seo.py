@@ -126,7 +126,7 @@ def optimize_pages():
         schemas.append(BUSINESS)
         schemas.append({'@type': 'WebSite', '@id': BASE + '/#sitio', 'url': BASE + '/', 'name': 'Guanaprints', 'inLanguage': 'es-SV', 'publisher': {'@id': BASE + '/#negocio'}})
         isproduct = any(d.get('@type') == 'Product' for d in schemas)
-        if not any(d.get('@type') in ('WebPage', 'AboutPage', 'ContactPage', 'CollectionPage') for d in schemas):
+        if not any(d.get('@type') in ('WebPage', 'AboutPage', 'ContactPage', 'CollectionPage', 'FAQPage') for d in schemas):
             schemas.append({'@type': 'WebPage' if isproduct else 'CollectionPage' if page.parent.name in ['relojes', 'bodas', '15-anos'] else 'WebPage', '@id': url + '#pagina', 'url': url, 'name': html.unescape(re.search(r'<title>(.*?)</title>', s, re.S)[1]), 'inLanguage': 'es-SV', 'isPartOf': {'@id': BASE + '/#sitio'}, 'about': {'@id': BASE + '/#negocio'}})
         if url != BASE + '/' and not any(d.get('@type') == 'BreadcrumbList' for d in schemas):
             parts = [{'@type': 'ListItem', 'position': 1, 'name': 'Inicio', 'item': BASE + '/'}]

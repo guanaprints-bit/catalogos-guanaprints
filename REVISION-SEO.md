@@ -52,8 +52,28 @@ códigos, precios y direcciones de las fichas, y mejora su información pública
 - No se modificaron perfiles sociales ni Google Business Profile en esta rama.
 - No se promete indexación, posición ni recomendación por una IA.
 
-## Publicación
+## Auditoría y mejoras del 30 de octubre de 2026
 
-Cambios preparados para revisión en una rama separada. No integrar sin
-aprobación: la revisión automática rechazó el push directo a main por su
-impacto en cientos de páginas públicas.
+- Se conservan los 408 productos, precios publicados, fotografías y URL actuales.
+- Product y Offer relacionados con su WebPage y la entidad Guanaprints mediante identificadores estables; envío gratis a El Salvador expresado en las 408 ofertas.
+- Categorías relacionadas con listas estructuradas de sus enlaces visibles, con posiciones y cantidades comprobadas.
+- Preguntas frecuentes estructuradas con las mismas once respuestas del contenido visible.
+- Guías nuevas: elegir reloj con foto o temático; elegir invitaciones; cotizar corte y grabado láser en MDF. Cada guía dirige a catálogos y WhatsApp.
+- Navegación a las guías desde el catálogo; llms.txt y base de conocimiento actualizados.
+- Acceso explícito a OAI-SearchBot conservando el acceso general de robots.txt; no se atribuye a esta regla una garantía de aparición.
+- Snippets con vista previa grande habilitados; buscador mantiene noindex,follow.
+- Generador actualizado para conservar estas mejoras. Repetir mejorar_descubrimiento.py no produce cambios adicionales.
+- Sin chatbot: las consultas y pedidos van a https://wa.me/50372892625.
+
+### Comprobaciones de esta revisión
+
+- Verificación local: 434 páginas, 408 fichas, 432 URL indexables y 14,160 referencias internas; cero errores.
+- Prueba en navegador: portada, categoría Música y tres guías a 360, 390 y 480 px, sin desbordamiento horizontal. Catálogo con una columna móvil.
+- HTTP antes del despliegue: portada, relojes, FAQ, robots.txt y sitemap.xml respondieron 200; ruta inexistente respondió 404. Sitemap servido como application/xml.
+- La búsqueda pública aún devuelve entradas de la tienda anterior; /product/el-salvador/ respondió 404. Las redirecciones históricas requieren revisar equivalencias y están fuera del alcance de Cloudflare autorizado.
+- No se consultaron datos privados de Search Console ni se modificó Google Business Profile en esta revisión; no se afirma indexación de las guías nuevas ni recomendaciones de IA.
+- Referencias oficiales consultadas: https://developers.google.com/search/docs/appearance/ai-features y https://developers.openai.com/api/docs/bots .
+
+### Publicación de esta revisión
+
+El propietario autorizó hacer directamente las correcciones. Los cambios se publican en main para el despliegue automático existente. La confirmación pública del despliegue se registra por separado al concluir la operación.

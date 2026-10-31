@@ -50,16 +50,44 @@ for page in ROOT.rglob('*.html'):
         errors.append(f'{page}: hoja móvil no es la última del head')
     if 'data-gp-business-info="true"' not in source:
         errors.append(f'{page}: sin contacto compartido')
+    ids = set()
+    graph_nodes = []
     for raw in re.findall(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', source, re.S):
         data = json.loads(raw)
         graph = data.get('@graph', [data])
+        graph_nodes.extend(graph)
         for item in graph:
+            node_id = item.get('@id')
+            if node_id and node_id in ids:
+                errors.append(f'{page}: identificador estructurado duplicado {node_id}')
+            if node_id:
+                ids.add(node_id)
             if item.get('@type') == 'Product':
                 products += 1
                 if item.get('url') != canon[0] or item.get('offers', {}).get('url') != canon[0]:
                     errors.append(f'{page}: Product/Offer no coincide con canonical')
+                shipping = item.get('offers', {}).get('shippingDetails', {})
+                if shipping.get('shippingRate', {}).get('value') != '0' or shipping.get('shippingDestination', {}).get('addressCountry') != 'SV':
+                    errors.append(f'{page}: falta envío nacional gratis en Offer')
+                if item.get('@id') != canon[0] + '#producto':
+                    errors.append(f'{page}: Product sin identidad estable')
+            if item.get('@type') == 'ItemList':
+                entries = item.get('itemListElement', [])
+                if item.get('numberOfItems') != len(entries) or [v.get('position') for v in entries] != list(range(1, len(entries) + 1)):
+                    errors.append(f'{page}: ItemList inconsistente')
+                for entry in entries:
+                    if not target(entry.get('url', '')):
+                        errors.append(f'{page}: ItemList apunta a recurso inexistente')
+            if item.get('@type') == 'FAQPage':
+                questions = re.findall(r'<summary>(.*?)</summary>', source, re.S)
+                if len(item.get('mainEntity', [])) != len(questions):
+                    errors.append(f'{page}: FAQ no coincide con preguntas visibles')
             if item.get('@id') == BASE + '/#negocio' and item.get('telephone') != '+50372892625':
                 errors.append(f'{page}: teléfono estructurado incorrecto')
+    for node in graph_nodes:
+        entity = node.get('mainEntity')
+        if isinstance(entity, dict) and '@id' in entity and entity['@id'] not in ids:
+            errors.append(f'{page}: mainEntity no resuelto')
     base = BASE + '/' + page.relative_to(ROOT).as_posix()
     for tag, attrs in doc.tags:
         key = 'src' if tag in ('img', 'script') else 'href' if tag in ('a', 'link') else None
