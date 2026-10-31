@@ -32,3 +32,7 @@
 - [Cómo personalizar](https://guanaprints.com/como-personalizar/)
 - [Preguntas frecuentes](https://guanaprints.com/preguntas-frecuentes/)
 - [Pedidos y entregas](https://guanaprints.com/pedidos-y-envios/)
+
+## Datos estructurados de referencia
+
+- [Base de conocimiento](https://guanaprints.com/guanaprints-kb.json): productos, categorías, contacto y proceso de pedido. Los datos no confirmados se indican con null.
