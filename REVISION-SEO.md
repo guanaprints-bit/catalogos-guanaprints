@@ -71,9 +71,10 @@ códigos, precios y direcciones de las fichas, y mejora su información pública
 - Prueba en navegador: portada, categoría Música y tres guías a 360, 390 y 480 px, sin desbordamiento horizontal. Catálogo con una columna móvil.
 - HTTP antes del despliegue: portada, relojes, FAQ, robots.txt y sitemap.xml respondieron 200; ruta inexistente respondió 404. Sitemap servido como application/xml.
 - La búsqueda pública aún devuelve entradas de la tienda anterior; /product/el-salvador/ respondió 404. Las redirecciones históricas requieren revisar equivalencias y están fuera del alcance de Cloudflare autorizado.
-- No se consultaron datos privados de Search Console ni se modificó Google Business Profile en esta revisión; no se afirma indexación de las guías nuevas ni recomendaciones de IA.
+- Search Console, cuenta guanaprints@gmail.com: portada confirmada como «La URL está en Google». Sitemap reenviado y aceptado como «Correcto», con 432 páginas descubiertas. /guias/ está descubierta y se aceptó su solicitud de indexación en la cola prioritaria; no se afirma que ya esté indexada. No se modificó Google Business Profile.
+- La revisión automática rechazó retirar la entrada histórica /sitemap_index.xml por requerir autorización específica para eliminar entradas de Search Console. Se conservó intacta; no afecta al sitemap actual.
 - Referencias oficiales consultadas: https://developers.google.com/search/docs/appearance/ai-features y https://developers.openai.com/api/docs/bots .
 
 ### Publicación de esta revisión
 
-El propietario autorizó hacer directamente las correcciones. Los cambios se publican en main para el despliegue automático existente. La confirmación pública del despliegue se registra por separado al concluir la operación.
+El propietario autorizó hacer directamente las correcciones. Los cambios se publican en main para el despliegue automático existente. Despliegue de código 214c9db confirmado como exitoso. Verificación pública posterior: portada, cuatro páginas de guías, robots.txt, llms.txt, sitemap.xml, FAQ, base de conocimiento y una ficha respondieron 200 con los contenidos nuevos. El sitemap público contiene 432 URL. Pruebas de portada con user-agent de Googlebot, OAI-SearchBot y PerplexityBot respondieron 200; no equivalen a acreditar rastreo real desde las redes de esos servicios.
