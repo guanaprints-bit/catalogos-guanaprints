@@ -1,8 +1,22 @@
 User-agent: *
 Allow: /
 
-# Descubrimiento en las búsquedas de ChatGPT.
 User-agent: OAI-SearchBot
+Allow: /
+
+User-agent: ChatGPT-User
+Allow: /
+
+User-agent: GPTBot
+Allow: /
+
+User-agent: ClaudeBot
+Allow: /
+
+User-agent: Claude-User
+Allow: /
+
+User-agent: PerplexityBot
 Allow: /
 
 Sitemap: https://guanaprints.com/sitemap.xml
