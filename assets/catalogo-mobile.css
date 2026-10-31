@@ -3,6 +3,7 @@
   html { -webkit-text-size-adjust: 100%; }
   body { font-size: 16px; }
   .grid,
+  .categorias,
   .categories,
   .product {
     grid-template-columns: minmax(0, 1fr) !important;
@@ -41,4 +42,9 @@
   }
   .tools { flex-direction: column; align-items: stretch; }
   .tools input { box-sizing: border-box; width: 100%; max-width: none; }
+  .categorias > *, main, section { min-width: 0; }
+  main { box-sizing: border-box; max-width: 100%; }
+  .card, .categoria, .product-details { overflow-wrap: anywhere; }
+  input, select, textarea { max-width: 100%; box-sizing: border-box; }
+  button, .button, .secondary, summary { min-height: 48px; }
 }

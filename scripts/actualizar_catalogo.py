@@ -46,7 +46,6 @@ def page(path,title,description,content,photo=None,schema=None,search=False,stic
  if path=='index.html':head+='<meta name="google-site-verification" content="wBo-JQszuI1huwOrFrhJ-RZWMH4cTw--sT9o-FhQ0bQ">'
  head+='<link rel="stylesheet" href="'+E(rel('assets/catalogo.css',path))+'?v=20261029-4">'
  if path=='index.html' and (ROOT/path).exists():
-  import re
   redesign=re.search(r'<style id="guanaprints-redesign">.*?</style>',(ROOT/path).read_text(),re.S)
   if redesign:head+=redesign.group(0)
  if schema:head+=ld(schema)
@@ -207,3 +206,7 @@ root=ET.Element(ns+'urlset')
 for u in sorted(set(urls)):ET.SubElement(ET.SubElement(root,ns+'url'),ns+'loc').text=u
 ET.ElementTree(root).write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
 print('Listo: 240 fichas, búsqueda en 408 diseños, galería MDF, portada y sitemap de',len(set(urls)),'URLs.')
+
+# Mantener las mejoras SEO y la información comercial en cada regeneración.
+from optimizar_seo import main as optimizar_seo
+optimizar_seo()

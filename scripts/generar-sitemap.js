@@ -30,4 +30,5 @@ const xml = '<?xml version="1.0" encoding="UTF-8"?>\n' +
   [...urls].sort().map(url => '  <url><loc>' + escapeXml(url) + '</loc></url>').join('\n') +
   '\n</urlset>\n';
 fs.writeFileSync(path.join(root, 'sitemap.xml'), xml);
+fs.writeFileSync(path.join(root, 'sitemap.txt'), [...urls].sort().join('\n') + '\n');
 console.log('Sitemap generado con ' + urls.size + ' URLs.');

@@ -169,9 +169,15 @@ https://guanaprints.com/bodas/72
 https://guanaprints.com/bodas/73
 https://guanaprints.com/bodas/77
 https://guanaprints.com/bodas/99
+https://guanaprints.com/como-personalizar/
+https://guanaprints.com/contacto/
 https://guanaprints.com/corte-laser/
+https://guanaprints.com/nosotros/
+https://guanaprints.com/pedidos-y-envios/
+https://guanaprints.com/preguntas-frecuentes/
 https://guanaprints.com/relojes/
 https://guanaprints.com/relojes/barberia/
+https://guanaprints.com/relojes/campanas/
 https://guanaprints.com/relojes/colegios/
 https://guanaprints.com/relojes/deportes/
 https://guanaprints.com/relojes/el-salvador/
@@ -420,5 +426,3 @@ https://guanaprints.com/relojes/para-tu-bar/
 https://guanaprints.com/relojes/peliculas/
 https://guanaprints.com/relojes/religiosos/
 https://guanaprints.com/relojes/universidades/
-https://guanaprints.com/preguntas-frecuentes/
-https://guanaprints.com/pedidos-y-envios/
