@@ -15,7 +15,7 @@
  const question=document.createElement('strong');question.textContent='¿No encuentras lo que buscas?';
  const invitation=document.createElement('span');invitation.textContent='Escríbenos, nosotros te lo hacemos';
  help.replaceChildren(question,invitation);
- empty.replaceChildren(help);
+ empty.replaceChildren(help);empty.classList.remove('empty');
  const bubbleStyle=document.createElement('style');
  bubbleStyle.textContent=`
  .search-whatsapp-bubble{position:fixed;right:24px;bottom:24px;z-index:60;box-sizing:border-box;display:flex;flex-direction:column;gap:7px;width:340px;max-width:calc(100vw - 32px);min-height:64px;padding:20px 22px;border-radius:24px 24px 6px 24px;background:#075e54;color:#fff!important;text-decoration:none!important;box-shadow:0 8px 28px rgba(0,0,0,.22);font-family:inherit;font-size:16px;line-height:1.5;text-align:left;overflow-wrap:anywhere}
