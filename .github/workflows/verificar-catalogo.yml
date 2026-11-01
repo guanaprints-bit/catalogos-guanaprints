@@ -1,0 +1,70 @@
+name: Verificar y preparar catálogo Guanaprints
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'scripts/**'
+      - 'assets/**'
+      - 'contenido/**'
+      - 'relojes/manifest.json'
+      - '.github/workflows/verificar-catalogo.yml'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  catalogo:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Descargar repositorio
+        uses: actions/checkout@v4
+      - name: Preparar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Instalar Pillow
+        run: python -m pip install Pillow
+      - name: Regenerar catálogo en entorno temporal
+        run: python scripts/actualizar_catalogo.py
+      - name: Verificar SEO, enlaces y fichas
+        run: python scripts/verificar_seo.py
+      - name: Comprobar referencias de recursos
+        shell: bash
+        run: |
+          python - <<'PY'
+          from pathlib import Path
+          import re
+          root=Path('.')
+          fichas=[*root.glob('relojes/modelos/*.html'),*root.glob('bodas/*.html'),*root.glob('15-anos/modelos/*.html')]
+          assert len(fichas)==408, f'Se esperaban 408 fichas y hay {len(fichas)}'
+          errores=[]
+          for p in fichas:
+              s=p.read_text()
+              for recurso in ('catalogo.css','wa-producto.js'):
+                  if not re.search(re.escape(recurso)+r'\\?v=20261101-3',s):
+                      errores.append(f'{p}: falta {recurso} versión vigente')
+          if errores: raise SystemExit('\n'.join(errores[:30]))
+          print(f'OK: {len(fichas)} fichas con recursos vigentes')
+          PY
+      - name: Registrar diferencias generadas
+        run: |
+          git status --short > cambios-generados.txt
+          git diff --stat >> cambios-generados.txt
+      - name: Guardar resultado para revisión
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: catalogo-generado-y-reporte
+          path: |
+            cambios-generados.txt
+            index.html
+            relojes/
+            bodas/
+            15-anos/
+            buscar/
+            corte-laser/
+            sitemap.xml
+            sitemap.txt
+          retention-days: 7
