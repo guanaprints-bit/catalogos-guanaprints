@@ -37,7 +37,7 @@ jobs:
           from pathlib import Path
           import re
           root=Path('.')
-          fichas=[*root.glob('relojes/modelos/*.html'),*root.glob('bodas/*.html'),*root.glob('15-anos/modelos/*.html')]
+          fichas=[*root.glob('relojes/modelos/*.html'),*(p for p in root.glob('bodas/*.html') if p.name != 'index.html'),*root.glob('15-anos/modelos/*.html')]
           assert len(fichas)==408, f'Se esperaban 408 fichas y hay {len(fichas)}'
           errores=[]
           for p in fichas:
