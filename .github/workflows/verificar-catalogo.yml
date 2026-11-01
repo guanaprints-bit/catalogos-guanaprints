@@ -43,7 +43,7 @@ jobs:
           for p in fichas:
               s=p.read_text()
               for recurso in ('catalogo.css','wa-producto.js'):
-                  if not re.search(re.escape(recurso)+r'\\?v=20261101-3',s):
+                  if not re.search(re.escape(recurso+'?v=20261101-3'),s):
                       errores.append(f'{p}: falta {recurso} versión vigente')
           if errores: raise SystemExit('\n'.join(errores[:30]))
           print(f'OK: {len(fichas)} fichas con recursos vigentes')
