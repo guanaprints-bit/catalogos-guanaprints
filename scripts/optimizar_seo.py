@@ -159,6 +159,8 @@ def optimize_pages():
         # Información comercial accesible desde todas las fichas.
         s = re.sub(r'<div data-gp-business-info="true">.*?</div>', '', s, flags=re.S)
         s = s.replace('</footer>', FOOTER + '</footer>')
+        if 'data-gp-business-info="true"' not in s:
+            s = s.replace('</body>', '<footer class="site-footer">' + FOOTER + '</footer></body>')
         info_css = '<link rel="stylesheet" href="' + relative('assets/informacion.css', page) + '?v=20261030-seo">'
         s = re.sub(r'<link\b[^>]*href="[^"]*assets/informacion.css[^>]*>', '', s)
         s = re.sub(r'<link\b[^>]*href="[^"]*assets/catalogo-mobile.css[^>]*>', '', s)
