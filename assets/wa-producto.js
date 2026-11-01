@@ -58,13 +58,22 @@
   }
   function procesar(raiz) {
     if (![Node.ELEMENT_NODE, Node.DOCUMENT_NODE].includes(raiz.nodeType)) return;
-    if (raiz.matches?.('.floating-whatsapp')) { raiz.remove(); return; }
-    raiz.querySelectorAll('.floating-whatsapp').forEach(elemento => elemento.remove());
+    // El botón global de WhatsApp permanece visible; no eliminarlo.
     const cajas = new Set(); if (raiz.matches?.(CONFIG.producto)) cajas.add(raiz);
     raiz.querySelectorAll(CONFIG.producto).forEach(caja => cajas.add(caja)); cajas.forEach(mejorarProducto);
   }
   function iniciar() {
     procesar(document);
+    if (!document.querySelector('.floating-whatsapp')) {
+      const enlace = document.createElement('a');
+      enlace.className = 'floating-whatsapp';
+      enlace.href = 'https://wa.me/50372892625?text=' + encodeURIComponent('Hola Guanaprints, quiero información sobre sus productos.');
+      enlace.target = '_blank';
+      enlace.rel = 'noopener noreferrer';
+      enlace.setAttribute('aria-label', 'Consultar a Guanaprints por WhatsApp');
+      enlace.textContent = 'WhatsApp';
+      document.body.appendChild(enlace);
+    }
     const pendientes = new Set(); let programado = false;
     const observador = new MutationObserver(registros => {
       registros.forEach(registro => {
