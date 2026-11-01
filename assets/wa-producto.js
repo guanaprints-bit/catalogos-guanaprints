@@ -25,7 +25,7 @@
     return ['Hola, Guanaprints.', 'Quiero solicitar este producto:', '',
       'Producto: ' + datos.nombre, 'Modelo: ' + datos.modelo, 'Precio: ' + datos.precio,
       'Enlace: ' + datos.pagina, 'Fotografía: ' + (datos.foto || 'No disponible'), '',
-      'DATOS DE PERSONALIZACIÓN', '', 'Nombre o texto:', 'Dedicatoria:', '¿Para quién es?:',
+      'DATOS DE PERSONALIZACIÓN', '', ...( /invitaci[oó]n/i.test(datos.nombre) ? ['Cantidad de invitaciones:', 'Nombres del evento:', 'Fecha y lugar del evento:'] : ['Nombre o texto:', 'Dedicatoria:', '¿Para quién es?:'] ),
       'Detalles adicionales:', 'Municipio de entrega:', 'Fecha en que lo necesito:', '',
       '¿Me confirman las condiciones del pedido?'].join('\n');
   }
