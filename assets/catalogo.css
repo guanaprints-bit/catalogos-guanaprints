@@ -63,3 +63,16 @@ h1,h2,h3,.brand{font-family:Fraunces,Georgia,serif;letter-spacing:-.02em;line-he
 .grid .card .code{font-size:.78rem;letter-spacing:.045em;font-weight:700}
 @media(max-width:600px){#productos.grid,.grid:has(> .card .product-link){grid-template-columns:minmax(0,1fr)}#productos .card .product-link img{max-height:430px}.grid .card{border-radius:18px}}
 @media(prefers-reduced-motion:reduce){.grid .card{transition:none!important}.grid .card:hover{transform:none!important}}
+
+/* Fase 2 — detalle de producto: jerarquía, legibilidad y compra */
+.product{align-items:start;gap:clamp(24px,4vw,56px)}
+.product-photo{background:#fff;border:1px solid #e9e3da;border-radius:24px;overflow:hidden}
+.product-photo img{display:block;width:100%;height:auto;object-fit:contain}
+.product h1{font-family:Fraunces,Georgia,serif;font-size:clamp(1.85rem,3.7vw,3.15rem);line-height:1.16;letter-spacing:-.025em;color:#1d1b19}
+.product .code{display:inline-block;color:#625c56;font-weight:700;letter-spacing:.04em;font-size:.85rem}
+.product .copy-producto{color:#625c56;line-height:1.65;max-width:64ch}
+.product .price{font-size:clamp(1.35rem,2.5vw,1.85rem);font-weight:750;color:#1d1b19}
+.product .actions .wa-producto{display:inline-flex;align-items:center;justify-content:center;min-height:50px;padding:13px 22px;border-radius:999px;background:#168b52;border-color:#168b52;color:#fff;text-align:center;text-decoration:none}
+.product .actions .wa-producto:hover{background:#106d40;border-color:#106d40}
+.product .trust-list{color:#625c56;font-size:.94rem;line-height:1.55}
+@media(max-width:767px){.product{grid-template-columns:minmax(0,1fr)}.product-photo{border-radius:18px}.product .actions .wa-producto{width:100%}}
