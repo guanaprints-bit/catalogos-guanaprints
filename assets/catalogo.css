@@ -42,3 +42,8 @@ h1,h2,h3,.brand{font-family:Fraunces,Georgia,serif;letter-spacing:-.02em;line-he
 .card:not(.product) > .card-content > .price,
 .card:not(.product) > .card-content > .secondary,
 .card:not(.product) > .card-content > .wa-producto{display:none!important}
+
+/* Guanaprints 2026: contacto persistente en todas las páginas */
+.floating-whatsapp{display:inline-flex!important;position:fixed!important;right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));z-index:9999;align-items:center;justify-content:center;min-height:48px;min-width:110px;padding:12px 18px;border-radius:999px;background:#168b52!important;color:#fff!important;text-decoration:none;font:700 15px/1.2 Inter,system-ui,sans-serif;border:2px solid #fff;box-shadow:0 6px 22px #0003}
+.floating-whatsapp:hover{background:#106d40!important}
+@media(max-width:480px){.floating-whatsapp{right:12px;bottom:calc(12px + env(safe-area-inset-bottom,0px));padding:12px 15px}}
