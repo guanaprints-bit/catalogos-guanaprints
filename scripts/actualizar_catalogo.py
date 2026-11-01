@@ -207,6 +207,17 @@ for u in sorted(set(urls)):ET.SubElement(ET.SubElement(root,ns+'url'),ns+'loc').
 ET.ElementTree(root).write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
 print('Listo: 240 fichas, búsqueda en 408 diseños, galería MDF, portada y sitemap de',len(set(urls)),'URLs.')
 
+# Mantener las referencias compartidas consistentes en TODAS las fichas generadas.
+# No altera fotos, textos, troqueles, enlaces de producto ni códigos.
+for ficha in ROOT.rglob('*.html'):
+ if 'bodas-optimizado' in ficha.parts:
+  continue
+ contenido=ficha.read_text()
+ actualizado=re.sub(r'(catalogo\\.css\\?v=)\\d{8}-\\d+',r'\\g<1>20261101-3',contenido)
+ actualizado=re.sub(r'(wa-producto\\.js\\?v=)\\d{8}-\\d+',r'\\g<1>20261101-3',actualizado)
+ if actualizado!=contenido:
+  ficha.write_text(actualizado)
+
 # Mantener las mejoras SEO y la información comercial en cada regeneración.
 from optimizar_seo import main as optimizar_seo
 optimizar_seo()
