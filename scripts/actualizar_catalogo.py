@@ -223,3 +223,7 @@ from optimizar_seo import main as optimizar_seo
 optimizar_seo()
 import runpy
 runpy.run_path(str(ROOT / 'scripts/mejorar_descubrimiento.py'), run_name='__main__')
+# El módulo de descubrimiento también crea preguntas-frecuentes.html;
+# aplicar después la información comercial compartida a esa página.
+optimizar_seo()
+
