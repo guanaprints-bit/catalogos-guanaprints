@@ -53,10 +53,12 @@
   if(select)select.value=['bodas','15-anos','musica','deportes','el-salvador'].includes(quickValue)?quickValue:'';
   input.value='';limit=pageSize;syncQuick();render();saveSearch();
  });
+ // El catálogo utiliza categorías explícitas: únicamente bodas y 15 años no son relojes.
+ const CLOCK_CATEGORIES=new Set(['barberia','colegios','deportes','el-salvador','musica','para-tu-bar','peliculas','religiosos','universidades']);
  const matches=item=>{
   const words=normalize(input.value).split(/[^a-z0-9]+/).filter(Boolean);
   const haystack=normalize(item.dataset.search),tokens=haystack.split(/[^a-z0-9]+/);
-  return words.every(w=>w.length<=3?tokens.includes(w):haystack.includes(w))&&(!select||!select.value||item.dataset.category===select.value)&&(!quickValue||quickValue!=='relojes'||!['bodas','15-anos'].includes(item.dataset.category));
+  return words.every(w=>w.length<=3?tokens.includes(w):haystack.includes(w))&&(!select||!select.value||item.dataset.category===select.value)&&(quickValue!=='relojes'||CLOCK_CATEGORIES.has(item.dataset.category));
  };
  function render(){
   const found=items.filter(matches);
