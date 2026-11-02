@@ -27,10 +27,36 @@
  document.head.append(bubbleStyle);
 
  const pageSize=12;let limit=pageSize,items=[...list.querySelectorAll('[data-search]')];
+ // Filtros rápidos por intención; complementan el selector de categoría existente.
+ const shortcuts=[
+  ['Todos',''],['Relojes','relojes'],['Bodas','bodas'],['15 años','15-anos'],
+  ['Música','musica'],['Deportes','deportes'],['El Salvador','el-salvador']
+ ];
+ const quick=document.createElement('div');
+ quick.className='gp-quick-filters';
+ quick.setAttribute('role','group');
+ quick.setAttribute('aria-label','Filtros rápidos del catálogo');
+ shortcuts.forEach(([label,value])=>{
+  const button=document.createElement('button');
+  button.type='button';button.className='gp-quick-filter';button.textContent=label;
+  button.dataset.quick=value;button.setAttribute('aria-pressed','false');
+  quick.appendChild(button);
+ });
+ box.appendChild(quick);
+ let quickValue='';
+ function syncQuick(){
+  quick.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.quick===quickValue)));
+ }
+ quick.addEventListener('click',event=>{
+  const button=event.target.closest('button[data-quick]');if(!button)return;
+  quickValue=button.dataset.quick;
+  if(select)select.value=['bodas','15-anos','musica','deportes','el-salvador'].includes(quickValue)?quickValue:'';
+  input.value='';limit=pageSize;syncQuick();render();saveSearch();
+ });
  const matches=item=>{
   const words=normalize(input.value).split(/[^a-z0-9]+/).filter(Boolean);
   const haystack=normalize(item.dataset.search),tokens=haystack.split(/[^a-z0-9]+/);
-  return words.every(w=>w.length<=3?tokens.includes(w):haystack.includes(w))&&(!select||!select.value||item.dataset.category===select.value);
+  return words.every(w=>w.length<=3?tokens.includes(w):haystack.includes(w))&&(!select||!select.value||item.dataset.category===select.value)&&(!quickValue||quickValue!=='relojes'||!['bodas','15-anos'].includes(item.dataset.category));
  };
  function render(){
   const found=items.filter(matches);
@@ -55,11 +81,11 @@
   history.replaceState(null,'',url.pathname+url.search);
  }
  input.addEventListener('input',()=>{limit=pageSize;render();saveSearch();});
- if(select)select.addEventListener('change',()=>{limit=pageSize;render();saveSearch();});
- box.querySelector('[data-clear-search]')?.addEventListener('click',()=>{input.value='';if(select)select.value='';limit=pageSize;render();saveSearch();input.focus();});
+ if(select)select.addEventListener('change',()=>{quickValue=select.value;syncQuick();limit=pageSize;render();saveSearch();});
+ box.querySelector('[data-clear-search]')?.addEventListener('click',()=>{input.value='';if(select)select.value='';quickValue='';syncQuick();limit=pageSize;render();saveSearch();input.focus();});
  more.addEventListener('click',()=>{limit+=pageSize;render();});
  const params=new URLSearchParams(location.search);input.value=params.get('q')||'';
- if(select&&[...select.options].some(o=>o.value===params.get('categoria')))select.value=params.get('categoria');
+ if(select&&[...select.options].some(o=>o.value===params.get('categoria')))select.value=params.get('categoria');quickValue=select?.value||'';syncQuick();
  let hash='';try{hash=decodeURIComponent(location.hash.slice(1));}catch{hash=location.hash.slice(1);}const index=items.findIndex(i=>i.id===hash);
  if(index>=0)limit=Math.max(limit,index+1);
  render();if(index>=0)document.getElementById(hash)?.scrollIntoView();
