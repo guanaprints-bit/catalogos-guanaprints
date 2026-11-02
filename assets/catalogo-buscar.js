@@ -8,21 +8,23 @@
  const more=document.querySelector('[data-load-more]'),empty=document.querySelector('[data-search-empty]');
 
  // Burbuja de ayuda cuando la búsqueda no tiene resultados.
- const help=empty.querySelector('a[href^="https://wa.me/"]')||document.createElement('a');
+ const emptyContainer=empty||document.createElement('div');
+ if(!empty){emptyContainer.setAttribute('data-search-empty','');emptyContainer.hidden=true;box.insertAdjacentElement('afterend',emptyContainer);}
+ const help=emptyContainer.querySelector('a[href^="https://wa.me/"]')||document.createElement('a');
  help.className='search-whatsapp-bubble';
  help.target='_blank';help.rel='noopener noreferrer';
- help.setAttribute('aria-label','¿No encuentras lo que buscas? Escríbenos, nosotros te lo hacemos. Abrir WhatsApp');
+ help.setAttribute('aria-label','¿No encuentras lo que buscas? Escríbenos para que nosotros lo hagamos para ti. Abrir WhatsApp');
  const question=document.createElement('strong');question.textContent='¿No encuentras lo que buscas?';
  const invitation=document.createElement('span');invitation.textContent='Escríbenos, nosotros te lo hacemos';
  help.replaceChildren(question,invitation);
- empty.replaceChildren(help);empty.classList.remove('empty');
+ emptyContainer.replaceChildren(help);emptyContainer.classList.remove('empty');
  const bubbleStyle=document.createElement('style');
  bubbleStyle.textContent=`
- .search-whatsapp-bubble{position:fixed;right:24px;bottom:24px;z-index:60;box-sizing:border-box;display:flex;flex-direction:column;gap:7px;width:340px;max-width:calc(100vw - 32px);min-height:64px;padding:20px 22px;border-radius:24px 24px 6px 24px;background:#075e54;color:#fff!important;text-decoration:none!important;box-shadow:0 8px 28px rgba(0,0,0,.22);font-family:inherit;font-size:16px;line-height:1.5;text-align:left;overflow-wrap:anywhere}
- .search-whatsapp-bubble strong{font-size:20px;line-height:1.3;color:inherit}
+ .search-whatsapp-bubble{position:fixed;right:24px;bottom:94px;z-index:2147483646;box-sizing:border-box;display:flex;flex-direction:column;gap:7px;width:340px;max-width:calc(100vw - 32px);min-height:64px;padding:20px 22px;border-radius:24px 24px 6px 24px;background:#075e54;color:#fff!important;text-decoration:none!important;box-shadow:0 8px 28px rgba(0,0,0,.22);font-family:inherit;font-size:16px;line-height:1.5;text-align:left;overflow-wrap:anywhere}
+ [data-search-empty][hidden]{display:none!important}\n .search-whatsapp-bubble strong{font-size:20px;line-height:1.3;color:inherit}
  .search-whatsapp-bubble:hover{background:#064c44}
  .search-whatsapp-bubble:focus-visible{outline:3px solid #1d1b19;outline-offset:4px}
- @media(max-width:767px){.search-whatsapp-bubble{right:16px;bottom:calc(16px + env(safe-area-inset-bottom,0px));padding:18px 20px}}
+ @media(max-width:767px){.search-whatsapp-bubble{right:16px;bottom:calc(86px + env(safe-area-inset-bottom,0px));padding:18px 20px}}
  `;
  document.head.append(bubbleStyle);
 
@@ -64,7 +66,7 @@
   const found=items.filter(matches);
   items.forEach(item=>{item.hidden=true;});found.slice(0,limit).forEach(item=>{item.hidden=false;});
   feedback.textContent=`${found.length} ${found.length===1?'diseño encontrado':'diseños encontrados'}. Mostrando ${Math.min(found.length,limit)}.`;
-  empty.hidden=found.length!==0;more.hidden=found.length<=limit;
+  emptyContainer.hidden=found.length!==0;more.hidden=found.length<=limit;
   const query=input.value.trim();
   const category=quickValue==='relojes'?'Relojes':select?.selectedOptions[0]?.textContent?.trim();
   const message='Hola Guanaprints, no encontré lo que busco en el catálogo.'+
