@@ -62,7 +62,24 @@
     const cajas = new Set(); if (raiz.matches?.(CONFIG.producto)) cajas.add(raiz);
     raiz.querySelectorAll(CONFIG.producto).forEach(caja => cajas.add(caja)); cajas.forEach(mejorarProducto);
   }
+  function registrarConversiones() {
+    document.addEventListener('click', function (evento) {
+      const enlace = evento.target.closest?.('a[href]');
+      if (!enlace) return;
+      let destino;
+      try { destino = new URL(enlace.href, document.baseURI); } catch { return; }
+      const whatsapp = destino.hostname === 'wa.me' && destino.pathname.replace(/\\D/g, '') === CONFIG.telefono;
+      const categoria = enlace.closest('.categoria, .nav-categoria');
+      const busqueda = destino.pathname.replace(/\\/$/, '').endsWith('/buscar');
+      if (!whatsapp && !categoria && !busqueda) return;
+      const nombreEvento = whatsapp ? 'contacto_whatsapp' : categoria ? 'clic_categoria' : 'clic_busqueda';
+      // No enviar nombres, teléfonos, mensajes precargados ni datos personales.
+      const datos = {event:nombreEvento, gp_tipo:whatsapp ? (enlace.closest('.product, .card') ? 'producto' : 'general') : 'navegacion', gp_ruta:location.pathname};
+      if (Array.isArray(window.dataLayer)) window.dataLayer.push(datos);
+    }, {passive:true});
+  }
   function iniciar() {
+    registrarConversiones();
     procesar(document);
     if (!document.querySelector('.floating-whatsapp')) {
       const enlace = document.createElement('a');
