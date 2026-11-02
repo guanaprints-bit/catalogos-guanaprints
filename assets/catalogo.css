@@ -76,3 +76,9 @@ h1,h2,h3,.brand{font-family:Fraunces,Georgia,serif;letter-spacing:-.02em;line-he
 .product .actions .wa-producto:hover{background:#106d40;border-color:#106d40}
 .product .trust-list{color:#625c56;font-size:.94rem;line-height:1.55}
 @media(max-width:767px){.product{grid-template-columns:minmax(0,1fr)}.product-photo{border-radius:18px}.product .actions .wa-producto{width:100%}}
+
+/* CTA principal de portada: accesible, visible y coherente con la marca. */
+.hero-panel .hero-primary-cta{display:inline-flex;align-items:center;justify-content:center;min-height:48px;margin-top:16px;padding:12px 22px;border-radius:999px;background:#c4553a;color:#fff;font-weight:700;text-decoration:none;box-shadow:0 6px 18px #1d1b1920;transition:transform .2s ease,box-shadow .2s ease,background .2s ease}
+.hero-panel .hero-primary-cta:hover{background:#a6402a;transform:translateY(-2px);box-shadow:0 9px 22px #1d1b1928}
+.hero-panel .hero-primary-cta:focus-visible{outline:3px solid #1d1b19;outline-offset:4px}
+@media(prefers-reduced-motion:reduce){.hero-panel .hero-primary-cta{transition:none}.hero-panel .hero-primary-cta:hover{transform:none}}
