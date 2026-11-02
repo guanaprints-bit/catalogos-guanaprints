@@ -64,10 +64,10 @@
   feedback.textContent=`${found.length} ${found.length===1?'diseño encontrado':'diseños encontrados'}. Mostrando ${Math.min(found.length,limit)}.`;
   empty.hidden=found.length!==0;more.hidden=found.length<=limit;
   const query=input.value.trim();
-  const category=select?.selectedOptions[0]?.textContent?.trim();
+  const category=quickValue==='relojes'?'Relojes':select?.selectedOptions[0]?.textContent?.trim();
   const message='Hola Guanaprints, no encontré lo que busco en el catálogo.'+
    (query?' Busqué: '+query+'.':'')+
-   (select?.value?' Categoría: '+category+'.':'')+
+   ((select?.value||quickValue==='relojes')?' Categoría: '+category+'.':'')+
    ' ¿Me pueden hacer un diseño personalizado?';
   help.href='https://wa.me/50372892625?text='+encodeURIComponent(message);
  }
@@ -77,6 +77,7 @@
   const q=input.value.trim();
   if(q)url.searchParams.set('q',q);else url.searchParams.delete('q');
   if(select&&select.value)url.searchParams.set('categoria',select.value);else url.searchParams.delete('categoria');
+  if(quickValue==='relojes')url.searchParams.set('tipo','relojes');else url.searchParams.delete('tipo');
   url.hash='';
   history.replaceState(null,'',url.pathname+url.search);
  }
@@ -85,7 +86,7 @@
  box.querySelector('[data-clear-search]')?.addEventListener('click',()=>{input.value='';if(select)select.value='';quickValue='';syncQuick();limit=pageSize;render();saveSearch();input.focus();});
  more.addEventListener('click',()=>{limit+=pageSize;render();});
  const params=new URLSearchParams(location.search);input.value=params.get('q')||'';
- if(select&&[...select.options].some(o=>o.value===params.get('categoria')))select.value=params.get('categoria');quickValue=select?.value||'';syncQuick();
+ if(select&&[...select.options].some(o=>o.value===params.get('categoria')))select.value=params.get('categoria');quickValue=params.get('tipo')==='relojes'?'relojes':(select?.value||'');syncQuick();
  let hash='';try{hash=decodeURIComponent(location.hash.slice(1));}catch{hash=location.hash.slice(1);}const index=items.findIndex(i=>i.id===hash);
  if(index>=0)limit=Math.max(limit,index+1);
  render();if(index>=0)document.getElementById(hash)?.scrollIntoView();
