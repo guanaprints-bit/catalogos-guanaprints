@@ -28,10 +28,10 @@
 
  const pageSize=12;let limit=pageSize,items=[...list.querySelectorAll('[data-search]')];
  // Filtros rápidos por intención; complementan el selector de categoría existente.
- const shortcuts=[
-  ['Todos',''],['Relojes','relojes'],['Bodas','bodas'],['15 años','15-anos'],
-  ['Música','musica'],['Deportes','deportes'],['El Salvador','el-salvador']
- ];
+ const pageCategory=location.pathname.startsWith('/bodas/')?'bodas':location.pathname.startsWith('/15-anos/')?'15-anos':'';
+ const shortcuts=pageCategory
+  ? [['Todos','']]
+  : [['Todos',''],['Relojes','relojes'],['Bodas','bodas'],['15 años','15-anos'],['Música','musica'],['Deportes','deportes'],['El Salvador','el-salvador']];
  const quick=document.createElement('div');
  quick.className='gp-quick-filters';
  quick.setAttribute('role','group');
@@ -42,7 +42,7 @@
   button.dataset.quick=value;button.setAttribute('aria-pressed','false');
   quick.appendChild(button);
  });
- box.appendChild(quick);
+ if(!pageCategory)box.appendChild(quick);
  let quickValue='';
  function syncQuick(){
   quick.querySelectorAll('button').forEach(button=>button.setAttribute('aria-pressed',String(button.dataset.quick===quickValue)));
@@ -88,7 +88,7 @@
  box.querySelector('[data-clear-search]')?.addEventListener('click',()=>{input.value='';if(select)select.value='';quickValue='';syncQuick();limit=pageSize;render();saveSearch();input.focus();});
  more.addEventListener('click',()=>{limit+=pageSize;render();});
  const params=new URLSearchParams(location.search);input.value=params.get('q')||'';
- if(select&&[...select.options].some(o=>o.value===params.get('categoria')))select.value=params.get('categoria');quickValue=params.get('tipo')==='relojes'?'relojes':(select?.value||'');syncQuick();
+ if(select&&[...select.options].some(o=>o.value===params.get('categoria')))select.value=params.get('categoria');quickValue=pageCategory?'':(params.get('tipo')==='relojes'?'relojes':(select?.value||''));syncQuick();
  let hash='';try{hash=decodeURIComponent(location.hash.slice(1));}catch{hash=location.hash.slice(1);}const index=items.findIndex(i=>i.id===hash);
  if(index>=0)limit=Math.max(limit,index+1);
  render();if(index>=0)document.getElementById(hash)?.scrollIntoView();
