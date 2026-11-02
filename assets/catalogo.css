@@ -82,3 +82,19 @@ h1,h2,h3,.brand{font-family:Fraunces,Georgia,serif;letter-spacing:-.02em;line-he
 .hero-panel .hero-primary-cta:hover{background:#a6402a;transform:translateY(-2px);box-shadow:0 9px 22px #1d1b1928}
 .hero-panel .hero-primary-cta:focus-visible{outline:3px solid #1d1b19;outline-offset:4px}
 @media(prefers-reduced-motion:reduce){.hero-panel .hero-primary-cta{transition:none}.hero-panel .hero-primary-cta:hover{transform:none}}
+
+/* Guanaprints: interacción accesible y navegación móvil premium */
+:where(.categoria,.card,.product a,.nav-categoria,.floating-whatsapp,.search-box button):focus-visible{outline:3px solid #c4553a;outline-offset:4px}
+:where(.categoria,.nav-categoria,.floating-whatsapp,.search-box button){touch-action:manipulation}
+@media(hover:hover) and (prefers-reduced-motion:no-preference){
+  .categorias .categoria{transition:transform .22s ease,box-shadow .22s ease}
+  .categorias .categoria:hover{transform:translateY(-3px);box-shadow:0 12px 30px #1d1b1920}
+}
+@media(max-width:767px){
+  .floating-whatsapp{max-width:calc(100vw - 24px);min-height:48px;white-space:nowrap}
+  .nav-categoria{min-height:44px}
+  .search-box button{min-height:48px}
+}
+@media(prefers-reduced-motion:reduce){
+  .categorias .categoria{transition:none!important;transform:none!important}
+}
