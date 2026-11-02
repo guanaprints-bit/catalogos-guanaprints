@@ -81,15 +81,24 @@
   function iniciar() {
     registrarConversiones();
     procesar(document);
-    if (!document.querySelector('.floating-whatsapp')) {
-      const enlace = document.createElement('a');
-      enlace.className = 'floating-whatsapp';
-      enlace.href = 'https://wa.me/50372892625?text=' + encodeURIComponent('Hola Guanaprints, quiero información sobre sus productos.');
-      enlace.target = '_blank';
-      enlace.rel = 'noopener noreferrer';
-      enlace.setAttribute('aria-label', 'Consultar a Guanaprints por WhatsApp');
-      enlace.textContent = 'WhatsApp';
+    // Botón global, único y persistente, visible en móvil y escritorio.
+    let enlace = document.getElementById('gp-whatsapp-fixed') || document.querySelector('.floating-whatsapp');
+    if (!enlace) {
+      enlace = document.createElement('a');
+      enlace.id = 'gp-whatsapp-fixed';
       document.body.appendChild(enlace);
+    }
+    enlace.classList.add('floating-whatsapp');
+    enlace.href = 'https://wa.me/50372892625?text=' + encodeURIComponent('Hola Guanaprints, quiero información sobre sus productos.');
+    enlace.target = '_blank';
+    enlace.rel = 'noopener noreferrer';
+    enlace.setAttribute('aria-label', 'Escribir a Guanaprints por WhatsApp');
+    enlace.textContent = '✆ WhatsApp';
+    if (!document.getElementById('gp-wa-global-css')) {
+      const estilo = document.createElement('style');
+      estilo.id = 'gp-wa-global-css';
+      estilo.textContent = '#gp-whatsapp-fixed, a.floating-whatsapp{display:flex!important;visibility:visible!important;opacity:1!important;position:fixed!important;right:14px!important;bottom:calc(14px + env(safe-area-inset-bottom, 0px))!important;left:auto!important;top:auto!important;transform:none!important;z-index:2147483647!important;pointer-events:auto!important;align-items:center!important;justify-content:center!important;min-height:52px!important;padding:12px 19px!important;background:#168b52!important;color:#fff!important;border:2px solid #fff!important;border-radius:999px!important;box-shadow:0 8px 26px #0004!important;font:700 16px/1.2 Arial,sans-serif!important;text-decoration:none!important;white-space:nowrap!important}';
+      document.head.appendChild(estilo);
     }
     const pendientes = new Set(); let programado = false;
     const observador = new MutationObserver(registros => {
