@@ -39,3 +39,10 @@ Optimizar diseño premium, SEO, catálogo, conversión y despliegue de https://g
 
 ## Regla de reanudación
 Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flotante y el diseño premium. Registrar commits, pruebas, bloqueos y siguiente tarea tras cada sesión.
+
+## Verificación adicional — 2026-11-02
+- Consulta pública de la portada muestra todavía el párrafo anterior: "También coordinamos las condiciones y la fecha de entrega para cada pedido".
+- GitHub `main` tiene la redacción corregida, sin ese párrafo.
+- Se añadió `<meta name="gp-build" content="github-main-20261102-deploy-check">` en `index.html` (commit `32b65b0`) para identificar sin ambigüedad el despliegue nuevo en el HTML de producción.
+- Comprobar en `https://guanaprints.com/` si aparece el meta `gp-build`. Si falta tras completar Cloudflare Pages, revisar proyecto, rama, dominio y caché. No confundir el HTML del sitio con el contenido de GitHub.
+- Consulta pública de `/buscar/?tipo=relojes` no fue accesible mediante la herramienta web; falta prueba interactiva real.
