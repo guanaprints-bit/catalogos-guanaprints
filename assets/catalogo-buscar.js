@@ -28,7 +28,7 @@
 
  const pageSize=12;let limit=pageSize,items=[...list.querySelectorAll('[data-search]')];
  // Filtros rápidos por intención; complementan el selector de categoría existente.
- const pageCategory=location.pathname.startsWith('/bodas/')?'bodas':location.pathname.startsWith('/15-anos/')?'15-anos':'';
+ const pageCategory=box.dataset.catalogScope||((location.pathname.replace(/\/+$/,'')==='/bodas')?'bodas':(location.pathname.replace(/\/+$/,'')==='/15-anos')?'15-anos':'');
  const shortcuts=pageCategory
   ? [['Todos','']]
   : [['Todos',''],['Relojes','relojes'],['Bodas','bodas'],['15 años','15-anos'],['Música','musica'],['Deportes','deportes'],['El Salvador','el-salvador']];
