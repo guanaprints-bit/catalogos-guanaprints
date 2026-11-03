@@ -64,6 +64,10 @@ jobs:
           if errores: raise SystemExit('\n'.join(errores[:30]))
           print(f'OK: {len(fichas)} fichas con recursos vigentes')
           PY
+      - name: Diagnosticar publicación del dominio (sin bloquear CI)
+        if: always()
+        continue-on-error: true
+        run: python scripts/verificar_publicacion.py
       - name: Registrar diferencias generadas
         run: |
           git status --short > cambios-generados.txt
