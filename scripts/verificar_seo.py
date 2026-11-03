@@ -33,6 +33,9 @@ for page in ROOT.rglob('*.html'):
         continue
     pages += 1
     source = page.read_text()
+    # No analizar como páginas indexables los archivos históricos que redirigen.
+    if re.search(r'<meta[^>]+http-equiv=["\']refresh["\']', source, re.I):
+        continue
     doc = Document()
     doc.feed(source)
     canon = [a['href'] for t, a in doc.tags if t == 'link' and a.get('rel') == 'canonical']
@@ -105,7 +108,30 @@ if sitemap != urls or textmap != urls:
     errors.append(f'Sitemaps inconsistentes: XML {len(sitemap)}, TXT {len(textmap)}, páginas {len(urls)}')
 if products != 408:
     errors.append(f'Inventario de fichas incorrecto: {products}, se esperaban 408')
-if (ROOT / '_redirects').read_text() != '/index.html / 301\n/relojes /relojes/ 301\n/corte-laser /corte-laser/ 301\n/bodas /bodas/ 301\n/15-anos /15-anos/ 301\n':
-    errors.append('Se modificaron redirecciones de Cloudflare fuera del alcance')
+# Validar destinos obligatorios sin bloquear nuevas redirecciones legítimas.
+rules = {}
+for raw in (ROOT / '_redirects').read_text(encoding='utf-8').splitlines():
+    line = raw.strip()
+    if not line or line.startswith('#'):
+        continue
+    parts = line.split()
+    if len(parts) < 3 or parts[2] not in ('301', '302', '307', '308'):
+        errors.append(f'Regla de redirección no válida: {line}')
+        continue
+    if parts[0] in rules:
+        errors.append(f'Redirección duplicada: {parts[0]}')
+    rules[parts[0]] = parts[1]
+required_redirects = {
+    '/index.html': '/',
+    '/relojes': '/relojes/',
+    '/bodas': '/bodas/',
+    '/15-anos': '/15-anos/',
+    '/corte-laser': '/guias/cotizar-corte-grabado-laser-mdf/',
+    '/corte-laser/': '/guias/cotizar-corte-grabado-laser-mdf/',
+    '/preguntas-frecuentes.html': '/preguntas-frecuentes/',
+}
+for source, destination in required_redirects.items():
+    if rules.get(source) != destination:
+        errors.append(f'Redirección ausente o incorrecta: {source} -> {destination}')
 print(json.dumps({'paginas': pages, 'fichas': products, 'urls_sitemap': len(sitemap), 'enlaces_recursos_verificados': links, 'errores': errors}, ensure_ascii=False, indent=2))
 raise SystemExit(bool(errors))

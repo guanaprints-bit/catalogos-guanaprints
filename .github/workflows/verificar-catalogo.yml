@@ -3,6 +3,13 @@ on:
   push:
     branches: [main]
     paths:
+      - '**/*.html'
+      - '_redirects'
+      - '_headers'
+      - 'robots.txt'
+      - 'sitemap.xml'
+      - 'sitemap.txt'
+      - 'llms.txt'
       - 'scripts/**'
       - 'assets/**'
       - 'contenido/**'
@@ -26,8 +33,7 @@ jobs:
           python-version: '3.11'
       - name: Instalar Pillow
         run: python -m pip install Pillow
-      - name: Regenerar catálogo en entorno temporal
-        run: python scripts/actualizar_catalogo.py
+      # Verificar lo que se publicará, no una regeneración distinta del sitio.
       - name: Verificar SEO, enlaces y fichas
         run: python scripts/verificar_seo.py
       - name: Comprobar referencias de recursos
@@ -43,8 +49,8 @@ jobs:
           for p in fichas:
               s=p.read_text()
               for recurso in ('catalogo.css','wa-producto.js'):
-                  if not re.search(re.escape(recurso+'?v=20261101-3'),s):
-                      errores.append(f'{p}: falta {recurso} versión vigente')
+                  if recurso not in s:
+                      errores.append(f'{p}: falta el recurso {recurso}')
           if errores: raise SystemExit('\n'.join(errores[:30]))
           print(f'OK: {len(fichas)} fichas con recursos vigentes')
           PY

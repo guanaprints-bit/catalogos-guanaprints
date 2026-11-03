@@ -102,6 +102,8 @@
     }
     const pendientes = new Set(); let programado = false;
     const observador = new MutationObserver(registros => {
+      // Reparar eliminación accidental del botón, incluso si se cargó JS antiguo desde caché.
+      if (!enlace.isConnected) document.body.appendChild(enlace);
       registros.forEach(registro => {
         // Incluye cambios de precio, nombre o código de una tarjeta existente.
         const target = registro.target.nodeType === Node.ELEMENT_NODE ? registro.target : registro.target.parentElement;
