@@ -90,3 +90,22 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - Se registraron las normas de rendimiento en `AGENTS.md` (commit `eb146cb`).
 - **No se ejecutó Lighthouse ni una prueba visual de navegador contra el despliegue de Cloudflare Pages**: no se afirma mejora cuantitativa de Core Web Vitals ni visibilidad de la última versión en el dominio.
 - Pendiente externo prioritario: comparar el commit de producción en Cloudflare Pages con `main`; comprobar versiones de JavaScript, redirección desde `www`, buscador y botón WhatsApp en móviles.
+
+## Auditoría real del dominio y navegador — continuidad del 2 de noviembre de 2026
+
+### Navegación arreglada
+- Portada `fafb679`: acceso directo a `/invitaciones/` en el menú.
+- Páginas informativas `d55c3e4`, catálogos principales `9d5b8dc` y FAQ/pedidos/guías/404 `a420adc`: menús coherentes con categorías vigentes, sin presentar «Corte láser» como una categoría de productos; se conserva su guía de cotización.
+- `e5d08e4`: verificador SEO comprueba accesos a otras invitaciones en 15 páginas clave; prueba CI aprobada.
+
+### Diagnóstico real del dominio
+- `scripts/verificar_publicacion.py` `3cd8150`, integrado en GitHub Actions por `a3b80cf`, y ampliado por `03070e1`.
+- Verificación desde runner externo: portada, `/invitaciones/`, `/buscar/`, `robots.txt`, `sitemap.xml` y el JS de búsqueda respondieron HTTP 200 y pasaron los controles de contenido. El sitemap público coincide con el local.
+- También se verificó que las rutas antiguas `/corte-laser/`, `/product-category/invitaciones/`, `/product/lago-de-coatepeque/` y `/product/el-salvador/` conducen a las rutas vigentes previstas. El código actual comprueba destino final; **no comprueba todavía el código intermedio 301**.
+- **Bloqueo real confirmado:** `https://www.guanaprints.com/` devuelve HTTP 200 y conserva el host `www`, en lugar de redirigir a `https://guanaprints.com/`. Se necesita una Redirect Rule en Cloudflare para `http*://www.guanaprints.com/*` hacia `https://guanaprints.com/${2}`, código 301 y preservar query string. No se modificó Cloudflare.
+
+### Pruebas reales de Chrome
+- `scripts/verificar_navegador.py` `9df8cf4` e integración `a2cc917`: cuatro búsquedas aprobadas en el dominio público: filtro relojes 240, «Beatles» 6, código `INV15-69` 1 y búsqueda inexistente 0 con burbuja WhatsApp visible.
+- `scripts/verificar_movil.cjs` `67f747c` e integración `aeef4f5`: 18 pruebas aprobadas en Chrome con anchos 360, 390 y 480 px para Relojes, Bodas, 15 años, Invitaciones, Baby shower y Buscador. Verificadas una columna, ausencia de desbordamiento horizontal y botón flotante WhatsApp visible dentro de pantalla. Ejecución: `https://github.com/guanaprints-bit/catalogos-guanaprints/actions/runs/41588012152`.
+- Se trata de pruebas de laboratorio con Chrome, no de puntuaciones Lighthouse o datos reales de campo de Google.
+- Quedan pendientes: Redirect Rule de `www` en Cloudflare, Lighthouse/Core Web Vitals, Search Console (indexación individual y canónicas elegidas), Google Business Profile y evaluación visual editorial exhaustiva de fotografías.
