@@ -155,7 +155,16 @@ required_redirects = {
     '/corte-laser': '/guias/cotizar-corte-grabado-laser-mdf/',
     '/corte-laser/': '/guias/cotizar-corte-grabado-laser-mdf/',
     '/preguntas-frecuentes.html': '/preguntas-frecuentes/',
+    '/invitaciones': '/invitaciones/',
+    '/product-category/invitaciones/': '/invitaciones/',
+    '/product/lago-de-coatepeque/': '/relojes/modelos/lago-de-coatepeque-panoramico-esv-030',
+    '/product/el-salvador/': '/relojes/el-salvador/',
+    '/product/el-salvador-2/': '/relojes/el-salvador/',
+    '/product/el-salvador-5/': '/relojes/el-salvador/',
 }
+for source, destination in rules.items():
+    if destination.startswith('/') and '*' not in destination and not target(BASE + destination):
+        errors.append(f'Redirección con destino inexistente: {source} -> {destination}')
 for source, destination in required_redirects.items():
     if rules.get(source) != destination:
         errors.append(f'Redirección ausente o incorrecta: {source} -> {destination}')
