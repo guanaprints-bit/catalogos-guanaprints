@@ -16,7 +16,8 @@ Los siguientes catálogos se pueden añadir como nuevas carpetas en la raíz. Pu
 - Relojes: `relojes/`, con nueve categorías y 240 fichas individuales en `relojes/modelos/`.
 - Bodas: `bodas/`, con 84 modelos.
 - Quince años: `15-anos/`, con 66 modelos.
-- Corte láser: `corte-laser/`, con galería de piezas del catálogo.
+- Otras invitaciones: `invitaciones/` con baby shower (8), primera comunión (3), cumpleaños (1) y aniversarios (1).
+- Corte láser: categoría retirada; consultar `guias/cotizar-corte-grabado-laser-mdf/`.
 
 Todos los pedidos se coordinan por WhatsApp. No hay carrito ni pago en la web.
 En teléfonos se muestra siempre un solo producto por fila.
@@ -29,5 +30,5 @@ En teléfonos se muestra siempre un solo producto por fila.
 4. Ejecutar `python scripts/optimizar_seo.py` y después `python scripts/mejorar_descubrimiento.py` para conservar metadatos, guías, datos estructurados y navegación.
 5. Ejecutar `python scripts/verificar_seo.py` y revisar fichas, búsqueda, enlaces, precios y diseño móvil antes de publicar.
 
-El generador sincroniza las páginas, los feeds, el inventario y el sitemap.
+El generador sincroniza las páginas existentes y los feeds según la categoría definida en el inventario. Las 17 fichas reclasificadas y los catálogos de cuatro nuevas ocasiones están versionados en sus rutas propias; revisar su vigencia antes de regenerar.
 Las URLs anteriores de categorías y sus anclas siguen funcionando.

@@ -44,9 +44,12 @@
 
 ## Auditoría de clasificación de invitaciones (2026-11-02)
 
-- Conservar fuera de las colecciones de quince años y del buscador los modelos INV15-69 (primera comunión), INV15-70 (boda) e INV15-175 (baby shower), identificados en la revisión visual previa. No reasignar otros diseños sin revisar su imagen real.
-- La exclusión debe mantenerse en los archivos fuente, buscador, listados, feeds de Meta y sitemap. Guardar las fotos originales y dejar las fichas históricas como `noindex`, sin ofrecerlas como productos activos.
-- Al regenerar, no reintroducir BOD-144 ni estos tres modelos en categorías incorrectas. Actualizar las cantidades visibles y verificar GitHub Actions antes de afirmar que Cloudflare publicó el cambio.
+- Los modelos INV15-69 (primera comunión), INV15-70 (boda) e INV15-175 (baby shower) **deben figurar en el buscador y en la categoría correcta**, nunca como quince años.
+- Los 17 modelos reclasificados permanecen activos con nuevas fichas canónicas y fotos originales; sus URL históricas redirigen por HTML y se excluyen del sitemap.
+- Solo se excluyen del inventario activo BOD-144 y los cuatro duplicados BOD-192, BOD-300, INV15-193, INV15-55.
+- Mantener los 403 productos activos y comprobar cantidades en las seis categorías; nunca restaurar categorías erróneas al regenerar.
+- Los cambios en GitHub no acreditan por sí mismos que Cloudflare Pages los esté sirviendo públicamente.
+
 
 ## Clasificación visual final de invitaciones
 
