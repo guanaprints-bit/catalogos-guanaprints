@@ -41,3 +41,9 @@
 - El buscador público tiene 407 diseños (240 relojes + 93 bodas + 74 quince años). No reintroducir BOD-144 al regenerar.
 - La categoría /corte-laser/ fue retirada. Enlazar a /guias/cotizar-corte-grabado-laser-mdf/ en navegación y conocimiento; conservar redirección 301.
 - Jamás eliminar con JavaScript el enlace flotante de WhatsApp. Los cambios de código en GitHub no prueban que Cloudflare los haya desplegado.
+
+## Auditoría de clasificación de invitaciones (2026-11-02)
+
+- Conservar fuera de las colecciones de quince años y del buscador los modelos INV15-69 e INV15-70 (primera comunión) e INV15-175 (baby shower), identificados en la revisión visual previa. No reasignar otros diseños sin revisar su imagen real.
+- La exclusión debe mantenerse en los archivos fuente, buscador, listados, feeds de Meta y sitemap. Guardar las fotos originales y dejar las fichas históricas como `noindex`, sin ofrecerlas como productos activos.
+- Al regenerar, no reintroducir BOD-144 ni estos tres modelos en categorías incorrectas. Actualizar las cantidades visibles y verificar GitHub Actions antes de afirmar que Cloudflare publicó el cambio.
