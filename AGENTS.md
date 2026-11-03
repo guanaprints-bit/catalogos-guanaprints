@@ -73,3 +73,11 @@
 - Conservar la regla `Cache-Control: no-cache, must-revalidate` para `/assets/catalogo-buscar.js` mientras su URL con versión no se actualice al modificar el script.
 - `scripts/verificar_clasificacion.py` protege la asignación de categorías, el inventario y los atributos de carga de imágenes de estas 22 páginas.
 - Las mejoras técnicas no acreditan por sí mismas un resultado específico de Lighthouse, Core Web Vitals o una publicación en Cloudflare.
+
+## Verificación de producción y teléfonos (noviembre de 2026)
+
+- El código aprobado en GitHub, GitHub Pages y Cloudflare Pages son estados diferentes: no afirmar que la web está desplegada por haber pasado CI.
+- `python scripts/verificar_publicacion.py` comprueba por HTTP las rutas públicas, las redirecciones históricas, el buscador, el sitemap y el problema de `www`.
+- `python scripts/verificar_navegador.py` realiza pruebas en Chrome de los resultados de búsqueda y la burbuja WhatsApp; `node scripts/verificar_movil.cjs` prueba ancho 360/390/480 px, una tarjeta por fila, ausencia de desbordamiento y WhatsApp visible.
+- A 2 de noviembre de 2026, `www.guanaprints.com` respondía 200 sin redirigir al dominio raíz. No modificar esta configuración fuera de Cloudflare; la corrección definitiva requiere una regla 301 a `https://guanaprints.com/` que preserve rutas y parámetros.
+- Mantener enlace directo a `/invitaciones/` en la navegación de las 15 páginas principales y no volver a presentar la antigua categoría `/corte-laser/`; su servicio se informa mediante la guía vigente.
