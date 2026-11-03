@@ -4,10 +4,11 @@
 /corte-laser/ /guias/cotizar-corte-grabado-laser-mdf/ 301
 /bodas /bodas/ 301
 /15-anos /15-anos/ 301
+/invitaciones /invitaciones/ 301
 
 # Redirecciones de categorias del catalogo antiguo (WooCommerce).
 /product-category/relojes/ /relojes/ 301
-/product-category/invitaciones/ /bodas/ 301
+/product-category/invitaciones/ /invitaciones/ 301
 /product-category/invitaciones/invitaciones-boda/ /bodas/ 301
 /product-category/invitaciones/invitaciones-15-anos/ /15-anos/ 301
 /product-category/todos-los-productos/ / 301
