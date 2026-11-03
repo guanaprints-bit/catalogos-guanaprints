@@ -46,3 +46,15 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - Se añadió `<meta name="gp-build" content="github-main-20261102-deploy-check">` en `index.html` (commit `32b65b0`) para identificar sin ambigüedad el despliegue nuevo en el HTML de producción.
 - Comprobar en `https://guanaprints.com/` si aparece el meta `gp-build`. Si falta tras completar Cloudflare Pages, revisar proyecto, rama, dominio y caché. No confundir el HTML del sitio con el contenido de GitHub.
 - Consulta pública de `/buscar/?tipo=relojes` no fue accesible mediante la herramienta web; falta prueba interactiva real.
+
+## Reanudación de auditoría — 2 de noviembre de 2026, noche
+
+- Revisado `main` y cotejado con consultas públicas de `guanaprints.com`. Inventario final en GitHub: 403 productos (240 relojes, 84 bodas, 66 quince años y 13 otras celebraciones). La portada pública ya muestra 84 y 66.
+- GitHub Actions: `23bc9d0` y `1f9c02d` completaron las verificaciones de catálogo satisfactoriamente.
+- Se corrigió gramática «1 invitación» en la página `invitaciones/index.html`, en lugar de «1 invitaciones» (commit `fb01b997`).
+- Se sustituyó el emoji del WhatsApp flotante por SVG accesible en las cinco páginas nuevas de invitaciones, con commits desde `fb01b997` hasta `1f9c02dd`.
+- Se amplió `scripts/verificar_clasificacion.py` para impedir regresiones de gramática, SVG y botón flotante (commit `223dd2fc`). CI de ese commit concluyó correctamente.
+- Se documentaron las normas permanentes de interfaz en `AGENTS.md` (commit `4b600d7f`).
+- **Despliegue pendiente de verificar**: las consultas web públicas de `/invitaciones/` y `/invitaciones/cumpleanos/` aún mostraron el texto anterior y el emoji. La consulta pública de `/buscar/` aún presentó 404 diseños, mientras el HTML actual en `main` contiene 403 y excluye `INV15-55`. Puede ser despliegue atrasado o caché del servicio de consulta; no afirmar que el servidor definitivo sigue erróneo sin comprobación adicional.
+- **Pruebas no acreditadas**: la resolución HTTP de `www.guanaprints.com` como 301 a `https://guanaprints.com/`, la ejecución real de búsqueda con JavaScript y el botón flotante en todos los móviles. El servicio de consulta no permitió validar esas interacciones.
+- Próxima comprobación de producción: inspeccionar en un navegador real `/invitaciones/`, `/buscar/` y búsqueda sin resultados; abrir Cloudflare Pages para comparar el último despliegue de producción con `main` cuando esté disponible. No alterar DNS ni crear afirmaciones de indexación.
