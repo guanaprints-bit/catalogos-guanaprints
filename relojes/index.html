@@ -5,7 +5,7 @@
  const status=document.getElementById('gp-filter-feedback');
  if(!input||!grid||!status)return;
  const cards=Array.from(grid.children);
- const norm=s=>String(s||'').normalize('NFD').replace(/[\\u0300-\\u036f]/g,'').toLowerCase();
+ const norm=s=>String(s||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'').toLowerCase();
  function update(){
   const query=norm(input.value.trim());
   let visible=0;
