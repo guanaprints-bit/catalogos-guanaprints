@@ -96,5 +96,22 @@ for rel in (
   errors.append(f"Botón WhatsApp accesible sin icono SVG: {rel}")
  if "1 invitaciones" in markup:
   errors.append(f"Pluralización incorrecta: {rel}")
+# Las 17 fichas reclasificadas deben funcionar aun sin JavaScript.
+for code in mapping:
+ item=byid.get(code)
+ if not item:
+  continue
+ page=ROOT/urlsplit(item["link"]).path.lstrip("/")/"index.html"
+ if not page.is_file():
+  continue
+ markup=page.read_text(encoding="utf-8")
+ if "💬 WhatsApp" in markup or 'class="gp-wa-static floating-whatsapp"' not in markup:
+  errors.append(f"WhatsApp flotante antiguo o ausente: {code}")
+ if '<svg aria-hidden="true"' not in markup or '<span>WhatsApp</span>' not in markup:
+  errors.append(f"WhatsApp sin SVG accesible en ficha reclasificada: {code}")
+# Corregir enlaces del antiguo comercio sin enviar invitaciones generales sólo a bodas.
+redirects=(ROOT/"_redirects").read_text(encoding="utf-8")
+if "/product-category/invitaciones/ /invitaciones/ 301" not in redirects:
+ errors.append("Redirección histórica de invitaciones a la categoría general incorrecta")
 print(json.dumps({"productos":len(products),"por_categoria":{k:len(v) for k,v in groups.items()},"feeds":list(FEEDS),"errores":errors},ensure_ascii=False,indent=2))
 sys.exit(bool(errors))
