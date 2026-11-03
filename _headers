@@ -2,3 +2,9 @@
   X-Content-Type-Options: nosniff
   Referrer-Policy: strict-origin-when-cross-origin
   X-Frame-Options: SAMEORIGIN
+
+# Evitar que scripts de contacto/favoritos queden obsoletos en los navegadores.
+/assets/guardados.js
+  Cache-Control: no-cache, must-revalidate
+/assets/wa-producto.js
+  Cache-Control: no-cache, must-revalidate
