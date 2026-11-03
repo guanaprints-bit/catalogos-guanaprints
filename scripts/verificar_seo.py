@@ -107,7 +107,7 @@ textmap = set((ROOT / 'sitemap.txt').read_text().splitlines())
 if sitemap != urls or textmap != urls:
     errors.append(f'Sitemaps inconsistentes: XML {len(sitemap)}, TXT {len(textmap)}, páginas {len(urls)}')
 search_markup = (ROOT / 'buscar/index.html').read_text(encoding='utf-8')
-if len(re.findall(r'<article\\b[^>]*class="card"', search_markup)) != 407:
+if search_markup.count('<article class="card"') != 407:
     errors.append('Buscador: se esperan 407 tarjetas visibles; BOD-144 está excluido')
 if '/bodas/144' in search_markup or '/bodas/144' in (ROOT / 'bodas/index.html').read_text(encoding='utf-8'):
     errors.append('BOD-144 reapareció en los catálogos públicos')
