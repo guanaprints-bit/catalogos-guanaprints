@@ -63,3 +63,13 @@
 - No usar emojis decorativos en botones de la web: usar SVG accesibles y coherentes con el estilo premium.
 - Contadores en español con concordancia: «1 invitación» y «2 invitaciones».
 - Preservar el botón flotante visible en cada página de invitaciones; verificarlo en `scripts/verificar_clasificacion.py`.
+
+## Rendimiento móvil del catálogo y control de regresiones (2026-11-02)
+
+- Conservar `width` y `height` en todas las fotografías de las cinco páginas de celebraciones y las 17 fichas reclasificadas, manteniendo su proporción y sin recortar los productos.
+- La primera imagen visible de una categoría debe usar `loading="eager"` y `fetchpriority="high"`; las demás, `loading="lazy"`. Las fotos principales de las 17 fichas reclasificadas deben tener prioridad alta.
+- No añadir `loading="eager"` a todas las 403 fotografías del buscador.
+- Mantener el índice normalizado de búsqueda en memoria, sin volver a procesar los textos de los 403 productos por cada tecla.
+- Conservar la regla `Cache-Control: no-cache, must-revalidate` para `/assets/catalogo-buscar.js` mientras su URL con versión no se actualice al modificar el script.
+- `scripts/verificar_clasificacion.py` protege la asignación de categorías, el inventario y los atributos de carga de imágenes de estas 22 páginas.
+- Las mejoras técnicas no acreditan por sí mismas un resultado específico de Lighthouse, Core Web Vitals o una publicación en Cloudflare.
