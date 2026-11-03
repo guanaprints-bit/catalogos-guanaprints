@@ -13,7 +13,21 @@ BASE='https://guanaprints.com/'
 PHONE='50372892625'
 E=lambda s:html.escape(str(s),quote=True)
 # Exclusiones comprobadas; fotografías históricas intactas.
-EXCLUDED_PRODUCT_IDS=frozenset({'BOD-144','INV15-69','INV15-70','INV15-175'})
+EXCLUDED_PRODUCT_IDS=frozenset({'BOD-144','BOD-192','BOD-300','INV15-193','INV15-55'})
+EVENT_REASSIGN={
+ 'BOD-17':'baby-shower','BOD-24':'baby-shower','BOD-46':'baby-shower',
+ 'BOD-172':'baby-shower','BOD-174':'baby-shower','BOD-175':'baby-shower','BOD-180':'baby-shower',
+ 'INV15-175':'baby-shower','BOD-69':'primera-comunion','BOD-179':'primera-comunion',
+ 'INV15-69':'primera-comunion','BOD-37':'cumpleanos','BOD-32':'aniversarios',
+ 'INV15-19':'bodas','INV15-70':'bodas','INV15-170':'bodas','INV15-185':'bodas'
+}
+HISTORICAL_IDS=frozenset(EXCLUDED_PRODUCT_IDS | EVENT_REASSIGN.keys())
+def event_category(e):
+ code=e['id']
+ if code in EVENT_REASSIGN:return EVENT_REASSIGN[code]
+ if code.startswith('BOD-'):return 'bodas'
+ if code.startswith('INV15-'):return '15-anos'
+ return None
 products=[p for p in json.loads((ROOT/'contenido/copys-productos.json').read_text()) if p['id'] not in EXCLUDED_PRODUCT_IDS]
 manifest=json.loads((ROOT/'relojes/manifest.json').read_text())
 byid={p['id']:p for p in products}
@@ -62,7 +76,7 @@ def steps():
  return '<section class="section"><h2>De tu idea a su regalo favorito</h2><div class="steps"><div class="step"><span>01</span><strong>Elige un diseño</strong>Guarda el código o abre su ficha. También puedes contarnos una idea propia.</div><div class="step"><span>02</span><strong>Cuéntanos para quién es</strong>Envía por WhatsApp el nombre, la foto, la dedicatoria o el logotipo que deseas incluir.</div><div class="step"><span>03</span><strong>Coordinamos tu pedido</strong>Revisamos contigo la personalización, el precio final y la fecha de entrega antes de producir.</div></div></section>'
 def editorial_tip(e,listing=False):
  if not e.get('tip_text'):return ''
- kind='Consejo para tus 15 años' if e['id'].startswith('INV15-') else 'Consejo para tu boda'
+ kind='Consejo para tus 15 años' if event_category(e)=='15-anos' else 'Consejo para tu boda'
  tag='details' if listing else 'section'
  opening=f'<{tag} class="event-tip" data-event-tip="{E(e["id"])}">'
  heading=f'<summary>{E(kind)}: {E(e["tip_title"])}</summary>' if listing else f'<p class="tip-kicker">{E(kind)}</p><h2>{E(e["tip_title"])}</h2>'
@@ -72,7 +86,7 @@ def editorial_tip(e,listing=False):
 
 def card(e,path):
  code=e['id'];isclock=code in clocks;price='$20' if isclock else '$1.50 por pieza'
- kind=clocks[code]['slug'] if isclock else 'bodas' if code.startswith('BOD-') else '15-anos'
+ kind=clocks[code]['slug'] if isclock else event_category(e)
  summary=e['copy'].split(' Consulta la personalización')[0].split(' Personalizamos los nombres')[0].split(' Hagamos que lleve tu nombre')[0]
  text=wa('Hola Guanaprints, me interesa '+e['title']+'. '+e['link']+' Quiero personalizarlo con: __. Mi municipio es: __.')
  result=f'<article class="card" id="{code.lower()}" data-category="{E(kind)}" data-search="{E(e["title"]+" "+e["hashtags"]+" "+code)}"><a class="product-link" href="{E(rel(e["link"],path))}">{image(e["image"],path,e["title"])}<div class="card-content"><span class="code">{E(code)}</span><h2>{E(e["title"].rsplit(" · ",1)[0])}</h2></div></a><div class="card-content"><p class="price">{price}</p><p class="summary-copy">{E(summary)}</p><a class="secondary" href="{E(rel(e["link"],path))}">Ver diseño y personalización</a><a class="button" href="{E(text)}">Lo quiero · WhatsApp</a></div></article>'
@@ -80,7 +94,9 @@ def card(e,path):
 def search_controls(placeholder='Artista, equipo, personaje o código…',filters=False):
  options=''
  if filters:
-  labels={p['slug']:p['category'] for p in clocks.values()};labels.update(bodas='Invitaciones de boda',**{'15-anos':'Invitaciones de 15 años'})
+  labels={p['slug']:p['category'] for p in clocks.values()};labels.update(bodas='Invitaciones de boda',**{'15-anos':'Invitaciones de 15 años',
+ 'baby-shower':'Baby shower','primera-comunion':'Primera comunión',
+ 'cumpleanos':'Cumpleaños','aniversarios':'Aniversarios'})
   options='<label>Categoría<select><option value="">Todas las categorías</option>'+''.join(f'<option value="{E(k)}">{E(v)}</option>' for k,v in labels.items())+'</select></label>'
  return f'<form class="search-box" data-product-search role="search"><div class="search-fields"><label>Encuentra tu diseño<input type="search" placeholder="{E(placeholder)}" autocomplete="off" aria-controls="productos"></label>{options}<button type="button" data-clear-search>Limpiar búsqueda</button></div><p class="feedback" data-search-feedback role="status" aria-live="polite"></p></form>'
 def results(items,path):
@@ -108,7 +124,7 @@ for key,label in categories.items():
  schema={'@context':'https://schema.org','@type':'CollectionPage','name':'Relojes de '+label,'url':BASE+'relojes/'+key+'/','mainEntity':{'@type':'ItemList','numberOfItems':len(items),'itemListElement':[{'@type':'ListItem','position':i+1,'name':e['title'],'url':e['link']} for i,e in enumerate(items)]}}
  page(path,'Relojes de '+label+' personalizados en El Salvador','Encuentra relojes de '+label.lower()+': diseños personalizados en MDF de 29 cm por $20. Envío gratis a todo El Salvador y pedidos por WhatsApp.',content,items[0]['image'],schema,True)
 for kind,prefix,label in [('bodas','BOD-','Invitaciones de boda'),('15-anos','INV15-','Invitaciones de 15 años')]:
- path=kind+'/index.html';items=[e for e in products if e['id'].startswith(prefix)]
+ path=kind+'/index.html';items=[e for e in products if event_category(e)==kind]
  content='<p class="eyebrow">El primer recuerdo de tu celebración</p><h1>'+label+'</h1><p class="intro">Elige un modelo que hable de tu celebración. Personalizamos nombres y datos del evento; consulta colores, acabados y cantidades. Precio publicado: $1.50 por pieza.</p>'+search_controls('Flores, mariposas, color o código…')+results(items,path)
  page(path,label+' personalizadas en El Salvador','Descubre '+str(len(items))+' modelos de '+label.lower()+' con personalización. Consulta tu pedido por WhatsApp. Envíos gratis a todo El Salvador.',content,items[0]['image'],search=True)
 path='buscar/index.html'
@@ -145,7 +161,7 @@ schema={'@context':'https://schema.org','@graph':[{'@type':'Organization','@id':
 page(path,'Regalos personalizados y corte láser en El Salvador','Regalos que conectan con lo que amas: relojes de 29 cm, invitaciones para bodas y quince años, y corte láser en MDF. Santa Ana. Envío gratis nacional.',content,hero['image'],schema)
 
 # Feeds y fuentes apuntan a las fichas nuevas; no cambian IDs ni precios.
-for path in [ROOT/'Catalogo_bodas_Meta.csv',ROOT/'Catalogo_bodas_Meta_v2.csv',ROOT/'Catalogo_bodas_Meta_optimizado.csv',ROOT/'Catalogo_invitaciones_Meta.csv',ROOT/'15-anos/Catalogo_15_anos_Meta.csv',ROOT/'relojes/catalogo-meta.csv']:
+for path in [ROOT/'Catalogo_bodas_Meta.csv',ROOT/'Catalogo_bodas_Meta_v2.csv',ROOT/'Catalogo_bodas_Meta_optimizado.csv',ROOT/'Catalogo_invitaciones_Meta.csv',ROOT/'15-anos/Catalogo_15_anos_Meta.csv',ROOT/'invitaciones/Catalogo_otros_eventos_Meta.csv',ROOT/'relojes/catalogo-meta.csv']:
  with path.open(encoding='utf-8-sig') as f:rows=[row for row in csv.DictReader(f) if row['id'] not in EXCLUDED_PRODUCT_IDS]
  for row in rows:
   entry=byid[row['id']];row['link']=entry['link']
@@ -163,7 +179,7 @@ for p in (ROOT/'bodas-optimizado').glob('*.html'):
 # Completar precio estructurado de invitaciones, reflejando el precio publicado.
 for group in ['bodas','15-anos/modelos']:
  for p in (ROOT/group).glob('*.html'):
-  if p.stem=='index' or (('BOD-' if group=='bodas' else 'INV15-')+p.stem) in EXCLUDED_PRODUCT_IDS:continue
+  if p.stem=='index' or (('BOD-' if group=='bodas' else 'INV15-')+p.stem) in HISTORICAL_IDS:continue
   s=p.read_text()
   def complete(m):
    d=json.loads(m[1])

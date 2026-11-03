@@ -107,19 +107,29 @@ textmap = set((ROOT / 'sitemap.txt').read_text().splitlines())
 if sitemap != urls or textmap != urls:
     errors.append(f'Sitemaps inconsistentes: XML {len(sitemap)}, TXT {len(textmap)}, páginas {len(urls)}')
 search_markup = (ROOT / 'buscar/index.html').read_text(encoding='utf-8')
-if search_markup.count('<article class="card"') != 404:
-    errors.append('Buscador: se esperan 404 tarjetas: excluidos BOD-144 y tres INV15')
+if search_markup.count('<article class="card"') != 403:
+    errors.append('Buscador: se esperan 403 tarjetas tras reclasificar 17 diseños y retirar 4 duplicados')
 if '/bodas/144' in search_markup or '/bodas/144' in (ROOT / 'bodas/index.html').read_text(encoding='utf-8'):
     errors.append('BOD-144 reapareció en los catálogos públicos')
-for retired in ('/bodas/144','/15-anos/modelos/69','/15-anos/modelos/70','/15-anos/modelos/175'):
+for retired in ["/bodas/144","/bodas/17","/bodas/24","/bodas/46","/bodas/172","/bodas/174","/bodas/175","/bodas/180","/bodas/69","/bodas/179","/bodas/37","/bodas/32","/bodas/192","/bodas/300","/15-anos/modelos/19","/15-anos/modelos/69","/15-anos/modelos/70","/15-anos/modelos/170","/15-anos/modelos/175","/15-anos/modelos/185","/15-anos/modelos/193","/15-anos/modelos/55"]:
     if retired in search_markup or (retired.startswith('/15-anos/') and retired in (ROOT / '15-anos/index.html').read_text(encoding='utf-8')):
         errors.append(f'Modelo archivado continúa visible: {retired}')
     if BASE + retired in sitemap:
         errors.append(f'Modelo archivado sigue en sitemap: {retired}')
+for cat,expected in (('bodas',84),('15-anos',66)):
+    listing=(ROOT / cat / 'index.html').read_text(encoding='utf-8')
+    found=listing.count('<article class="card"')
+    if found!=expected:
+        errors.append(f'Categoría {cat}: {found} tarjetas; se esperaban {expected}')
+for cat,expected in (('baby-shower',8),('primera-comunion',3),('cumpleanos',1),('aniversarios',1)):
+    listing=(ROOT / 'invitaciones' / cat / 'index.html').read_text(encoding='utf-8')
+    found=listing.count('<article class="card"')
+    if found!=expected:
+        errors.append(f'Categoría {cat}: {found} tarjetas; se esperaban {expected}')
 if BASE + '/bodas/144' in sitemap:
     errors.append('BOD-144 no debe estar en el sitemap')
-if products != 404:
-    errors.append(f'Inventario de fichas incorrecto: {products}, se esperaban 404')
+if products != 403:
+    errors.append(f'Inventario de fichas incorrecto: {products}, se esperaban 403')
 # Validar destinos obligatorios sin bloquear nuevas redirecciones legítimas.
 rules = {}
 for raw in (ROOT / '_redirects').read_text(encoding='utf-8').splitlines():

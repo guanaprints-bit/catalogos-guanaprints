@@ -1,7 +1,7 @@
 name: Verificar y preparar catálogo Guanaprints
 on:
   push:
-    branches: [main]
+    branches: [main, auditoria-21-invitaciones-20261102]
     paths:
       - '**/*.html'
       - '_redirects'
