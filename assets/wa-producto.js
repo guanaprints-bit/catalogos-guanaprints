@@ -13,9 +13,13 @@
   function obtenerDatos(caja) {
     const imagen = caja.querySelector('.product-photo img, img');
     const enlace = caja.querySelector('a.product-link, a.secondary[href$=".html"]');
+    const codigoVisible = texto(caja.querySelector('.code')).replace(/^Modelo\s*:?\s*/i, '');
+    // Algunas colecciones nuevas indican el modelo en la descripción y no usan .code.
+    const descripcion = texto(caja.querySelector('.card-content p, p'));
+    const codigoDescripcion = descripcion.match(/\b(?:BOD|INV15)-\d{1,4}\b/i)?.[0] || '';
     return {
       nombre:texto(caja.querySelector('h1, h2, h3')) || 'Producto Guanaprints',
-      modelo:texto(caja.querySelector('.code')).replace(/^Modelo\s*:?\s*/i, '') || 'Por confirmar',
+      modelo:codigoVisible || codigoDescripcion.toUpperCase() || 'Por confirmar',
       precio:texto(caja.querySelector('.price')) || 'Por cotizar',
       pagina:(caja.matches('.product') ? urlSegura(location.href.split('#')[0]) : urlSegura(enlace?.href)) || urlSegura(location.href.split('#')[0]),
       foto:urlSegura(imagen?.currentSrc || imagen?.src || imagen?.getAttribute('data-src'))
