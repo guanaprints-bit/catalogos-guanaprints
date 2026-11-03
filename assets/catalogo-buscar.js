@@ -57,9 +57,18 @@
  });
  // El catálogo utiliza categorías explícitas: únicamente bodas y 15 años no son relojes.
  const CLOCK_CATEGORIES=new Set(['barberia','colegios','deportes','el-salvador','musica','para-tu-bar','peliculas','religiosos','universidades']);
+ // Sinónimos útiles para pedidos por ocasión, sin mover productos entre categorías.
+ const SEARCH_ALIASES={
+  '15-anos':'quince quinceañera quinceañero quinceañeras quince años fiesta de quince quinceañero',
+  'bodas':'matrimonio casamiento boda nupcias',
+  'baby-shower':'baby shower bienvenida bebé nacimiento',
+  'primera-comunion':'primera comunión eucaristía religiosa',
+  'cumpleanos':'cumpleaños cumple infantil',
+  'aniversarios':'aniversario celebración de pareja'
+ };
  const matches=item=>{
   const words=normalize(input.value).split(/[^a-z0-9]+/).filter(Boolean);
-  const haystack=normalize(item.dataset.search),tokens=haystack.split(/[^a-z0-9]+/);
+  const haystack=normalize(item.dataset.search+' '+(SEARCH_ALIASES[item.dataset.category]||'')),tokens=haystack.split(/[^a-z0-9]+/);
   return words.every(w=>w.length<=3?tokens.includes(w):haystack.includes(w))&&(!select||!select.value||item.dataset.category===select.value)&&(quickValue!=='relojes'||CLOCK_CATEGORIES.has(item.dataset.category));
  };
  function render(){
