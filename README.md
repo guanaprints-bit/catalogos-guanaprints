@@ -14,7 +14,7 @@ Los siguientes catálogos se pueden añadir como nuevas carpetas en la raíz. Pu
 - Inicio visual: `index.html`.
 - Buscador de los 408 productos: `buscar/`.
 - Relojes: `relojes/`, con nueve categorías y 240 fichas individuales en `relojes/modelos/`.
-- Bodas: `bodas/`, con 94 modelos.
+- Bodas: `bodas/`, con 93 modelos.
 - Quince años: `15-anos/`, con 74 modelos.
 - Corte láser: `corte-laser/`, con galería de piezas del catálogo.
 

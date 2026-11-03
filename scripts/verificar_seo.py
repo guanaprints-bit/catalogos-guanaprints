@@ -106,6 +106,13 @@ sitemap = {e.text for e in ET.parse(ROOT / 'sitemap.xml').findall('{*}url/{*}loc
 textmap = set((ROOT / 'sitemap.txt').read_text().splitlines())
 if sitemap != urls or textmap != urls:
     errors.append(f'Sitemaps inconsistentes: XML {len(sitemap)}, TXT {len(textmap)}, páginas {len(urls)}')
+search_markup = (ROOT / 'buscar/index.html').read_text(encoding='utf-8')
+if len(re.findall(r'<article\\b[^>]*class="card"', search_markup)) != 407:
+    errors.append('Buscador: se esperan 407 tarjetas visibles; BOD-144 está excluido')
+if '/bodas/144' in search_markup or '/bodas/144' in (ROOT / 'bodas/index.html').read_text(encoding='utf-8'):
+    errors.append('BOD-144 reapareció en los catálogos públicos')
+if BASE + '/bodas/144' in sitemap:
+    errors.append('BOD-144 no debe estar en el sitemap')
 if products != 408:
     errors.append(f'Inventario de fichas incorrecto: {products}, se esperaban 408')
 # Validar destinos obligatorios sin bloquear nuevas redirecciones legítimas.

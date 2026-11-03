@@ -77,7 +77,7 @@
     {
       "id": "bodas",
       "nombre": "Invitaciones de boda",
-      "disenos": 94,
+      "disenos": 93,
       "url": "https://guanaprints.com/bodas/",
       "precio": "Confirmar según modelo y cantidad"
     },
@@ -91,7 +91,7 @@
     {
       "id": "corte-laser",
       "nombre": "Corte y grabado láser en MDF",
-      "url": "https://guanaprints.com/corte-laser/",
+      "url": "https://guanaprints.com/guias/cotizar-corte-grabado-laser-mdf/",
       "precio": "Cotizar con medidas, cantidad e idea"
     }
   ],
@@ -106,7 +106,7 @@
     "https://guanaprints.com/preguntas-frecuentes/",
     "https://guanaprints.com/pedidos-y-envios/"
   ],
-  "notas": "Los valores null son datos no confirmados. No inferirlos ni prometer disponibilidad. Los recuentos corresponden al catálogo revisado el 30 de octubre de 2026.",
+  "notas": "Los valores null no están confirmados. El catálogo público contiene 407 diseños; BOD-144 permanece excluido por indicación del propietario. La antigua categoría /corte-laser/ se retiró y su guía de cotización sigue disponible.",
   "guias": [
     {
       "titulo": "Cómo elegir un reloj personalizado: foto o diseño temático",

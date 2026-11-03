@@ -34,3 +34,10 @@
   a las fichas actuales. No sustituirlas por fragmentos `#` de categorías.
 - Mostrar fotografías o diseños existentes sin inventar fotos del taller,
   testimonios, horarios, dirección exacta ni condiciones comerciales.
+
+## Exclusiones y rutas retiradas (2 de noviembre de 2026)
+
+- BOD-144 es una invitación infantil excluida expresamente del catálogo de bodas y del buscador. Mantenerla fuera de ambos y fuera de la indexación pública; conservar el archivo histórico sin mostrarlo como oferta actual.
+- El buscador público tiene 407 diseños (240 relojes + 93 bodas + 74 quince años). No reintroducir BOD-144 al regenerar.
+- La categoría /corte-laser/ fue retirada. Enlazar a /guias/cotizar-corte-grabado-laser-mdf/ en navegación y conocimiento; conservar redirección 301.
+- Jamás eliminar con JavaScript el enlace flotante de WhatsApp. Los cambios de código en GitHub no prueban que Cloudflare los haya desplegado.
