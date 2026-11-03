@@ -96,7 +96,7 @@ for rel in (
   errors.append(f"Botón WhatsApp accesible sin icono SVG: {rel}")
  if "1 invitaciones" in markup:
   errors.append(f"Pluralización incorrecta: {rel}")
- photos=re.findall(r'<img\\b[^>]*>',markup)
+ photos=re.findall(r'<img\b[^>]*>',markup)
  expected_photos={"invitaciones/index.html":6,"invitaciones/baby-shower/index.html":8,"invitaciones/primera-comunion/index.html":3,"invitaciones/cumpleanos/index.html":1,"invitaciones/aniversarios/index.html":1}[rel]
  if len(photos)!=expected_photos:
   errors.append(f"Cantidad inesperada de fotos en {rel}: {len(photos)}")
@@ -121,7 +121,7 @@ for code in mapping:
   errors.append(f"WhatsApp flotante antiguo o ausente: {code}")
  if '<svg aria-hidden="true"' not in markup or '<span>WhatsApp</span>' not in markup:
   errors.append(f"WhatsApp sin SVG accesible en ficha reclasificada: {code}")
- photos=re.findall(r'<img\\b[^>]*>',markup)
+ photos=re.findall(r'<img\b[^>]*>',markup)
  if len(photos)!=1:
   errors.append(f"Ficha {code}: se esperaba una foto principal")
  else:
