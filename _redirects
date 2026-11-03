@@ -14,6 +14,14 @@
 /product-category/todos-los-productos/ / 301
 /product-category/todos-los-productos/page/* / 301
 
+# Productos de WooCommerce que siguen apareciendo en buscadores.
+# El antiguo diseño del lago se dirige a la ficha temática vigente.
+/product/lago-de-coatepeque/ /relojes/modelos/lago-de-coatepeque-panoramico-esv-030 301
+# Variaciones históricas de El Salvador: no se presupone un modelo exacto.
+/product/el-salvador/ /relojes/el-salvador/ 301
+/product/el-salvador-2/ /relojes/el-salvador/ 301
+/product/el-salvador-5/ /relojes/el-salvador/ 301
+
 # Direcciones historicas y sitemaps de la plataforma anterior.
 /preguntas-frecuentes.html /preguntas-frecuentes/ 301
 /bodas-optimizado/ /bodas/ 301
