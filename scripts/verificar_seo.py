@@ -168,5 +168,27 @@ for source, destination in rules.items():
 for source, destination in required_redirects.items():
     if rules.get(source) != destination:
         errors.append(f'Redirección ausente o incorrecta: {source} -> {destination}')
+# Navegación: los accesos a otras ocasiones deben llegar a su catálogo,
+# y el antiguo corte láser no debe parecer una categoría de productos.
+for relative in (
+    'index.html', 'relojes/index.html', 'bodas/index.html',
+    '15-anos/index.html', 'buscar/index.html',
+    'contacto/index.html', 'nosotros/index.html',
+    'como-personalizar/index.html', 'guias/index.html',
+    'preguntas-frecuentes/index.html', 'pedidos-y-envios/index.html',
+    'guias/reloj-con-foto-o-tematico/index.html',
+    'guias/elegir-invitaciones-boda-quince-anos/index.html',
+    'guias/cotizar-corte-grabado-laser-mdf/index.html', '404.html',
+):
+    markup = (ROOT / relative).read_text(encoding='utf-8')
+    navigation = re.search(r'<nav\b[^>]*>[\s\S]*?</nav>', markup)
+    if not navigation:
+        errors.append(f'Navegación principal no encontrada: {relative}')
+        continue
+    menu = navigation.group(0)
+    if 'href="/invitaciones/"' not in menu:
+        errors.append(f'Falta enlace a otras invitaciones en navegación: {relative}')
+    if '>Corte láser</a>' in menu:
+        errors.append(f'Corte láser aún aparece como categoría en navegación: {relative}')
 print(json.dumps({'paginas': pages, 'fichas': products, 'urls_sitemap': len(sitemap), 'enlaces_recursos_verificados': links, 'errores': errors}, ensure_ascii=False, indent=2))
 raise SystemExit(bool(errors))
