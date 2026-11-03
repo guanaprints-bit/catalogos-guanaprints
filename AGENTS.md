@@ -81,3 +81,11 @@
 - `python scripts/verificar_navegador.py` realiza pruebas en Chrome de los resultados de búsqueda y la burbuja WhatsApp; `node scripts/verificar_movil.cjs` prueba ancho 360/390/480 px, una tarjeta por fila, ausencia de desbordamiento y WhatsApp visible.
 - A 2 de noviembre de 2026, `www.guanaprints.com` respondía 200 sin redirigir al dominio raíz. No modificar esta configuración fuera de Cloudflare; la corrección definitiva requiere una regla 301 a `https://guanaprints.com/` que preserve rutas y parámetros.
 - Mantener enlace directo a `/invitaciones/` en la navegación de las 15 páginas principales y no volver a presentar la antigua categoría `/corte-laser/`; su servicio se informa mediante la guía vigente.
+
+## Favicon oficial de Guanaprints (3 de noviembre de 2026)
+
+- El favicon proviene del Torogoz original proporcionado por el propietario; **no redibujarlo ni sustituirlo por otro símbolo**.
+- Conservar `/favicon.ico` (16 y 32 px), `/favicon-32x32.png` y sus etiquetas `<link rel="icon">` en las páginas principales.
+- El favicon raíz funciona también para las fichas que no declaran un icono propio.
+- El generador `scripts/actualizar_catalogo.py` debe conservar las etiquetas al crear nuevas fichas.
+- No eliminar `www` de los DNS: su tráfico se redirige a la raíz mediante Cloudflare.

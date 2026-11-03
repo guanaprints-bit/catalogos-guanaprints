@@ -190,5 +190,27 @@ for relative in (
         errors.append(f'Falta enlace a otras invitaciones en navegación: {relative}')
     if '>Corte láser</a>' in menu:
         errors.append(f'Corte láser aún aparece como categoría en navegación: {relative}')
+# El icono del Torogoz debe ser el mismo que el de la marca.
+favicon_ico = ROOT / 'favicon.ico'
+favicon_png = ROOT / 'favicon-32x32.png'
+if not favicon_ico.is_file() or favicon_ico.read_bytes()[:4] != bytes([0, 0, 1, 0]):
+    errors.append('Favicon ICO del Torogoz inexistente o inválido')
+if not favicon_png.is_file() or favicon_png.read_bytes()[:8] != bytes([137, 80, 78, 71, 13, 10, 26, 10]):
+    errors.append('Favicon PNG del Torogoz inexistente o inválido')
+for relative in (
+    'index.html', 'buscar/index.html', 'relojes/index.html',
+    'bodas/index.html', '15-anos/index.html',
+    'invitaciones/index.html', 'invitaciones/baby-shower/index.html',
+    'invitaciones/primera-comunion/index.html',
+    'invitaciones/cumpleanos/index.html', 'invitaciones/aniversarios/index.html',
+    'contacto/index.html', 'nosotros/index.html',
+    'como-personalizar/index.html', 'guias/index.html',
+    'preguntas-frecuentes/index.html', 'pedidos-y-envios/index.html', '404.html',
+):
+    markup = (ROOT / relative).read_text(encoding='utf-8')
+    if '<link rel="icon" href="/favicon.ico"' not in markup:
+        errors.append(f'Página sin favicon ICO: {relative}')
+    if 'href="/favicon-32x32.png"' not in markup:
+        errors.append(f'Página sin favicon PNG: {relative}')
 print(json.dumps({'paginas': pages, 'fichas': products, 'urls_sitemap': len(sitemap), 'enlaces_recursos_verificados': links, 'errores': errors}, ensure_ascii=False, indent=2))
 raise SystemExit(bool(errors))
