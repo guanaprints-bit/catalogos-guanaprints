@@ -8,3 +8,5 @@
   Cache-Control: no-cache, must-revalidate
 /assets/wa-producto.js
   Cache-Control: no-cache, must-revalidate
+/assets/catalogo-buscar.js
+  Cache-Control: no-cache, must-revalidate
