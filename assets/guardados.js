@@ -108,7 +108,7 @@
     refrescaFavs();
   }
   function inicia() {
-    document.querySelectorAll('.floating-whatsapp').forEach(function (el) { el.remove(); });
+    // Nunca eliminar el botón flotante global: debe mantenerse en todas las páginas.
     var status = crea('div', 'fav-status sr-only'); status.setAttribute('role', 'status'); document.body.appendChild(status);
     var nav = document.querySelector('.topbar nav');
     if (nav && !nav.querySelector('.fav-nav')) {
