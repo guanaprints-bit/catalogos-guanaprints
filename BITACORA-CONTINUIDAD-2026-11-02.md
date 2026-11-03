@@ -58,3 +58,15 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - **Despliegue pendiente de verificar**: las consultas web públicas de `/invitaciones/` y `/invitaciones/cumpleanos/` aún mostraron el texto anterior y el emoji. La consulta pública de `/buscar/` aún presentó 404 diseños, mientras el HTML actual en `main` contiene 403 y excluye `INV15-55`. Puede ser despliegue atrasado o caché del servicio de consulta; no afirmar que el servidor definitivo sigue erróneo sin comprobación adicional.
 - **Pruebas no acreditadas**: la resolución HTTP de `www.guanaprints.com` como 301 a `https://guanaprints.com/`, la ejecución real de búsqueda con JavaScript y el botón flotante en todos los móviles. El servicio de consulta no permitió validar esas interacciones.
 - Próxima comprobación de producción: inspeccionar en un navegador real `/invitaciones/`, `/buscar/` y búsqueda sin resultados; abrir Cloudflare Pages para comparar el último despliegue de producción con `main` cuando esté disponible. No alterar DNS ni crear afirmaciones de indexación.
+
+## Continuación posterior: correcciones en GitHub (2026-11-02, noche)
+
+- `5808c04`: el JavaScript de WhatsApp conserva los SVG estáticos y crea SVG accesibles cuando genera un botón, en lugar de sustituirlos por un símbolo tipográfico.
+- `f53d34e`: el botón de los nuevos listados de invitaciones recupera `BOD-...` o `INV15-...` del texto del modelo cuando falta `.code`, para enviar códigos correctos al cliente por WhatsApp.
+- `4eac431`: la antigua ruta `/product-category/invitaciones/` pasa a redirigir a `/invitaciones/`, no solo a bodas. La ruta `/invitaciones` incorpora 301 al formato canónico.
+- `e2b4107`: corregidos conjuntamente los botones flotantes estáticos en las 17 fichas individuales de invitaciones reclasificadas, preservando el icono SVG cuando JavaScript no carga.
+- `a643fce`: las pruebas de clasificación verifican los 17 botones SVG y la redirección histórica.
+- `92567e4`: CI ahora verifica sintaxis de los scripts JavaScript con `node --check`. Las pruebas automatizadas de ese commit terminaron correctamente.
+- Cambios de contenido: **no se borraron ni inventaron productos, fotografías, precios, plazos o garantías**.
+- Límite actual: consulta pública de la portada disponible, pero las rutas internas de `guanaprints.com` no fueron accesibles por la herramienta web. GitHub y CI aprobados **no prueban** que Cloudflare Pages haya publicado el mismo commit.
+- Queda comprobar Cloudflare: última versión desplegada, `www`→dominio raíz, buscador con 403 diseños, burbuja de ayuda y botones flotantes en móvil. Las reglas de redirección entre dominios no se resuelven con el `_redirects` de Pages.
