@@ -77,15 +77,43 @@
     {
       "id": "bodas",
       "nombre": "Invitaciones de boda",
-      "disenos": 93,
+      "disenos": 84,
       "url": "https://guanaprints.com/bodas/",
       "precio": "Confirmar según modelo y cantidad"
     },
     {
       "id": "15-anos",
       "nombre": "Invitaciones de quince años",
-      "disenos": 74,
+      "disenos": 66,
       "url": "https://guanaprints.com/15-anos/",
+      "precio": "Confirmar según modelo y cantidad"
+    },
+    {
+      "id": "baby-shower",
+      "nombre": "Invitaciones para baby shower",
+      "disenos": 8,
+      "url": "https://guanaprints.com/invitaciones/baby-shower/",
+      "precio": "Confirmar según modelo y cantidad"
+    },
+    {
+      "id": "primera-comunion",
+      "nombre": "Invitaciones para primera comunión",
+      "disenos": 3,
+      "url": "https://guanaprints.com/invitaciones/primera-comunion/",
+      "precio": "Confirmar según modelo y cantidad"
+    },
+    {
+      "id": "cumpleanos",
+      "nombre": "Invitaciones para cumpleaños",
+      "disenos": 1,
+      "url": "https://guanaprints.com/invitaciones/cumpleanos/",
+      "precio": "Confirmar según modelo y cantidad"
+    },
+    {
+      "id": "aniversarios",
+      "nombre": "Invitaciones para aniversarios",
+      "disenos": 1,
+      "url": "https://guanaprints.com/invitaciones/aniversarios/",
       "precio": "Confirmar según modelo y cantidad"
     },
     {
@@ -104,9 +132,10 @@
     "https://guanaprints.com/",
     "https://guanaprints.com/buscar/",
     "https://guanaprints.com/preguntas-frecuentes/",
-    "https://guanaprints.com/pedidos-y-envios/"
+    "https://guanaprints.com/pedidos-y-envios/",
+    "https://guanaprints.com/invitaciones/"
   ],
-  "notas": "Los valores null no están confirmados. El catálogo público contiene 407 diseños; BOD-144 permanece excluido por indicación del propietario. La antigua categoría /corte-laser/ se retiró y su guía de cotización sigue disponible.",
+  "notas": "Los valores null no están confirmados. El catálogo activo contiene 403 diseños: 240 relojes y 163 invitaciones para seis ocasiones. BOD-144 y cuatro fichas duplicadas no se ofrecen como productos activos. La categoría /corte-laser/ permanece retirada; su guía de cotización está disponible.",
   "guias": [
     {
       "titulo": "Cómo elegir un reloj personalizado: foto o diseño temático",
