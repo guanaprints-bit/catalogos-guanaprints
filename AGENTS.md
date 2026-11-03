@@ -38,12 +38,18 @@
 ## Exclusiones y rutas retiradas (2 de noviembre de 2026)
 
 - BOD-144 es una invitación infantil excluida expresamente del catálogo de bodas y del buscador. Mantenerla fuera de ambos y fuera de la indexación pública; conservar el archivo histórico sin mostrarlo como oferta actual.
-- El buscador público tiene 404 diseños (240 relojes + 93 bodas + 71 quince años). No reintroducir BOD-144 al regenerar.
+- El buscador público tiene 403 diseños (240 relojes + 163 invitaciones en 6 ocasiones). No reintroducir BOD-144 al regenerar.
 - La categoría /corte-laser/ fue retirada. Enlazar a /guias/cotizar-corte-grabado-laser-mdf/ en navegación y conocimiento; conservar redirección 301.
 - Jamás eliminar con JavaScript el enlace flotante de WhatsApp. Los cambios de código en GitHub no prueban que Cloudflare los haya desplegado.
 
 ## Auditoría de clasificación de invitaciones (2026-11-02)
 
-- Conservar fuera de las colecciones de quince años y del buscador los modelos INV15-69 e INV15-70 (primera comunión) e INV15-175 (baby shower), identificados en la revisión visual previa. No reasignar otros diseños sin revisar su imagen real.
+- Conservar fuera de las colecciones de quince años y del buscador los modelos INV15-69 (primera comunión), INV15-70 (boda) e INV15-175 (baby shower), identificados en la revisión visual previa. No reasignar otros diseños sin revisar su imagen real.
 - La exclusión debe mantenerse en los archivos fuente, buscador, listados, feeds de Meta y sitemap. Guardar las fotos originales y dejar las fichas históricas como `noindex`, sin ofrecerlas como productos activos.
 - Al regenerar, no reintroducir BOD-144 ni estos tres modelos en categorías incorrectas. Actualizar las cantidades visibles y verificar GitHub Actions antes de afirmar que Cloudflare publicó el cambio.
+
+## Clasificación visual final de invitaciones
+
+- Catálogo activo: 84 bodas, 66 quince años, 8 baby shower, 3 primera comunión, 1 cumpleaños y 1 aniversario (163 invitaciones y 403 productos con 240 relojes).
+- Duplicados retirados: BOD-192, BOD-300, INV15-193 e INV15-55. Conservar los archivos históricos y enlazar al diseño vigente.
+- Los 17 modelos reclasificados conservan fotografías y códigos originales; sus enlaces de venta se actualizan a la categoría correcta.

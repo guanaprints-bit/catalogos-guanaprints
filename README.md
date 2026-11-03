@@ -3,7 +3,7 @@
 Repositorio público para alojar las páginas e imágenes de los catálogos de Guanaprints.
 
 ## Bodas
-- `Catalogo_bodas_Meta.csv`: feed de 93 productos.
+- `Catalogo_bodas_Meta.csv`: feed de 84 productos.
 - `bodas/`: páginas de producto.
 - `bodas/imagenes/`: imágenes PNG.
 
@@ -12,10 +12,10 @@ Los siguientes catálogos se pueden añadir como nuevas carpetas en la raíz. Pu
 ## Catálogo y navegación actuales
 
 - Inicio visual: `index.html`.
-- Buscador de los 404 productos: `buscar/`.
+- Buscador de los 403 productos: `buscar/`.
 - Relojes: `relojes/`, con nueve categorías y 240 fichas individuales en `relojes/modelos/`.
-- Bodas: `bodas/`, con 93 modelos.
-- Quince años: `15-anos/`, con 71 modelos.
+- Bodas: `bodas/`, con 84 modelos.
+- Quince años: `15-anos/`, con 66 modelos.
 - Corte láser: `corte-laser/`, con galería de piezas del catálogo.
 
 Todos los pedidos se coordinan por WhatsApp. No hay carrito ni pago en la web.
