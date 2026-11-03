@@ -44,6 +44,7 @@ jobs:
           node --check assets/catalogo-buscar.js
           node --check assets/guardados.js
           node --check scripts/generar-sitemap.js
+          node --check scripts/verificar_movil.cjs
       - name: Verificar clasificación y feeds de Meta
         run: python scripts/verificar_clasificacion.py
       - name: Comprobar referencias de recursos
@@ -72,6 +73,12 @@ jobs:
         if: always()
         continue-on-error: true
         run: python scripts/verificar_navegador.py
+      - name: Medir maquetación móvil con Chrome (sin bloquear CI)
+        if: always()
+        continue-on-error: true
+        run: |
+          npm install --no-save --no-package-lock --silent playwright-core
+          node scripts/verificar_movil.cjs
       - name: Registrar diferencias generadas
         run: |
           git status --short > cambios-generados.txt
