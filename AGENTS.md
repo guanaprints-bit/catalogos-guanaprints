@@ -56,3 +56,9 @@
 - Catálogo activo: 84 bodas, 66 quince años, 8 baby shower, 3 primera comunión, 1 cumpleaños y 1 aniversario (163 invitaciones y 403 productos con 240 relojes).
 - Duplicados retirados: BOD-192, BOD-300, INV15-193 e INV15-55. Conservar los archivos históricos y enlazar al diseño vigente.
 - Los 17 modelos reclasificados conservan fotografías y códigos originales; sus enlaces de venta se actualizan a la categoría correcta.
+
+## Reglas de interfaz de invitaciones (2026-11-02)
+
+- No usar emojis decorativos en botones de la web: usar SVG accesibles y coherentes con el estilo premium.
+- Contadores en español con concordancia: «1 invitación» y «2 invitaciones».
+- Preservar el botón flotante visible en cada página de invitaciones; verificarlo en `scripts/verificar_clasificacion.py`.
