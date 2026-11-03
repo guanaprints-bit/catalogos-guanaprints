@@ -17,6 +17,7 @@ BASE = "https://guanaprints.com"
 PATHS = [
     "/", "/invitaciones/", "/buscar/", "/robots.txt",
     "/sitemap.xml", "/assets/catalogo-buscar.js",
+    "/favicon.ico", "/favicon-32x32.png",
 ]
 results = []
 problems = []
@@ -110,6 +111,13 @@ for previous, current in legacy.items():
     expected = current.rstrip("/")
     require(result, observed == expected and result["final_url"].startswith(BASE),
             f"la antigua ruta no llega al destino previsto ({current}); termina en {result['final_url']}")
+
+# Comprobar iconos reales (no un HTML de error devuelto con estado 200).
+for icon in ("/favicon.ico", "/favicon-32x32.png"):
+    response = pages[icon]
+    if not response.get("error"):
+        require(response, "image/" in response.get("content_type", ""),
+                f"favicon no se sirve como imagen: {response.get('content_type')}")
 
 www = fetch("https://www.guanaprints.com/")
 results.append({key: value for key, value in www.items() if key != "html"})
