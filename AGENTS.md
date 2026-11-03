@@ -28,8 +28,9 @@
 - `contenido/copys-productos.json` conserva los copys y hashtags aprobados.
   `relojes/manifest.json` conserva el inventario y las imágenes originales.
 - Regenerar páginas con `python scripts/actualizar_catalogo.py` (requiere Pillow).
-- Los nuevos listados deben mantener búsqueda por producto, precio visible,
-  enlace a la ficha y acceso por WhatsApp. Nunca añadir carrito ni compra directa.
+- Los listados deben mantener búsqueda por producto, fotografía, texto claro,
+  enlace a la ficha y acceso a WhatsApp. Ocultar el precio en tarjetas del catálogo;
+  mostrarlo en la ficha una vez seleccionado el diseño. Nunca añadir carrito ni compra directa.
 - Mantener `sitemap.xml`, los feeds de Meta y las fuentes editoriales apuntando
   a las fichas actuales. No sustituirlas por fragmentos `#` de categorías.
 - Mostrar fotografías o diseños existentes sin inventar fotos del taller,
