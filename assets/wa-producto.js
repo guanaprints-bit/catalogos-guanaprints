@@ -93,7 +93,31 @@
     enlace.target = '_blank';
     enlace.rel = 'noopener noreferrer';
     enlace.setAttribute('aria-label', 'Escribir a Guanaprints por WhatsApp');
-    enlace.textContent = '✆ WhatsApp';
+    // Respetar el icono SVG de los botones estáticos; no borrar su contenido.
+    // Los botones creados por JavaScript también reciben un SVG accesible.
+    let icono = enlace.querySelector('svg');
+    if (!icono) {
+      const ns = 'http://www.w3.org/2000/svg';
+      icono = document.createElementNS(ns, 'svg');
+      icono.setAttribute('aria-hidden', 'true');
+      icono.setAttribute('width', '19');
+      icono.setAttribute('height', '19');
+      icono.setAttribute('viewBox', '0 0 24 24');
+      icono.setAttribute('fill', 'none');
+      icono.setAttribute('stroke', 'currentColor');
+      icono.setAttribute('stroke-width', '2');
+      icono.setAttribute('stroke-linecap', 'round');
+      icono.setAttribute('stroke-linejoin', 'round');
+      const trazo = document.createElementNS(ns, 'path');
+      trazo.setAttribute('d', 'M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z');
+      icono.appendChild(trazo);
+      const etiqueta = document.createElement('span');
+      etiqueta.textContent = 'WhatsApp';
+      enlace.replaceChildren(icono, etiqueta);
+    } else {
+      const etiqueta = enlace.querySelector('span');
+      if (etiqueta) etiqueta.textContent = 'WhatsApp';
+    }
     if (!document.getElementById('gp-wa-global-css')) {
       const estilo = document.createElement('style');
       estilo.id = 'gp-wa-global-css';
