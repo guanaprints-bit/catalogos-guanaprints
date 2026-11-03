@@ -61,6 +61,7 @@ def page(path,title,description,content,photo=None,schema=None,search=False,stic
  head=f'<!doctype html><html lang="es-SV"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)} | Guanaprints</title><meta name="description" content="{E(description)}"><link rel="canonical" href="{E(canonical)}"><meta property="og:type" content="website"><meta property="og:locale" content="es_SV"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:url" content="{E(canonical)}">'
  if photo:head+=f'<meta property="og:image" content="{E(photo if photo.startswith(BASE) else BASE+photo)}">'
  if path=='index.html':head+='<meta name="google-site-verification" content="wBo-JQszuI1huwOrFrhJ-RZWMH4cTw--sT9o-FhQ0bQ">'
+ head+='<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,600;9..144,700&family=Inter:wght@400;500;600;700&display=swap">'
  head+='<link rel="icon" href="/favicon.ico" sizes="any"><link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">'
  head+='<link rel="stylesheet" href="'+E(rel('assets/catalogo.css',path))+'?v=20261101-3">'
  if path=='index.html' and (ROOT/path).exists():
