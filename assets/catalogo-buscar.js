@@ -66,14 +66,21 @@
   'cumpleanos':'cumpleaños cumple infantil',
   'aniversarios':'aniversario celebración de pareja'
  };
- const matches=item=>{
-  const words=normalize(input.value).split(/[^a-z0-9]+/).filter(Boolean);
-  const haystack=normalize(item.dataset.search+' '+(SEARCH_ALIASES[item.dataset.category]||'')),tokens=haystack.split(/[^a-z0-9]+/);
-  return words.every(w=>w.length<=3?tokens.includes(w):haystack.includes(w))&&(!select||!select.value||item.dataset.category===select.value)&&(quickValue!=='relojes'||CLOCK_CATEGORIES.has(item.dataset.category));
+ // Indexar los textos una sola vez: las 403 tarjetas no se vuelven a normalizar
+ // en cada pulsación de teclado en teléfonos de recursos limitados.
+ const searchIndex=new Map(items.map(item=>{
+  const haystack=normalize(item.dataset.search+' '+(SEARCH_ALIASES[item.dataset.category]||''));
+  return [item,{haystack,tokens:new Set(haystack.split(/[^a-z0-9]+/).filter(Boolean))}];
+ }));
+ const matches=(item,words)=>{
+  const {haystack,tokens}=searchIndex.get(item);
+  return words.every(w=>w.length<=3?tokens.has(w):haystack.includes(w))&&(!select||!select.value||item.dataset.category===select.value)&&(quickValue!=='relojes'||CLOCK_CATEGORIES.has(item.dataset.category));
  };
  function render(){
-  const found=items.filter(matches);
-  items.forEach(item=>{item.hidden=true;});found.slice(0,limit).forEach(item=>{item.hidden=false;});
+  const words=normalize(input.value).split(/[^a-z0-9]+/).filter(Boolean);
+  const found=items.filter(item=>matches(item,words));
+  const visible=new Set(found.slice(0,limit));
+  items.forEach(item=>{const shouldHide=!visible.has(item);if(item.hidden!==shouldHide)item.hidden=shouldHide;});
   feedback.textContent=`${found.length} ${found.length===1?'diseño encontrado':'diseños encontrados'}. Mostrando ${Math.min(found.length,limit)}.`;
   emptyContainer.hidden=found.length!==0;more.hidden=found.length<=limit;
   const query=input.value.trim();
