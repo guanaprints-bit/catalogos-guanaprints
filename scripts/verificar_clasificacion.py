@@ -77,5 +77,24 @@ for file,cat in FEEDS.items():
   source=byid.get(row["id"])
   if source and row["link"]!=source["link"]:
    errors.append(f"Feed {file} desactualizado: {row['id']}")
+# Protección editorial de las cinco páginas nuevas de invitaciones.
+for rel in (
+ "invitaciones/index.html",
+ "invitaciones/baby-shower/index.html",
+ "invitaciones/primera-comunion/index.html",
+ "invitaciones/cumpleanos/index.html",
+ "invitaciones/aniversarios/index.html",
+):
+ page=ROOT/rel
+ if not page.is_file():
+  errors.append(f"Página de celebración inexistente: {rel}")
+  continue
+ markup=page.read_text(encoding="utf-8")
+ if "💬" in markup:
+  errors.append(f"Emoji decorativo no permitido en WhatsApp: {rel}")
+ if 'class="gp-wa-static floating-whatsapp"' not in markup or '<svg aria-hidden="true"' not in markup:
+  errors.append(f"Botón WhatsApp accesible sin icono SVG: {rel}")
+ if "1 invitaciones" in markup:
+  errors.append(f"Pluralización incorrecta: {rel}")
 print(json.dumps({"productos":len(products),"por_categoria":{k:len(v) for k,v in groups.items()},"feeds":list(FEEDS),"errores":errors},ensure_ascii=False,indent=2))
 sys.exit(bool(errors))
