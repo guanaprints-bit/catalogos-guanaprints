@@ -212,5 +212,21 @@ for relative in (
         errors.append(f'Página sin favicon ICO: {relative}')
     if 'href="/favicon-32x32.png"' not in markup:
         errors.append(f'Página sin favicon PNG: {relative}')
+# Las fuentes corporativas deben cargarse mediante HTML para Cloudflare Fonts.
+font_base = 'fonts.googleapis.com/css2?family=Fraunces'
+font_pages = (
+    'index.html', 'relojes/index.html', 'bodas/index.html', '15-anos/index.html',
+    'buscar/index.html', 'invitaciones/index.html',
+    'invitaciones/baby-shower/index.html', 'invitaciones/primera-comunion/index.html',
+    'invitaciones/cumpleanos/index.html', 'invitaciones/aniversarios/index.html',
+    'contacto/index.html', 'nosotros/index.html', 'como-personalizar/index.html',
+    'guias/index.html', 'preguntas-frecuentes/index.html',
+    'pedidos-y-envios/index.html', '404.html',
+)
+for path in font_pages:
+    if font_base not in (ROOT / path).read_text(encoding='utf-8'):
+        errors.append(f'Falta enlace HTML a Fraunces e Inter: {path}')
+if '@import url(\'https://fonts.googleapis.com' in (ROOT / 'assets/catalogo.css').read_text(encoding='utf-8'):
+    errors.append('Import de fuentes CSS incompatible con Cloudflare Fonts')
 print(json.dumps({'paginas': pages, 'fichas': products, 'urls_sitemap': len(sitemap), 'enlaces_recursos_verificados': links, 'errores': errors}, ensure_ascii=False, indent=2))
 raise SystemExit(bool(errors))
