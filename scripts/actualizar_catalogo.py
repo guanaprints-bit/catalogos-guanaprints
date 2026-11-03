@@ -12,7 +12,9 @@ ROOT=Path(__file__).resolve().parents[1]
 BASE='https://guanaprints.com/'
 PHONE='50372892625'
 E=lambda s:html.escape(str(s),quote=True)
-products=json.loads((ROOT/'contenido/copys-productos.json').read_text())
+# Exclusiones comprobadas; fotografías históricas intactas.
+EXCLUDED_PRODUCT_IDS=frozenset({'BOD-144','INV15-69','INV15-70','INV15-175'})
+products=[p for p in json.loads((ROOT/'contenido/copys-productos.json').read_text()) if p['id'] not in EXCLUDED_PRODUCT_IDS]
 manifest=json.loads((ROOT/'relojes/manifest.json').read_text())
 byid={p['id']:p for p in products}
 clocks={p['code']:p for p in manifest['products']}
@@ -35,7 +37,7 @@ def image(target,path,alt,lazy=True):
  attrs='loading="lazy" decoding="async"' if lazy else 'fetchpriority="high" decoding="async"'
  return f'<img src="{E(rel(target,path))}" alt="{E(alt)}" width="{w}" height="{h}" {attrs}>'
 def header(path):
- links=[('relojes/','Relojes'),('corte-laser/','Corte láser'),('bodas/','Bodas'),('15-anos/','Quince años'),('buscar/','Buscar un diseño')]
+ links=[('relojes/','Relojes'),('bodas/','Bodas'),('15-anos/','Quince años'),('buscar/','Buscar un diseño')]
  return '<a class="skip" href="#contenido">Ir al contenido</a><header class="site-header"><div class="topbar"><a class="brand" href="'+E(rel('index.html',path))+'">Guanaprints<span aria-hidden="true">.</span></a><nav aria-label="Navegación principal">'+''.join(f'<a href="{E(rel(u,path))}">{label}</a>' for u,label in links)+'</nav></div></header>'
 def footer():
  return '<footer class="site-footer"><div class="wrap"><strong>Un detalle con tu historia.</strong><p>Guanaprints · Regalos personalizados y corte láser. Atención en el local de Imprenta Francia, Santa Ana. Envíos gratis a todo El Salvador.</p><p><a href="'+wa('Hola Guanaprints, ¿me comparten la ubicación y cómo coordinar mi pedido?')+'">Consultar ubicación y entrega por WhatsApp</a> · <a href="https://www.facebook.com/guanaprints/" rel="noopener">Facebook</a></p></div></footer>'
@@ -110,8 +112,8 @@ for kind,prefix,label in [('bodas','BOD-','Invitaciones de boda'),('15-anos','IN
  content='<p class="eyebrow">El primer recuerdo de tu celebración</p><h1>'+label+'</h1><p class="intro">Elige un modelo que hable de tu celebración. Personalizamos nombres y datos del evento; consulta colores, acabados y cantidades. Precio publicado: $1.50 por pieza.</p>'+search_controls('Flores, mariposas, color o código…')+results(items,path)
  page(path,label+' personalizadas en El Salvador','Descubre '+str(len(items))+' modelos de '+label.lower()+' con personalización. Consulta tu pedido por WhatsApp. Envíos gratis a todo El Salvador.',content,items[0]['image'],search=True)
 path='buscar/index.html'
-content='<p class="eyebrow">Un diseño para cada historia</p><h1>Encuentra ese regalo que sí tiene que ver contigo</h1><p class="intro">Busca entre 408 diseños por artista, equipo, personaje, estilo de invitación o código. Prueba con “Beatles”, “FAS”, “mariposas” o “Eiffel”.</p>'+search_controls(filters=True)+results(products,path)
-page(path,'Buscar regalos e invitaciones personalizados','Busca entre 408 diseños de Guanaprints: relojes por artista, equipo o personaje e invitaciones por estilo. Pedidos por WhatsApp para todo El Salvador.',content,search=True)
+content='<p class="eyebrow">Un diseño para cada historia</p><h1>Encuentra ese regalo que sí tiene que ver contigo</h1><p class="intro">Busca entre '+str(len(products))+' diseños por artista, equipo, personaje, estilo de invitación o código. Prueba con “Beatles”, “FAS”, “mariposas” o “Eiffel”.</p>'+search_controls(filters=True)+results(products,path)
+page(path,'Buscar regalos e invitaciones personalizados','Busca entre '+str(len(products))+' diseños de Guanaprints: relojes por artista, equipo o personaje e invitaciones por estilo. Pedidos por WhatsApp para todo El Salvador.',content,search=True)
 path='relojes/index.html'
 content='<section class="hero-panel"><p class="eyebrow">No es solo la hora. Es lo que te hace sonreír.</p><h1>Un reloj con algo de ti.</h1><p class="intro">Su banda favorita. El equipo que lleva en el corazón. El recuerdo que quiere tener cerca. Encuentra un diseño que conecte con esa persona y cuéntanos cómo hacerlo más suyo.</p><div class="benefits"><span>29 cm · MDF</span><span>$20</span><span>Envío gratis nacional</span></div><form action="'+rel('buscar/',path)+'" class="search-box" role="search"><label for="buscar-reloj">Busca un artista, equipo o personaje</label><div class="search-fields"><input id="buscar-reloj" name="q" type="search" placeholder="Ejemplo: Beatles, FAS, Harry Potter…" required><button>Buscar mi diseño</button></div></form></section><h2>¿Qué le apasiona?</h2><div class="grid">'
 for key,label in categories.items():
@@ -144,7 +146,7 @@ page(path,'Regalos personalizados y corte láser en El Salvador','Regalos que co
 
 # Feeds y fuentes apuntan a las fichas nuevas; no cambian IDs ni precios.
 for path in [ROOT/'Catalogo_bodas_Meta.csv',ROOT/'Catalogo_bodas_Meta_v2.csv',ROOT/'Catalogo_bodas_Meta_optimizado.csv',ROOT/'Catalogo_invitaciones_Meta.csv',ROOT/'15-anos/Catalogo_15_anos_Meta.csv',ROOT/'relojes/catalogo-meta.csv']:
- with path.open(encoding='utf-8-sig') as f:rows=list(csv.DictReader(f))
+ with path.open(encoding='utf-8-sig') as f:rows=[row for row in csv.DictReader(f) if row['id'] not in EXCLUDED_PRODUCT_IDS]
  for row in rows:
   entry=byid[row['id']];row['link']=entry['link']
   if entry.get('tip_text'):row['description']=entry['copy']+'\n\n'+entry['tip_title']+'\n'+entry['tip_text']+'\n'+entry['tip_action']+'\n\n'+entry['hashtags']
@@ -161,7 +163,7 @@ for p in (ROOT/'bodas-optimizado').glob('*.html'):
 # Completar precio estructurado de invitaciones, reflejando el precio publicado.
 for group in ['bodas','15-anos/modelos']:
  for p in (ROOT/group).glob('*.html'):
-  if p.stem=='index':continue
+  if p.stem=='index' or (('BOD-' if group=='bodas' else 'INV15-')+p.stem) in EXCLUDED_PRODUCT_IDS:continue
   s=p.read_text()
   def complete(m):
    d=json.loads(m[1])
@@ -205,7 +207,7 @@ ET.register_namespace('','http://www.sitemaps.org/schemas/sitemap/0.9');ns='{htt
 root=ET.Element(ns+'urlset')
 for u in sorted(set(urls)):ET.SubElement(ET.SubElement(root,ns+'url'),ns+'loc').text=u
 ET.ElementTree(root).write(ROOT/'sitemap.xml',encoding='utf-8',xml_declaration=True)
-print('Listo: 240 fichas, búsqueda en 408 diseños, galería MDF, portada y sitemap de',len(set(urls)),'URLs.')
+print('Listo: 240 fichas, búsqueda en',len(products),'diseños, galería MDF, portada y sitemap de',len(set(urls)),'URLs.')
 
 # Mantener las referencias compartidas consistentes en TODAS las fichas generadas.
 # No altera fotos, textos, troqueles, enlaces de producto ni códigos.
