@@ -38,6 +38,12 @@ jobs:
         run: python scripts/verificar_seo.py
       - name: Compilar programas Python
         run: python -m compileall -q scripts
+      - name: Comprobar sintaxis de JavaScript
+        run: |
+          node --check assets/wa-producto.js
+          node --check assets/catalogo-buscar.js
+          node --check assets/guardados.js
+          node --check scripts/generar-sitemap.js
       - name: Verificar clasificación y feeds de Meta
         run: python scripts/verificar_clasificacion.py
       - name: Comprobar referencias de recursos
