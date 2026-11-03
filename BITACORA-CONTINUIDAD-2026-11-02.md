@@ -79,3 +79,14 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - `a45895d`: reglas permanentes alineadas con las hojas de estilo: el precio se muestra en la ficha una vez elegido el producto, no en las tarjetas del catálogo.
 - `fc363a5`: el verificador SEO comprueba presencia de las redirecciones históricas y existencia de sus destinos. **La ejecución de las pruebas automáticas de ese commit terminó correctamente.**
 - **Pendiente**: confirmar que Cloudflare Pages publique el commit final y ejecute realmente los 301, que Google vuelva a rastrear las antiguas URL, la redirección de www a dominio raíz y el funcionamiento móvil del buscador y WhatsApp. Las pruebas de GitHub no acreditan por sí mismas el despliegue del dominio personalizado.
+
+## Continuación: velocidad móvil de invitaciones y buscador (2 de noviembre de 2026)
+
+- Se optimizaron **22 HTML**: cinco páginas de colecciones (19 fotos) y 17 fichas reclasificadas (17 fotos principales). Las fotos conservan sus fuentes originales; se reservaron dimensiones cuadradas según las medidas de referencia ya usadas por los catálogos (`850×850` bodas y `1254×1254` quince años). Se priorizó solo la primera imagen de las colecciones, manteniendo las siguientes con `loading="lazy"`; las fotos principales de las fichas se marcaron como prioritarias.
+- Commits de páginas: `53cd81c`, `440f315` y `b9d80f5`.
+- En `scripts/verificar_clasificacion.py` se añadieron controles de cantidad de fotografías, tamaños declarados, `fetchpriority` y `loading` (`f2d2bb4`), y se corrigió una expresión regular de la prueba (`4147eff`). La ejecución CI de `4147eff` **pasó**.
+- El buscador ahora indexa y normaliza el texto de cada tarjeta una vez al cargar la página, en lugar de volver a procesarlo al escribir cada letra. También evita repetir cambios de visibilidad en tarjetas ya ocultas (commit `b299d63`). La prueba CI terminó satisfactoriamente.
+- Se añadió `Cache-Control: no-cache, must-revalidate` para `/assets/catalogo-buscar.js` en `_headers`, evitando conservar una versión antigua del buscador (commit `e31742b`). Tanto la verificación del catálogo como la publicación de GitHub Pages de ese commit concluyeron correctamente.
+- Se registraron las normas de rendimiento en `AGENTS.md` (commit `eb146cb`).
+- **No se ejecutó Lighthouse ni una prueba visual de navegador contra el despliegue de Cloudflare Pages**: no se afirma mejora cuantitativa de Core Web Vitals ni visibilidad de la última versión en el dominio.
+- Pendiente externo prioritario: comparar el commit de producción en Cloudflare Pages con `main`; comprobar versiones de JavaScript, redirección desde `www`, buscador y botón WhatsApp en móviles.
