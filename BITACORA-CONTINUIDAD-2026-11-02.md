@@ -70,3 +70,12 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - Cambios de contenido: **no se borraron ni inventaron productos, fotografías, precios, plazos o garantías**.
 - Límite actual: consulta pública de la portada disponible, pero las rutas internas de `guanaprints.com` no fueron accesibles por la herramienta web. GitHub y CI aprobados **no prueban** que Cloudflare Pages haya publicado el mismo commit.
 - Queda comprobar Cloudflare: última versión desplegada, `www`→dominio raíz, buscador con 403 diseños, burbuja de ayuda y botones flotantes en móvil. Las reglas de redirección entre dominios no se resuelven con el `_redirects` de Pages.
+
+## Auditoría adicional — enlaces históricos y lenguaje de búsqueda
+
+- Se identificaron en los resultados públicos de búsqueda fichas antiguas de WooCommerce, incluso con número de WhatsApp ya retirado; no equivale a comprobar que aún las esté sirviendo Cloudflare. Referencias contrastadas para los nombres Lago de Coatepeque y El Salvador.
+- `05463ee`: cuatro redirecciones 301 nuevas en `_redirects` para `/product/lago-de-coatepeque/` y `/product/el-salvador/`, `/product/el-salvador-2/`, `/product/el-salvador-5/`. Los destinos se corresponden con una ficha temática actual o una colección relevante, no se pretende afirmar que sean diseños idénticos.
+- `56aaca5`: el buscador reconoce sinónimos de celebraciones: «quinceañera», «matrimonio», «casamiento», «baby shower», «primera comunión», cumpleaños y aniversario; el inventario no cambió.
+- `a45895d`: reglas permanentes alineadas con las hojas de estilo: el precio se muestra en la ficha una vez elegido el producto, no en las tarjetas del catálogo.
+- `fc363a5`: el verificador SEO comprueba presencia de las redirecciones históricas y existencia de sus destinos. **La ejecución de las pruebas automáticas de ese commit terminó correctamente.**
+- **Pendiente**: confirmar que Cloudflare Pages publique el commit final y ejecute realmente los 301, que Google vuelva a rastrear las antiguas URL, la redirección de www a dominio raíz y el funcionamiento móvil del buscador y WhatsApp. Las pruebas de GitHub no acreditan por sí mismas el despliegue del dominio personalizado.
