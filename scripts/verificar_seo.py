@@ -107,14 +107,19 @@ textmap = set((ROOT / 'sitemap.txt').read_text().splitlines())
 if sitemap != urls or textmap != urls:
     errors.append(f'Sitemaps inconsistentes: XML {len(sitemap)}, TXT {len(textmap)}, páginas {len(urls)}')
 search_markup = (ROOT / 'buscar/index.html').read_text(encoding='utf-8')
-if search_markup.count('<article class="card"') != 407:
-    errors.append('Buscador: se esperan 407 tarjetas visibles; BOD-144 está excluido')
+if search_markup.count('<article class="card"') != 404:
+    errors.append('Buscador: se esperan 404 tarjetas: excluidos BOD-144 y tres INV15')
 if '/bodas/144' in search_markup or '/bodas/144' in (ROOT / 'bodas/index.html').read_text(encoding='utf-8'):
     errors.append('BOD-144 reapareció en los catálogos públicos')
+for retired in ('/bodas/144','/15-anos/modelos/69','/15-anos/modelos/70','/15-anos/modelos/175'):
+    if retired in search_markup or (retired.startswith('/15-anos/') and retired in (ROOT / '15-anos/index.html').read_text(encoding='utf-8')):
+        errors.append(f'Modelo archivado continúa visible: {retired}')
+    if BASE + retired in sitemap:
+        errors.append(f'Modelo archivado sigue en sitemap: {retired}')
 if BASE + '/bodas/144' in sitemap:
     errors.append('BOD-144 no debe estar en el sitemap')
-if products != 408:
-    errors.append(f'Inventario de fichas incorrecto: {products}, se esperaban 408')
+if products != 404:
+    errors.append(f'Inventario de fichas incorrecto: {products}, se esperaban 404')
 # Validar destinos obligatorios sin bloquear nuevas redirecciones legítimas.
 rules = {}
 for raw in (ROOT / '_redirects').read_text(encoding='utf-8').splitlines():
