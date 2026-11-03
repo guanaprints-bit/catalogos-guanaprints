@@ -93,6 +93,24 @@ if remote_map:
     except ET.ParseError as error:
         problems.append(f"/sitemap.xml: XML público no válido: {error}")
 
+# Rutas antiguas que deben redirigir a categorías y fichas vigentes.
+legacy = {
+    "/corte-laser/": "/guias/cotizar-corte-grabado-laser-mdf/",
+    "/product-category/invitaciones/": "/invitaciones/",
+    "/product/lago-de-coatepeque/": "/relojes/modelos/lago-de-coatepeque-panoramico-esv-030",
+    "/product/el-salvador/": "/relojes/el-salvador/",
+}
+for previous, current in legacy.items():
+    result = fetch(BASE + previous)
+    results.append({key: value for key, value in result.items() if key != "html"})
+    if result.get("error"):
+        problems.append(f"{previous}: redirección no verificable: {result['error']}")
+        continue
+    observed = urlsplit(result["final_url"]).path.rstrip("/")
+    expected = current.rstrip("/")
+    require(result, observed == expected and result["final_url"].startswith(BASE),
+            f"la antigua ruta no llega al destino previsto ({current}); termina en {result['final_url']}")
+
 www = fetch("https://www.guanaprints.com/")
 results.append({key: value for key, value in www.items() if key != "html"})
 if "error" in www:
