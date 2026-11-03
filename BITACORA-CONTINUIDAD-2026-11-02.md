@@ -109,3 +109,13 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - `scripts/verificar_movil.cjs` `67f747c` e integración `aeef4f5`: 18 pruebas aprobadas en Chrome con anchos 360, 390 y 480 px para Relojes, Bodas, 15 años, Invitaciones, Baby shower y Buscador. Verificadas una columna, ausencia de desbordamiento horizontal y botón flotante WhatsApp visible dentro de pantalla. Ejecución: `https://github.com/guanaprints-bit/catalogos-guanaprints/actions/runs/41588012152`.
 - Se trata de pruebas de laboratorio con Chrome, no de puntuaciones Lighthouse o datos reales de campo de Google.
 - Quedan pendientes: Redirect Rule de `www` en Cloudflare, Lighthouse/Core Web Vitals, Search Console (indexación individual y canónicas elegidas), Google Business Profile y evaluación visual editorial exhaustiva de fotografías.
+
+## Restauración del Torogoz original como favicon — 3 de noviembre de 2026
+
+- El propietario proporcionó el archivo `CUADRADO PNG.png` del Torogoz azul/verde/naranja original.
+- Se generaron sin redibujar su diseño: `/favicon.ico` multirresolución (16×16 y 32×32) y `/favicon-32x32.png`. Sus blobs Git coinciden exactamente con los archivos generados.
+- Se añadieron referencias `<link rel="icon">` a 17 páginas principales y se conservó la hoja CSS móvil como último elemento del `head`. El favicon raíz cubre las demás fichas de producto.
+- Commits: `6737a70`, `23c60ec`, `d7b3e44` (generador), `71f52e3` (CI y reglas), `6791ba2`, `986ae10` (orden de `head`), `f3adc29` (comprobación pública del favicon).
+- Verificación GitHub Actions en `https://github.com/guanaprints-bit/catalogos-guanaprints/actions/runs/41663581668`: **CI completada con éxito**, cero errores en SEO/clasificación.
+- Verificación real de `https://guanaprints.com/favicon.ico` = HTTP 200, `image/vnd.microsoft.icon`; `https://guanaprints.com/favicon-32x32.png` = HTTP 200, `image/png`. El comprobador externo reportó `SIN INCIDENCIAS OBSERVADAS`.
+- No se tocó el DNS, SSL ni se eliminó el subdominio `www`. El icono de controles a la izquierda de la URL en Chrome es interfaz del navegador y no se reemplaza por el favicon de la página; este aparece en la pestaña/marcadores.
