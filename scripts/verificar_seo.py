@@ -112,7 +112,11 @@ if search_markup.count('<article class="card"') != 403:
 if '/bodas/144' in search_markup or '/bodas/144' in (ROOT / 'bodas/index.html').read_text(encoding='utf-8'):
     errors.append('BOD-144 reapareció en los catálogos públicos')
 for retired in ["/bodas/144","/bodas/17","/bodas/24","/bodas/46","/bodas/172","/bodas/174","/bodas/175","/bodas/180","/bodas/69","/bodas/179","/bodas/37","/bodas/32","/bodas/192","/bodas/300","/15-anos/modelos/19","/15-anos/modelos/69","/15-anos/modelos/70","/15-anos/modelos/170","/15-anos/modelos/175","/15-anos/modelos/185","/15-anos/modelos/193","/15-anos/modelos/55"]:
-    if retired in search_markup or (retired.startswith('/15-anos/') and retired in (ROOT / '15-anos/index.html').read_text(encoding='utf-8')):
+    # La coincidencia debe terminar en delimitador: /bodas/17 no es /bodas/170.
+    end_chars = ('"', "'", '?', '#', '/')
+    in_search = any(retired + end in search_markup for end in end_chars)
+    in_quince = retired.startswith('/15-anos/') and any(retired + end in (ROOT / '15-anos/index.html').read_text(encoding='utf-8') for end in end_chars)
+    if in_search or in_quince:
         errors.append(f'Modelo archivado continúa visible: {retired}')
     if BASE + retired in sitemap:
         errors.append(f'Modelo archivado sigue en sitemap: {retired}')
