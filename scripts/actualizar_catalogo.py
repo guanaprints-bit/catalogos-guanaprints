@@ -51,11 +51,12 @@ def image(target,path,alt,lazy=True):
  attrs='loading="lazy" decoding="async"' if lazy else 'fetchpriority="high" decoding="async"'
  return f'<img src="{E(rel(target,path))}" alt="{E(alt)}" width="{w}" height="{h}" {attrs}>'
 def header(path):
- links=[('relojes/','Relojes'),('bodas/','Bodas'),('15-anos/','Quince años'),('buscar/','Buscar un diseño')]
+ links=[('relojes/','Relojes'),('bodas/','Bodas'),('15-anos/','Quince años'),('invitaciones/','Más ocasiones'),('buscar/','Buscar un diseño')]
  return '<a class="skip" href="#contenido">Ir al contenido</a><header class="site-header"><div class="topbar"><a class="brand" href="'+E(rel('index.html',path))+'">Guanaprints<span aria-hidden="true">.</span></a><nav aria-label="Navegación principal">'+''.join(f'<a href="{E(rel(u,path))}">{label}</a>' for u,label in links)+'</nav></div></header>'
 def footer():
  return '<footer class="site-footer"><div class="wrap"><strong>Un detalle con tu historia.</strong><p>Guanaprints · Regalos personalizados y corte láser. Atención en el local de Imprenta Francia, Santa Ana. Envíos gratis a todo El Salvador.</p><p><a href="'+wa('Hola Guanaprints, ¿me comparten la ubicación y cómo coordinar mi pedido?')+'">Consultar ubicación y entrega por WhatsApp</a> · <a href="https://www.facebook.com/guanaprints/" rel="noopener">Facebook</a></p></div></footer>'
 def page(path,title,description,content,photo=None,schema=None,search=False,sticky_message='Hola Guanaprints, quiero consultar un regalo personalizado.'):
+ if path=='corte-laser/index.html':return  # Categoría retirada; preservar redirección histórica.
  canonical=BASE+(path[:-10] if path.endswith('index.html') else re.sub(r'\.html$', '', path))
  head=f'<!doctype html><html lang="es-SV"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>{E(title)} | Guanaprints</title><meta name="description" content="{E(description)}"><link rel="canonical" href="{E(canonical)}"><meta property="og:type" content="website"><meta property="og:locale" content="es_SV"><meta property="og:title" content="{E(title)}"><meta property="og:description" content="{E(description)}"><meta property="og:url" content="{E(canonical)}">'
  if photo:head+=f'<meta property="og:image" content="{E(photo if photo.startswith(BASE) else BASE+photo)}">'

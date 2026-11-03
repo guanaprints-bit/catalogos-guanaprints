@@ -36,6 +36,10 @@ jobs:
       # Verificar lo que se publicará, no una regeneración distinta del sitio.
       - name: Verificar SEO, enlaces y fichas
         run: python scripts/verificar_seo.py
+      - name: Compilar programas Python
+        run: python -m compileall -q scripts
+      - name: Verificar clasificación y feeds de Meta
+        run: python scripts/verificar_clasificacion.py
       - name: Comprobar referencias de recursos
         shell: bash
         run: |
