@@ -1,7 +1,7 @@
 """Verifica la clasificación visual y la coherencia de seis catálogos de Meta."""
 from pathlib import Path
 from urllib.parse import urlsplit
-import csv, json, sys
+import csv, json, sys, re
 
 ROOT=Path(__file__).resolve().parents[1]
 BASE="https://guanaprints.com"
@@ -96,6 +96,18 @@ for rel in (
   errors.append(f"Botón WhatsApp accesible sin icono SVG: {rel}")
  if "1 invitaciones" in markup:
   errors.append(f"Pluralización incorrecta: {rel}")
+ photos=re.findall(r'<img\\b[^>]*>',markup)
+ expected_photos={"invitaciones/index.html":6,"invitaciones/baby-shower/index.html":8,"invitaciones/primera-comunion/index.html":3,"invitaciones/cumpleanos/index.html":1,"invitaciones/aniversarios/index.html":1}[rel]
+ if len(photos)!=expected_photos:
+  errors.append(f"Cantidad inesperada de fotos en {rel}: {len(photos)}")
+ for i,photo in enumerate(photos):
+  dimension='1254' if '/15-anos/imagenes/' in photo else '850'
+  if f'width="{dimension}"' not in photo or f'height="{dimension}"' not in photo:
+   errors.append(f"Imagen sin dimensiones reservadas en {rel}, foto {i+1}")
+  if i==0 and ('fetchpriority="high"' not in photo or 'loading="eager"' not in photo):
+   errors.append(f"Foto inicial sin prioridad de carga en {rel}")
+  if i>0 and 'loading="lazy"' not in photo:
+   errors.append(f"Foto secundaria sin carga diferida en {rel}, foto {i+1}")
 # Las 17 fichas reclasificadas deben funcionar aun sin JavaScript.
 for code in mapping:
  item=byid.get(code)
@@ -109,6 +121,16 @@ for code in mapping:
   errors.append(f"WhatsApp flotante antiguo o ausente: {code}")
  if '<svg aria-hidden="true"' not in markup or '<span>WhatsApp</span>' not in markup:
   errors.append(f"WhatsApp sin SVG accesible en ficha reclasificada: {code}")
+ photos=re.findall(r'<img\\b[^>]*>',markup)
+ if len(photos)!=1:
+  errors.append(f"Ficha {code}: se esperaba una foto principal")
+ else:
+  photo=photos[0]
+  dimension='1254' if '/15-anos/imagenes/' in photo else '850'
+  if f'width="{dimension}"' not in photo or f'height="{dimension}"' not in photo:
+   errors.append(f"Ficha {code}: faltan dimensiones de fotografía")
+  if 'fetchpriority="high"' not in photo or 'loading="eager"' not in photo:
+   errors.append(f"Ficha {code}: fotografía principal sin carga prioritaria")
 # Corregir enlaces del antiguo comercio sin enviar invitaciones generales sólo a bodas.
 redirects=(ROOT/"_redirects").read_text(encoding="utf-8")
 if "/product-category/invitaciones/ /invitaciones/ 301" not in redirects:
