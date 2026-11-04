@@ -130,7 +130,9 @@ def optimize_pages():
                 if isinstance(d.get('offers'), dict):
                     d['offers']['url'] = url
                     d['offers']['seller'] = {'@id': BASE + '/#negocio'}
-                    d['offers']['availability'] = 'https://schema.org/InStock'  # Diseño activo disponible para pedidos personalizados.
+                    # Catálogo para pedidos por WhatsApp: sin existencias físicas ni checkout.
+                    d['offers'].pop('availability', None)
+                    d['offers'].pop('shippingDetails', None)
                 d.setdefault('sku', re.search(r'(?:BOD-|INV15-)[0-9]+', s)[0] if re.search(r'(?:BOD-|INV15-)[0-9]+', s) else page.stem)
             if d.get('@type') == 'Service':
                 d['provider'] = {'@id': BASE + '/#negocio'}

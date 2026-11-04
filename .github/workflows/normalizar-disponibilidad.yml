@@ -1,4 +1,4 @@
-name: Corregir disponibilidad de productos para Google
+name: Mantener ofertas informativas sin compra online
 on:
   push:
     branches: [main]
@@ -11,7 +11,7 @@ permissions:
   contents: write
 
 jobs:
-  disponibilidad:
+  catalogo:
     runs-on: ubuntu-latest
     timeout-minutes: 12
     steps:
@@ -21,18 +21,18 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: '3.11'
-      - name: Registrar disponibilidad en fichas actuales
+      - name: Quitar datos de existencias y compra en línea
         run: python scripts/normalizar_disponibilidad.py
-      - name: Validar SEO de las 403 fichas
+      - name: Validar 403 fichas y datos estructurados
         run: python scripts/verificar_seo.py
-      - name: Guardar solo las fichas cambiadas
+      - name: Guardar solo las fichas modificadas
         run: |
           git config user.name "Guanaprints SEO Maintenance"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
           git add -u
           if git diff --cached --quiet; then
-            echo "Las ofertas existentes ya incluyen disponibilidad."
+            echo "Las ofertas ya corresponden al catálogo informativo."
             exit 0
           fi
-          git commit -m "SEO productos: declarar ofertas disponibles para personalización"
+          git commit -m "SEO: retirar señales de compra directa de las ofertas"
           git push origin HEAD:main

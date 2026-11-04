@@ -123,8 +123,10 @@ def improve():
         if product:
             product['@id'] = url + '#producto'
             product['mainEntityOfPage'] = {'@id': url + '#pagina'}
-            product['offers']['shippingDetails'] = {'@type': 'OfferShippingDetails', 'shippingRate': {'@type': 'MonetaryAmount', 'value': '0', 'currency': 'USD'}, 'shippingDestination': {'@type': 'DefinedRegion', 'addressCountry': 'SV'}}
-            product['offers']['availability'] = 'https://schema.org/InStock'  # Activo y aceptando solicitudes de personalización.
+            # Envío gratis y tiempo de entrega se explican en la página informativa,
+            # no en datos de compra online de Merchant Listings.
+            product['offers'].pop('shippingDetails', None)
+            product['offers'].pop('availability', None)
             if webpage:
                 webpage['mainEntity'] = {'@id': product['@id']}
         if page.relative_to(ROOT).as_posix() in ['nosotros/index.html', 'contacto/index.html'] and webpage:

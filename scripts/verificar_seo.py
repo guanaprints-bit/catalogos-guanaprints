@@ -69,11 +69,13 @@ for page in ROOT.rglob('*.html'):
                 products += 1
                 if item.get('url') != canon[0] or item.get('offers', {}).get('url') != canon[0]:
                     errors.append(f'{page}: Product/Offer no coincide con canonical')
-                if item.get('offers', {}).get('availability') != 'https://schema.org/InStock':
-                    errors.append(f'{page}: falta disponibilidad para pedidos en Offer')
-                shipping = item.get('offers', {}).get('shippingDetails', {})
-                if shipping.get('shippingRate', {}).get('value') != '0' or shipping.get('shippingDestination', {}).get('addressCountry') != 'SV':
-                    errors.append(f'{page}: falta envío nacional gratis en Offer')
+                # Un catálogo de encargos por WhatsApp no debe anunciar existencias
+                # físicas ni usar datos específicos del checkout del sitio.
+                offer = item.get('offers', {})
+                if 'availability' in offer or 'shippingDetails' in offer:
+                    errors.append(f'{page}: oferta anuncia compra o existencias online')
+                if offer.get('@type') != 'Offer' or not offer.get('price') or offer.get('priceCurrency') != 'USD':
+                    errors.append(f'{page}: falta oferta informativa con precio base')
                 if item.get('@id') != canon[0] + '#producto':
                     errors.append(f'{page}: Product sin identidad estable')
             if item.get('@type') == 'ItemList':
