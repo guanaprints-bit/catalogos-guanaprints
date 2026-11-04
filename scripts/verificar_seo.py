@@ -147,6 +147,26 @@ for raw in (ROOT / '_redirects').read_text(encoding='utf-8').splitlines():
     if parts[0] in rules:
         errors.append(f'Redirección duplicada: {parts[0]}')
     rules[parts[0]] = parts[1]
+# Proteger contra regresiones de la migración WooCommerce.
+# Las variantes sin barra final fueron 404 en el dominio público: deben
+# conservar la misma redirección 301 que su variante con barra final.
+for source, destination in list(rules.items()):
+    if source.startswith(('/product/', '/product-category/')) and source.endswith('/') and '*' not in source:
+        alternate = source[:-1]
+        if rules.get(alternate) != destination:
+            errors.append(f'Falta alias sin barra final: {alternate} -> {destination}')
+raw_rules = [line.strip().split() for line in (ROOT / '_redirects').read_text(encoding='utf-8').splitlines()
+             if line.strip().startswith('/')]
+static = [entry for entry in raw_rules if '*' not in entry[0] and ':' not in entry[0]]
+dynamic = [entry for entry in raw_rules if '*' in entry[0] or ':' in entry[0]]
+if len(static) > 2000 or len(dynamic) > 100:
+    errors.append(f'Se superó el límite de redirecciones Cloudflare Pages: {len(static)} estáticas, {len(dynamic)} dinámicas')
+if any('*' in item[0] or ':' in item[0] for item in raw_rules[:len(static)]):
+    errors.append('Las reglas estáticas deben estar antes que las reglas comodín')
+for source, destination in rules.items():
+    if source == destination:
+        errors.append(f'Redirección a sí misma: {source}')
+
 required_redirects = {
     '/index.html': '/',
     '/relojes': '/relojes/',
