@@ -24,7 +24,11 @@
       "Relojes de pared personalizados",
       "Invitaciones de boda",
       "Invitaciones de quince años"
-    ]
+    ],
+    "canal_exclusivo_de_pedidos": "WhatsApp",
+    "carrito_web": false,
+    "pago_online": false,
+    "forma_de_pedido": "Todos los pedidos se hacen exclusivamente por WhatsApp (+503 7289-2625). El sitio es un catálogo; precio, personalización y entrega se confirman con el cliente."
   },
   "productos": [
     {
