@@ -33,6 +33,7 @@ def normalize(match: re.Match[str]) -> str:
 
 def scan(fix: bool):
     matches, files_edited = [], []
+    checked = 0
     for item in sorted(ROOT.rglob("*")):
         if not item.is_file() or any(part in SKIP for part in item.relative_to(ROOT).parts):
             continue
@@ -42,6 +43,7 @@ def scan(fix: bool):
             content = item.read_text(encoding="utf-8-sig")
         except (OSError, UnicodeError):
             continue
+        checked += 1
         found = list(OBSOLETE.finditer(content))
         if not found:
             continue
@@ -53,6 +55,7 @@ def scan(fix: bool):
             files_edited.append(path)
     print(json.dumps({
         "modo": "corregir" if fix else "verificar",
+        "archivos_de_texto_revisados": checked,
         "archivos_con_numero_anterior": len(matches),
         "apariciones": sum(x["apariciones"] for x in matches),
         "detalle": matches,
