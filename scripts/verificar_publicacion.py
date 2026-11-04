@@ -112,6 +112,13 @@ legacy = {
     "/product/el-salvador/": "/relojes/el-salvador/",
     "/product-category/compra-aqui/": "/",
     "/product-category/relojes/musica/": "/relojes/musica/",
+    # Rutas que daban 404 cuando se omitía la barra final.
+    "/product/el-salvador": "/relojes/el-salvador/",
+    "/product/lago-de-coatepeque": "/relojes/modelos/lago-de-coatepeque-panoramico-esv-030",
+    "/product-category/relojes/musica": "/relojes/musica/",
+    "/product-category/invitaciones/invitaciones-boda": "/bodas/",
+    "/product-category/todos-los-productos": "/",
+    "/product-category/compra-aqui": "/",
 }
 for previous, current in legacy.items():
     result = fetch(BASE + previous)
