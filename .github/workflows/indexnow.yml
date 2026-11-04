@@ -1,0 +1,31 @@
+name: Notificar cambios a IndexNow
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'f560eb6ea82dce0910459b8cd1b067f4.txt'
+      - 'scripts/enviar_indexnow.py'
+      - '.github/workflows/indexnow.yml'
+      - '**/*.html'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  notificar:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Descargar cambios actuales
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 2
+      - name: Configurar Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+      - name: Validar sintaxis
+        run: python -m py_compile scripts/enviar_indexnow.py
+      - name: Enviar solo URLs actualizadas o retiradas
+        run: python scripts/enviar_indexnow.py
