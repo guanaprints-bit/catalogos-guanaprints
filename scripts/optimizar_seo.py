@@ -108,6 +108,14 @@ def optimize_pages():
             s = re.sub(r'<link\b[^>]*rel="canonical"[^>]*>', '<link rel="canonical" href="' + url + '">', s)
         if page.relative_to(ROOT).as_posix() == 'buscar/index.html' and 'name="robots"' not in s:
             s = s.replace('</head>', '<meta name="robots" content="noindex,follow"></head>')
+        # Retirar la categoría antigua solamente del menú principal; conservar las
+        # menciones informativas a corte láser dentro de las guías y contenido.
+        def limpiar_menu_principal(m):
+            cabecera, enlaces, cierre = m.groups()
+            enlaces = re.sub(r'<a\\b[^>]*>\\s*Corte l[aá]ser\\s*</a>', '', enlaces, flags=re.I)
+            return cabecera + enlaces + cierre
+        s = re.sub(r'(<nav\\b[^>]*aria-label=["\\\']Navegación principal["\\\'][^>]*>)(.*?)(</nav>)',
+                   limpiar_menu_principal, s, flags=re.S | re.I)
         # Referencia compartida al negocio y rutas de navegación.
         schemas = []
         for raw in re.findall(r'<script\b[^>]*type="application/ld\+json"[^>]*>(.*?)</script>', s, re.S):
