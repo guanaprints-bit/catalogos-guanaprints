@@ -233,6 +233,25 @@ for raw in re.findall(r'<script\b[^>]*type="application/ld\+json"[^>]*>(.*?)</sc
 guide = (ROOT / 'guias/elegir-invitaciones-boda-quince-anos/index.html').read_text(encoding='utf-8')
 if '84 modelos de boda y 66 de quince años' not in guide or '94 modelos de boda' in guide:
     errors.append('Guía de invitaciones con cantidades anteriores o incorrectas')
+# El email y los enlaces de catálogo declarados en datos estructurados
+# deben coincidir con la página oficial de contacto.
+for relative in ('index.html', 'contacto/index.html', 'nosotros/index.html'):
+    html_source = (ROOT / relative).read_text(encoding='utf-8')
+    business = []
+    for raw in re.findall(r'<script\b[^>]*type="application/ld\+json"[^>]*>(.*?)</script>', html_source, re.S):
+        obj = json.loads(raw)
+        business.extend(n for n in obj.get('@graph', [obj]) if n.get('@id') == BASE + '/#negocio')
+    if len(business) != 1 or business[0].get('email') != 'guanaprints@gmail.com':
+        errors.append(f'Identidad de contacto incompleta: {relative}')
+    else:
+        catalog = business[0].get('hasOfferCatalog', {}).get('itemListElement', [])
+        required = {BASE + '/relojes/', BASE + '/bodas/', BASE + '/15-anos/', BASE + '/invitaciones/'}
+        if {item.get('url') for item in catalog} != required:
+            errors.append(f'Catálogo de organización inconsistente: {relative}')
+if 'mailto:guanaprints@gmail.com' not in (ROOT / 'contacto/index.html').read_text(encoding='utf-8'):
+    errors.append('Página de contacto sin correo oficial visible')
+if json.loads((ROOT / 'guanaprints-kb.json').read_text(encoding='utf-8'))['negocio'].get('correo') != 'guanaprints@gmail.com':
+    errors.append('Base de conocimiento sin correo oficial')
 # El icono del Torogoz debe ser el mismo que el de la marca.
 favicon_ico = ROOT / 'favicon.ico'
 favicon_png = ROOT / 'favicon-32x32.png'

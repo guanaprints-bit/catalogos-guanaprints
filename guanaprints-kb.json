@@ -11,7 +11,13 @@
     "horario": null,
     "direccion_exacta": null,
     "formas_pago": null,
-    "entrega": "Relojes personalizados: 6 días hábiles en total desde la aprobación del arte (incluye producción y entrega nacional). Invitaciones de boda: 8 días hábiles desde la aprobación del arte. Otros productos: plazo confirmado al cotizar."
+    "entrega": "Relojes personalizados: 6 días hábiles en total desde la aprobación del arte (incluye producción y entrega nacional). Invitaciones de boda: 8 días hábiles desde la aprobación del arte. Otros productos: plazo confirmado al cotizar.",
+    "correo": "guanaprints@gmail.com",
+    "canales_oficiales": {
+      "web": "https://guanaprints.com/",
+      "whatsapp": "https://wa.me/50372892625",
+      "correo": "guanaprints@gmail.com"
+    }
   },
   "productos": [
     {
