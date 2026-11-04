@@ -39,7 +39,7 @@ códigos, precios y direcciones de las fichas, y mejora su información pública
   `_headers` se conservan sin cambios. Quedan fuera DNS, caché, WAF,
   reglas de bots y las redirecciones HTTP de la antigua tienda.
 - Los resultados de búsqueda conservan referencias a la antigua tienda y a
-  6055-9589. El repositorio actual ya usa 7289-2625; hay que verificar las
+  7289-2625. El repositorio actual ya usa 7289-2625; hay que verificar las
   respuestas reales de las URL antiguas y mapear equivalencias antes de
   implantar redirecciones. No se afirma que esa información siga publicada
   en el servidor actual por aparecer en el índice del buscador.
