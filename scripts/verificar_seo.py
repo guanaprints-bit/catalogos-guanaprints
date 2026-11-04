@@ -252,6 +252,22 @@ if 'mailto:guanaprints@gmail.com' not in (ROOT / 'contacto/index.html').read_tex
     errors.append('Página de contacto sin correo oficial visible')
 if json.loads((ROOT / 'guanaprints-kb.json').read_text(encoding='utf-8'))['negocio'].get('correo') != 'guanaprints@gmail.com':
     errors.append('Base de conocimiento sin correo oficial')
+# La clasificación comercial de Guanaprints debe persistir en fichas oficiales
+# y no regresar a categorías de ropa de directorios ajenos.
+for rel in ("index.html", "nosotros/index.html", "contacto/index.html"):
+    source = (ROOT / rel).read_text(encoding="utf-8")
+    entries = []
+    for raw in re.findall(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', source, re.S):
+        info = json.loads(raw)
+        entries.extend(info.get("@graph", [info]))
+    org = next((entry for entry in entries if entry.get("@id") == BASE + "/#negocio"), None)
+    if org is None or "tienda de regalos personalizados" not in org.get("description", "").lower():
+        errors.append(f"Categoría comercial oficial sin identificar: {rel}")
+    elif "relojes de pared personalizados" not in org.get("keywords", "").lower():
+        errors.append(f"Especialidades comerciales no identificadas: {rel}")
+knowledge = json.loads((ROOT / "guanaprints-kb.json").read_text(encoding="utf-8"))
+if knowledge.get("negocio", {}).get("tipo_negocio") != "Tienda de regalos personalizados":
+    errors.append("Base de conocimiento con categoría comercial antigua")
 # El icono del Torogoz debe ser el mismo que el de la marca.
 favicon_ico = ROOT / 'favicon.ico'
 favicon_png = ROOT / 'favicon-32x32.png'

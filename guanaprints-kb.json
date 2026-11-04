@@ -17,7 +17,14 @@
       "web": "https://guanaprints.com/",
       "whatsapp": "https://wa.me/50372892625",
       "correo": "guanaprints@gmail.com"
-    }
+    },
+    "tipo_negocio": "Tienda de regalos personalizados",
+    "categorias": [
+      "Regalos personalizados",
+      "Relojes de pared personalizados",
+      "Invitaciones de boda",
+      "Invitaciones de quince años"
+    ]
   },
   "productos": [
     {

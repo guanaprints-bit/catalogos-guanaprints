@@ -1,6 +1,12 @@
 # Guanaprints
 
-> Guanaprints es un negocio de regalos personalizados y corte láser en MDF, ubicado en Santa Ana, El Salvador. Ofrece relojes de pared de 29 cm desde $20, invitaciones de boda y de quince años, y piezas de corte láser. Envío gratis a todo El Salvador. Pedidos y personalización por WhatsApp.
+> Guanaprints es una tienda de regalos personalizados y ofrece corte y grabado láser en MDF, ubicado en Santa Ana, El Salvador. Ofrece relojes de pared de 29 cm desde $20, invitaciones de boda y de quince años, y piezas de corte láser. Envío gratis a todo El Salvador. Pedidos y personalización por WhatsApp.
+
+## Clasificación comercial oficial
+
+- Categoría principal: tienda de regalos personalizados.
+- Especialidades: relojes de pared personalizados en MDF, invitaciones de boda y quince años.
+- Negocio ubicado en Santa Ana, El Salvador, con pedidos nacionales por WhatsApp.
 
 ## Productos y servicios
 
