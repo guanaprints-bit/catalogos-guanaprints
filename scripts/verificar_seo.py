@@ -210,6 +210,29 @@ for relative in (
         errors.append(f'Falta enlace a otras invitaciones en navegación: {relative}')
     if '>Corte láser</a>' in menu:
         errors.append(f'Corte láser aún aparece como categoría en navegación: {relative}')
+# Evitar que el contenido comercial vuelva a plazos o cantidades obsoletos.
+for relative in ('preguntas-frecuentes/index.html', 'pedidos-y-envios/index.html', 'llms.txt'):
+    content = (ROOT / relative).read_text(encoding='utf-8')
+    for period in ('6 días hábiles', '8 días hábiles'):
+        if period not in content:
+            errors.append(f'Dato comercial faltante en {relative}: {period}')
+knowledge = json.loads((ROOT / 'guanaprints-kb.json').read_text(encoding='utf-8'))
+for code, days in (('relojes', 6), ('bodas', 8)):
+    item = next((p for p in knowledge['productos'] if p.get('id') == code), None)
+    if not item or item.get('plazo_entrega', {}).get('dias_habiles') != days:
+        errors.append(f'Base de conocimiento sin plazo correcto: {code} ({days} días hábiles)')
+faq_source = (ROOT / 'preguntas-frecuentes/index.html').read_text(encoding='utf-8')
+for raw in re.findall(r'<script\b[^>]*type="application/ld\+json"[^>]*>(.*?)</script>', faq_source, re.S):
+    data = json.loads(raw)
+    for entity in data.get('@graph', [data]):
+        if entity.get('@type') == 'FAQPage':
+            answer = next((q.get('acceptedAnswer', {}).get('text', '') for q in entity.get('mainEntity', [])
+                           if q.get('name') == '¿Cuál es el tiempo de entrega?'), '')
+            if not all(value in answer for value in ('6 días hábiles', '8 días hábiles')):
+                errors.append('FAQPage: datos estructurados de entrega desactualizados')
+guide = (ROOT / 'guias/elegir-invitaciones-boda-quince-anos/index.html').read_text(encoding='utf-8')
+if '84 modelos de boda y 66 de quince años' not in guide or '94 modelos de boda' in guide:
+    errors.append('Guía de invitaciones con cantidades anteriores o incorrectas')
 # El icono del Torogoz debe ser el mismo que el de la marca.
 favicon_ico = ROOT / 'favicon.ico'
 favicon_png = ROOT / 'favicon-32x32.png'
