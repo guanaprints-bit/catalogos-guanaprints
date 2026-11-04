@@ -51,3 +51,8 @@
 /product-category/relojes/series-y-peliculas/page/* /relojes/peliculas/ 301
 /product-category/relojes/el-salvador/page/* /relojes/el-salvador/ 301
 /product-category/relojes/deportes/page/* /relojes/deportes/ 301
+
+# Recuperar la página general de compra y listados antiguos confirmados.
+/product-category/compra-aqui/ / 301
+/product-category/compra-aqui/page/* / 301
+/product-category/dias-especiales/dia-del-padre/relojes/page/* /relojes/ 301
