@@ -27,3 +27,27 @@
 /bodas-optimizado/ /bodas/ 301
 /sitemap_index.xml /sitemap.xml 301
 /wp-sitemap.xml /sitemap.xml 301
+
+# SEO: migración de categorías y paginación antiguas de WooCommerce (2026-11-03).
+/product-category/relojes/musica/ /relojes/musica/ 301
+/product-category/relojes/series-y-peliculas/ /relojes/peliculas/ 301
+/product-category/relojes/el-salvador/ /relojes/el-salvador/ 301
+/product-category/relojes/deportes/ /relojes/deportes/ 301
+/product-category/relojes/cervezas/ /relojes/para-tu-bar/ 301
+/product-category/relojes/colegios/ /relojes/colegios/ 301
+/product-category/relojes/universidades/ /relojes/universidades/ 301
+/product-category/invitaciones/comunion/ /invitaciones/primera-comunion/ 301
+/product-category/invitaciones/otros-disenos/ /invitaciones/ 301
+/product-category/recuerdos-para-toda-ocasion/ /invitaciones/ 301
+/product-category/dias-especiales/dia-del-padre/relojes/ /relojes/ 301
+/product-category/para-su-bar/ /relojes/para-tu-bar/ 301
+/product-category/religiosos/ /relojes/religiosos/ 301
+/product-category/bodas/ /bodas/ 301
+/product-category/relojes/page/* /relojes/ 301
+/product-category/invitaciones/page/* /invitaciones/ 301
+/product-category/invitaciones/invitaciones-boda/page/* /bodas/ 301
+/product-category/invitaciones/invitaciones-15-anos/page/* /15-anos/ 301
+/product-category/relojes/musica/page/* /relojes/musica/ 301
+/product-category/relojes/series-y-peliculas/page/* /relojes/peliculas/ 301
+/product-category/relojes/el-salvador/page/* /relojes/el-salvador/ 301
+/product-category/relojes/deportes/page/* /relojes/deportes/ 301
