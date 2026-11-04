@@ -214,6 +214,15 @@ for relative in (
         errors.append(f'Falta enlace a otras invitaciones en navegación: {relative}')
     if '>Corte láser</a>' in menu:
         errors.append(f'Corte láser aún aparece como categoría en navegación: {relative}')
+# Evitar que las próximas regeneraciones presenten un carrito o existencias
+# físicas: Guanaprints es un catálogo de pedidos exclusivos por WhatsApp.
+info = json.loads((ROOT / 'guanaprints-kb.json').read_text(encoding='utf-8'))['negocio']
+if info.get('canal_exclusivo_de_pedidos') != 'WhatsApp' or info.get('carrito_web') is not False or info.get('pago_online') is not False:
+    errors.append('Los datos del negocio deben indicar pedidos exclusivos por WhatsApp sin compra en línea')
+for relative in ('pedidos-y-envios/index.html', 'como-personalizar/index.html'):
+    content = (ROOT / relative).read_text(encoding='utf-8')
+    if 'Todos los pedidos se hacen exclusivamente por' not in content:
+        errors.append(f'Página sin canal de pedido exclusivo por WhatsApp: {relative}')
 # Evitar que el contenido comercial vuelva a plazos o cantidades obsoletos.
 for relative in ('preguntas-frecuentes/index.html', 'pedidos-y-envios/index.html', 'llms.txt'):
     content = (ROOT / relative).read_text(encoding='utf-8')
