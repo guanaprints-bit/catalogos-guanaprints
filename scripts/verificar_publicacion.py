@@ -38,7 +38,17 @@ def fetch(address):
                 "content_type": response.headers.get("Content-Type", ""),
                 "html": data.decode("utf-8", "replace"),
             }
-    except (urllib.error.URLError, urllib.error.HTTPError, TimeoutError, socket.timeout) as error:
+    except urllib.error.HTTPError as error:
+        # Un 404 legítimo es una respuesta HTTP, no un fallo de conexión.
+        data = error.read(700000)
+        return {
+            "url": address,
+            "status": error.code,
+            "final_url": error.url,
+            "content_type": error.headers.get("Content-Type", ""),
+            "html": data.decode("utf-8", "replace"),
+        }
+    except (urllib.error.URLError, TimeoutError, socket.timeout) as error:
         return {"url": address, "error": str(error)[:240]}
 
 
@@ -100,6 +110,8 @@ legacy = {
     "/product-category/invitaciones/": "/invitaciones/",
     "/product/lago-de-coatepeque/": "/relojes/modelos/lago-de-coatepeque-panoramico-esv-030",
     "/product/el-salvador/": "/relojes/el-salvador/",
+    "/product-category/compra-aqui/": "/",
+    "/product-category/relojes/musica/": "/relojes/musica/",
 }
 for previous, current in legacy.items():
     result = fetch(BASE + previous)
@@ -111,6 +123,20 @@ for previous, current in legacy.items():
     expected = current.rstrip("/")
     require(result, observed == expected and result["final_url"].startswith(BASE),
             f"la antigua ruta no llega al destino previsto ({current}); termina en {result['final_url']}")
+
+# Prueba preventiva: una URL realmente inexistente debe responder HTTP 404,
+# y mostrar una página útil, nunca un 200 engañoso ni una redirección a inicio.
+nonexistent = "/__control_404_guanaprints_url_inexistente_20261103__/"
+missing = fetch(BASE + nonexistent)
+results.append({key: value for key, value in missing.items() if key != "html"})
+if missing.get("error"):
+    problems.append(f"{nonexistent}: no se pudo verificar HTTP 404: {missing['error']}")
+else:
+    require(missing, missing.get("status") == 404,
+            f"la URL inexistente devuelve {missing.get('status')} en lugar de 404")
+    if missing.get("status") == 404:
+        require(missing, "No encontramos esta página" in missing.get("html", ""),
+                "la respuesta 404 no muestra la página de recuperación de Guanaprints")
 
 # Comprobar iconos reales (no un HTML de error devuelto con estado 200).
 for icon in ("/favicon.ico", "/favicon-32x32.png"):
