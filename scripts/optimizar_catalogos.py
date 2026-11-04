@@ -70,10 +70,10 @@ def actualizar_catalogos(mapping):
             hits[0] += 1
             return prefix + newpath + suffix
         updated = CARD.sub(lambda m: IMAGE.sub(image, m.group(0)), source)
+        total += hits[0]
         if updated != source:
             page.write_text(updated, encoding="utf-8")
             changed.append(relpage)
-            total += hits[0]
     return changed, total
 
 
