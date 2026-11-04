@@ -27,6 +27,7 @@ jobs:
         run: python -m pip install Pillow
       - name: Crear miniaturas y sustituir solamente tarjetas de catalogos
         run: python scripts/optimizar_catalogos.py
+      # Valida los tamaños de maquetación originales, también con miniaturas WebP.
       - name: Validar integridad de catalogos
         run: |
           python scripts/verificar_seo.py

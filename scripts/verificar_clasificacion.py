@@ -101,7 +101,7 @@ for rel in (
  if len(photos)!=expected_photos:
   errors.append(f"Cantidad inesperada de fotos en {rel}: {len(photos)}")
  for i,photo in enumerate(photos):
-  dimension='1254' if '/15-anos/imagenes/' in photo else '850'
+  dimension='1254' if any(path in photo for path in ('/15-anos/imagenes/', '/15-anos/miniaturas/')) else '850'
   if f'width="{dimension}"' not in photo or f'height="{dimension}"' not in photo:
    errors.append(f"Imagen sin dimensiones reservadas en {rel}, foto {i+1}")
   if i==0 and ('fetchpriority="high"' not in photo or 'loading="eager"' not in photo):

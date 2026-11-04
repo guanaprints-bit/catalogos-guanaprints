@@ -54,7 +54,13 @@ def actualizar_catalogos(mapping):
             prefix, address, suffix = match.groups()
             path = urlsplit(urljoin(BASE + relpage, address)).path
             parts = path.strip("/").split("/")
-            if len(parts) != 3 or parts[0] not in FOLDERS or parts[1] != "imagenes":
+            if len(parts) != 3 or parts[0] not in FOLDERS:
+                return match.group(0)
+            if parts[1] == "miniaturas" and parts[2].endswith(".webp"):
+                if (parts[0], parts[2][:-5] + ".jpg") in mapping:
+                    hits[0] += 1
+                return match.group(0)
+            if parts[1] != "imagenes":
                 return match.group(0)
             replacement = mapping.get((parts[0], parts[2]))
             if not replacement:
