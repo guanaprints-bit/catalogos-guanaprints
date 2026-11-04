@@ -247,4 +247,6 @@ runpy.run_path(str(ROOT / 'scripts/mejorar_descubrimiento.py'), run_name='__main
 # El módulo de descubrimiento también crea preguntas-frecuentes.html;
 # aplicar después la información comercial compartida a esa página.
 optimizar_seo()
+# Miniaturas de los listados; conserva fotografías originales de las fichas.
+runpy.run_path(str(ROOT / 'scripts/optimizar_catalogos.py'), run_name='__main__')
 
