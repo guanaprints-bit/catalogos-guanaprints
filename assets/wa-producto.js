@@ -83,6 +83,10 @@
     }, {passive:true});
   }
   function iniciar() {
+    // Suprimir categoría retirada en cualquier menú heredado.
+    document.querySelectorAll('nav[aria-label="Navegación principal"] a').forEach(function (link) {
+      if (/^corte l[aá]ser$/i.test(link.textContent.trim())) link.remove();
+    });
     registrarConversiones();
     procesar(document);
     // Botón global, único y persistente, visible en móvil y escritorio.
