@@ -71,6 +71,10 @@ jobs:
         if: always()
         continue-on-error: true
         run: python scripts/verificar_publicacion.py
+      - name: Auditar las redirecciones históricas HTTP (sin bloquear CI)
+        if: always()
+        continue-on-error: true
+        run: python scripts/verificar_redirecciones.py
       - name: Probar buscador en navegador móvil (sin bloquear CI)
         if: always()
         continue-on-error: true
