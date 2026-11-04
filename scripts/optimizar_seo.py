@@ -206,7 +206,7 @@ def main():
     p.write_text(s)
     p = ROOT / 'preguntas-frecuentes/index.html'
     s = p.read_text().replace('Las condiciones dependen de la naturaleza del producto personalizado y del caso concreto. Solicita las condiciones por escrito antes de confirmar el pedido; no publicamos aquí una política general sin haberla confirmado.', 'Antes de confirmar un producto personalizado, consulta por WhatsApp las condiciones de cambios, devoluciones y garantía aplicables a tu pedido. Conserva la confirmación escrita y revisa los nombres, textos y fotografías antes de aprobar el diseño.')
-    s = re.sub(r'(<summary>¿Cuál es el tiempo de entrega\\?</summary><p>).*?(</p></details>)', lambda m: m.group(1) + "Los relojes personalizados tienen un plazo de 6 días hábiles en total desde la aprobación del arte, incluyendo producción y envío/entrega en El Salvador. Las invitaciones de boda tienen un plazo de 8 días hábiles desde la aprobación del arte. Para quince años y otros productos confirmamos el plazo al cotizar. Consulta <a href=\"/pedidos-y-envios/\">pedidos y entregas</a>." + m.group(2), s, count=1, flags=re.S)
+    s = re.sub(r'(<summary>¿Cuál es el tiempo de entrega\?</summary><p>).*?(</p></details>)', lambda m: m.group(1) + "Los relojes personalizados tienen un plazo de 6 días hábiles en total desde la aprobación del arte, incluyendo producción y envío/entrega en El Salvador. Las invitaciones de boda tienen un plazo de 8 días hábiles desde la aprobación del arte. Para quince años y otros productos confirmamos el plazo al cotizar. Consulta <a href=\"/pedidos-y-envios/\">pedidos y entregas</a>." + m.group(2), s, count=1, flags=re.S)
     p.write_text(s)
     optimize_pages()
     # Los feeds y las fuentes editoriales usan la misma URL que el canonical.
