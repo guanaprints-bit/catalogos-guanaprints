@@ -200,9 +200,13 @@ def main():
     new_pages()
     p = ROOT / 'pedidos-y-envios/index.html'
     s = p.read_text().replace('Atendemos en Santa Ana, en el local de Imprenta Francia, y ofrecemos opciones de envío a El Salvador. La disponibilidad, condiciones y cualquier costo aplicable se confirman según el pedido y el destino.', 'Ofrecemos envíos gratis a todo El Salvador. Al confirmar tu pedido coordinamos el destino, la fecha y los detalles de entrega. También puedes consultar el retiro en Santa Ana, en el local de Imprenta Francia.')
+    # Evitar perder los plazos comerciales al optimizar nuevamente las páginas.
+    if 'Plazos habituales desde la aprobación del arte' not in s:
+        s = s.replace('<h2>4. Coordina el envío o retiro</h2>', "<h2>Plazos habituales desde la aprobación del arte</h2><p><strong>Relojes personalizados de 29 cm:</strong> 6 días hábiles en total desde que apruebas el arte, incluyendo producción y envío/entrega nacional. No se suman días adicionales de mensajería.</p><p><strong>Invitaciones de boda:</strong> 8 días hábiles desde la aprobación del arte. Confirmamos los detalles de entrega al revisar tu pedido.</p><p><strong>Invitaciones de quince años y otros productos:</strong> confirmamos el plazo al cotizar. Los días hábiles no equivalen a días corridos.</p>" + '<h2>4. Coordina el envío o retiro</h2>')
     p.write_text(s)
     p = ROOT / 'preguntas-frecuentes/index.html'
     s = p.read_text().replace('Las condiciones dependen de la naturaleza del producto personalizado y del caso concreto. Solicita las condiciones por escrito antes de confirmar el pedido; no publicamos aquí una política general sin haberla confirmado.', 'Antes de confirmar un producto personalizado, consulta por WhatsApp las condiciones de cambios, devoluciones y garantía aplicables a tu pedido. Conserva la confirmación escrita y revisa los nombres, textos y fotografías antes de aprobar el diseño.')
+    s = re.sub(r'(<summary>¿Cuál es el tiempo de entrega\\?</summary><p>).*?(</p></details>)', lambda m: m.group(1) + "Los relojes personalizados tienen un plazo de 6 días hábiles en total desde la aprobación del arte, incluyendo producción y envío/entrega en El Salvador. Las invitaciones de boda tienen un plazo de 8 días hábiles desde la aprobación del arte. Para quince años y otros productos confirmamos el plazo al cotizar. Consulta <a href=\"/pedidos-y-envios/\">pedidos y entregas</a>." + m.group(2), s, count=1, flags=re.S)
     p.write_text(s)
     optimize_pages()
     # Los feeds y las fuentes editoriales usan la misma URL que el canonical.

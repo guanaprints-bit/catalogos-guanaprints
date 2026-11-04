@@ -11,7 +11,7 @@
     "horario": null,
     "direccion_exacta": null,
     "formas_pago": null,
-    "entrega": "La fecha se confirma por WhatsApp según producto, cantidad, aprobación y destino."
+    "entrega": "Relojes personalizados: 6 días hábiles en total desde la aprobación del arte (incluye producción y entrega nacional). Invitaciones de boda: 8 días hábiles desde la aprobación del arte. Otros productos: plazo confirmado al cotizar."
   },
   "productos": [
     {
@@ -72,14 +72,25 @@
           "disenos": 17,
           "url": "https://guanaprints.com/relojes/universidades/"
         }
-      ]
+      ],
+      "plazo_entrega": {
+        "dias_habiles": 6,
+        "desde": "Aprobación del arte",
+        "incluye": "Producción y envío/entrega nacional",
+        "nota": "No añadir días extra de mensajería"
+      }
     },
     {
       "id": "bodas",
       "nombre": "Invitaciones de boda",
       "disenos": 84,
       "url": "https://guanaprints.com/bodas/",
-      "precio": "Confirmar según modelo y cantidad"
+      "precio": "Confirmar según modelo y cantidad",
+      "plazo_entrega": {
+        "dias_habiles": 8,
+        "desde": "Aprobación del arte",
+        "nota": "Coordinar la entrega al confirmar el pedido"
+      }
     },
     {
       "id": "15-anos",

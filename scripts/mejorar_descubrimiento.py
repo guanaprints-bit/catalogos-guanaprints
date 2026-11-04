@@ -35,12 +35,12 @@ GUIDES = [
      'relojes/el-salvador/imagenes/esv-034.webp', 'Diseño de reloj de la Catedral de Santa Ana del catálogo Guanaprints'),
     ('elegir-invitaciones-boda-quince-anos', 'Cómo elegir invitaciones de boda o quince años',
      'Guía para elegir invitaciones personalizadas: modelo, colores, legibilidad, cantidad y datos del evento. Catálogos de Guanaprints en El Salvador.',
-     '''<p>Para elegir invitaciones de boda o de quince años, compara el modelo, los colores y el espacio para los datos de tu celebración. Después confirma cantidad, materiales, personalización y fecha de entrega. Guanaprints ofrece 94 modelos de boda y 74 de quince años; los pedidos se coordinan por WhatsApp.</p>
+     '''<p>Para elegir invitaciones de boda o de quince años, compara el modelo, los colores y el espacio para los datos de tu celebración. Después confirma cantidad, materiales, personalización y fecha de entrega. Guanaprints ofrece 84 modelos de boda y 66 de quince años; los pedidos se coordinan por WhatsApp.</p>
 <h2>Comienza por el estilo del evento</h2><p>Elige dos o tres referencias del catálogo y guarda sus códigos. Observa el calado, el bolsillo, la cinta y la distribución del texto. Consulta qué colores y acabados están disponibles para ese modelo antes de combinarlo con la decoración.</p>
 <h2>Revisa que los datos se lean bien</h2><p>Una invitación debe permitir identificar quién celebra, cuándo y dónde. Si necesitas añadir recepción, confirmación de asistencia u otra indicación, envía el texto completo para revisar cómo acomodarlo en el modelo elegido.</p>
 <h2>Datos que conviene reunir antes de cotizar</h2><ul><li>Código o enlace del modelo y cantidad de piezas.</li><li>Nombres escritos exactamente como deben aparecer.</li><li>Fecha, hora y lugar de ceremonia y recepción, según corresponda.</li><li>Texto adicional y colores que deseas consultar.</li><li>Municipio de entrega y fecha en que necesitas recibirlas.</li></ul>
 <h2>Cómo calcular la cantidad</h2><p>Revisa tu lista de invitados y define qué familias o parejas recibirán una misma invitación. La cantidad de personas y la cantidad de invitaciones pueden ser distintas. Añade las piezas adicionales que tú decidas y confirma la cantidad total antes de producir.</p>
-<h2>Antes de aprobar</h2><p>Comprueba ortografía, nombres, fechas, horarios y direcciones con otra persona de confianza. El precio final, las condiciones del pedido y el plazo se confirman por WhatsApp según el modelo y la cantidad. No asumas una fecha de entrega sin confirmarla.</p>
+<h2>Antes de aprobar</h2><p>Comprueba ortografía, nombres, fechas, horarios y direcciones con otra persona de confianza. Las invitaciones de boda tienen un plazo de 8 días hábiles desde la aprobación del arte. El precio final y las condiciones se confirman por WhatsApp según el modelo y la cantidad. No asumas una fecha de entrega sin confirmarla.</p>
 <p>Compara el <a href="/bodas/">catálogo de invitaciones de boda</a> o el <a href="/15-anos/">catálogo de quince años</a>. Ofrecemos envío gratis a todo El Salvador; coordinamos los detalles al confirmar el pedido.</p>''',
      'bodas/imagenes/03.jpg', 'Invitación de boda del catálogo Guanaprints'),
     ('cotizar-corte-grabado-laser-mdf', 'Qué enviar para cotizar corte y grabado láser en MDF',
@@ -51,7 +51,7 @@ GUIDES = [
 <h2>Archivo o referencia</h2><p>Puedes comenzar con una foto, un boceto o un archivo del diseño. Si ya tienes un archivo de trabajo, indica su formato. El equipo revisará si sirve para producir o si necesita preparación; enviar una imagen no confirma por sí solo que pueda cortarse tal como está.</p>
 <h2>Qué influye en la cotización</h2><p>El material, las dimensiones, la cantidad, los detalles del diseño y la preparación necesaria influyen en el precio. Confirma material y acabado con el equipo; no todos los proyectos requieren el mismo proceso.</p>
 <h2>Mensaje para solicitar tu cotización</h2><p>Describe qué quieres hacer y adjunta la referencia. Incluye: ancho, alto, cantidad, uso, municipio y fecha requerida. Si necesitas conservar una sola pieza, acláralo desde el inicio.</p>
-<p>Visita <a href="/corte-laser/">corte y grabado láser en MDF</a> para ver ejemplos del catálogo y revisa <a href="/pedidos-y-envios/">cómo coordinamos el pedido y el envío gratis a todo El Salvador</a>.</p>''',
+<p>Para solicitar una cotización de corte y grabado láser en MDF, utiliza el <a href="/contacto/">contacto de Guanaprints</a> y consulta <a href="/pedidos-y-envios/">cómo coordinamos el envío gratis a todo El Salvador</a>.</p>''',
      'relojes/para-tu-bar/imagenes/ptb-004.webp', 'Pieza de MDF del catálogo Guanaprints'),
 ]
 
