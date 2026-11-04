@@ -124,6 +124,7 @@ def improve():
             product['@id'] = url + '#producto'
             product['mainEntityOfPage'] = {'@id': url + '#pagina'}
             product['offers']['shippingDetails'] = {'@type': 'OfferShippingDetails', 'shippingRate': {'@type': 'MonetaryAmount', 'value': '0', 'currency': 'USD'}, 'shippingDestination': {'@type': 'DefinedRegion', 'addressCountry': 'SV'}}
+            product['offers']['availability'] = 'https://schema.org/InStock'  # Activo y aceptando solicitudes de personalización.
             if webpage:
                 webpage['mainEntity'] = {'@id': product['@id']}
         if page.relative_to(ROOT).as_posix() in ['nosotros/index.html', 'contacto/index.html'] and webpage:

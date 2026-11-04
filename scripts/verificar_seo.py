@@ -69,6 +69,8 @@ for page in ROOT.rglob('*.html'):
                 products += 1
                 if item.get('url') != canon[0] or item.get('offers', {}).get('url') != canon[0]:
                     errors.append(f'{page}: Product/Offer no coincide con canonical')
+                if item.get('offers', {}).get('availability') != 'https://schema.org/InStock':
+                    errors.append(f'{page}: falta disponibilidad para pedidos en Offer')
                 shipping = item.get('offers', {}).get('shippingDetails', {})
                 if shipping.get('shippingRate', {}).get('value') != '0' or shipping.get('shippingDestination', {}).get('addressCountry') != 'SV':
                     errors.append(f'{page}: falta envío nacional gratis en Offer')
