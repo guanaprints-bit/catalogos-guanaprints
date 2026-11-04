@@ -78,3 +78,31 @@ códigos, precios y direcciones de las fichas, y mejora su información pública
 ### Publicación de esta revisión
 
 El propietario autorizó hacer directamente las correcciones. Los cambios se publican en main para el despliegue automático existente. Despliegue de código 214c9db confirmado como exitoso. Verificación pública posterior: portada, cuatro páginas de guías, robots.txt, llms.txt, sitemap.xml, FAQ, base de conocimiento y una ficha respondieron 200 con los contenidos nuevos. El sitemap público contiene 432 URL. Pruebas de portada con user-agent de Googlebot, OAI-SearchBot y PerplexityBot respondieron 200; no equivalen a acreditar rastreo real desde las redes de esos servicios.
+
+
+## Cierre operativo — 3 de noviembre de 2026
+
+Esta sección prevalece sobre las tareas históricas descritas arriba; conserva los datos
+anteriores como bitácora y evita volver a verificar controles ya aprobados.
+
+### Aprobado y cerrado por el propietario
+
+- Cloudflare (DNS, www, HTTPS, redirección y velocidad): revisado y aprobado por el propietario. **No reauditar ni modificar por iniciativa propia.**
+- Vista móvil, funcionamiento del buscador y botón WhatsApp: revisados y aprobados por el propietario. No rehacer pruebas manuales ni cambiar la interfaz.
+- Catálogo y SEO técnico: 403 fichas vigentes, clasificación depurada, metadatos estructurados y sitemaps consistentes; verificaciones de CI completadas correctamente.
+- Redirecciones y rutas históricas: verificaciones anteriores completadas; no reintroducir redirecciones arbitrarias ni convertir 404 verdaderos en 200.
+- Rendimiento del catálogo: 168 miniaturas WebP publicadas para invitaciones, sin sustituir los originales de las fichas.
+- Teléfono oficial de Guanaprints: +503 7289-2625. Limpieza de número antiguo confirmada en 601 archivos de texto; comprobación preventiva instalada en el CI. No modificar teléfono propio de Imprenta Francia.
+- IndexNow: la tarea de GitHub recibió HTTP 202 para cinco URL notificadas. Recepción no equivale a indexación.
+
+### Seguimiento externo ya iniciado, sin cambios dentro del sitio
+
+- **FashionShops10**: enviada desde guanaprints@gmail.com una solicitud al soporte support@fashionshops10.com para retirar la ficha ajena al sector de moda y eliminar teléfono/categoría antiguos. ID de mensaje Gmail: `1a1a4a265e282976`.
+- **WorldPlaces**: enviada desde guanaprints@gmail.com una solicitud a worldplaces@worldplaces.me para corregir categoría «Ropa (marca)», teléfono y dirección no verificada de la ficha 139380055. ID Gmail: `1a1a4a6660eab43f`. Dirección del destinatario atribuida por terceros, recepción humana aún no confirmada.
+- A fecha de cierre no se han recibido respuestas nuevas ni acuses de corrección. Los directorios externos siguen mostrando clasificación incorrecta; **no declararlos resueltos**.
+- Seguimiento automático de respuestas y fichas activado para dos semanas en ChatGPT, con aviso solo si cambia el estado o requiere intervención; no enviar correos repetitivos sin confirmación.
+
+### Acción pendiente principal
+
+- **Google Search Console:** comprobar qué páginas canónicas están efectivamente indexadas y cuáles siguen mostrando contenido antiguo; tramitar la actualización o retirada de resultados cuando corresponda. El sitemap correcto y el envío de IndexNow no garantizan el índice de Google.
+- No se identifican nuevas tareas de modificación del catálogo, Cloudflare, diseño, móvil, WhatsApp ni velocidad para reabrir sin un problema nuevo verificable.
