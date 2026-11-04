@@ -40,6 +40,8 @@ jobs:
         run: python scripts/verificar_seo.py
       - name: Comprobar que el teléfono anterior no reaparezca
         run: python scripts/normalizar_telefonos.py --check
+      - name: Revisar que cada producto se pida exclusivamente por WhatsApp
+        run: python scripts/verificar_pedidos_whatsapp.py
       - name: Compilar programas Python
         run: python -m compileall -q scripts
       - name: Comprobar sintaxis de JavaScript
