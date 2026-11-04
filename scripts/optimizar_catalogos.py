@@ -76,11 +76,44 @@ def actualizar_catalogos(mapping):
             total += hits[0]
     return changed, total
 
+
+def aligerar_metadatos_buscador():
+    """No cargar un ItemList de 403 URL en una página con noindex."""
+    page = ROOT / "buscar/index.html"
+    markup = page.read_text(encoding="utf-8")
+    if '<meta name="robots" content="noindex,follow">' not in markup:
+        raise RuntimeError("El buscador debe mantener noindex antes de simplificar JSON-LD")
+    modified = [False]
+    def simplify(match):
+        prefix, raw, suffix = match.groups()
+        data = json.loads(raw)
+        graph = data.get("@graph", [data])
+        removed_ids = {node.get("@id") for node in graph if node.get("@type") == "ItemList"}
+        if not removed_ids:
+            return match.group(0)
+        graph = [node for node in graph if node.get("@type") != "ItemList"]
+        for node in graph:
+            if isinstance(node.get("mainEntity"), dict) and node["mainEntity"].get("@id") in removed_ids:
+                del node["mainEntity"]
+        if "@graph" in data:
+            data["@graph"] = graph
+        else:
+            raise ValueError("No se puede eliminar una raíz estructurada aislada")
+        modified[0] = True
+        return prefix + json.dumps(data, ensure_ascii=False, separators=(",", ":")) + suffix
+    updated = re.sub(r'(<script\b[^>]*type="application/ld\+json"[^>]*>)(.*?)(</script>)',
+                     simplify, markup, flags=re.S)
+    if updated != markup:
+        page.write_text(updated, encoding="utf-8")
+    return len(markup.encode("utf-8")) - len(updated.encode("utf-8"))
+
 def main():
     mapping, n, original, optimized = miniaturas()
     pages, references = actualizar_catalogos(mapping)
+    metadata_saved = aligerar_metadatos_buscador()
     report = {"imagenes_originales": n, "miniaturas_webp": len(mapping),
               "referencias_de_catalogo": references, "paginas": pages,
+              "bytes_jsonld_buscador_ahorrados": metadata_saved,
               "bytes_antes": original, "bytes_despues": optimized,
               "ahorro_bytes": original - optimized}
     print(json.dumps(report, ensure_ascii=False, indent=2))
