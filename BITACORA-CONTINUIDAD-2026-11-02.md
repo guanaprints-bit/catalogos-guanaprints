@@ -119,3 +119,14 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - Verificación GitHub Actions en `https://github.com/guanaprints-bit/catalogos-guanaprints/actions/runs/41663581668`: **CI completada con éxito**, cero errores en SEO/clasificación.
 - Verificación real de `https://guanaprints.com/favicon.ico` = HTTP 200, `image/vnd.microsoft.icon`; `https://guanaprints.com/favicon-32x32.png` = HTTP 200, `image/png`. El comprobador externo reportó `SIN INCIDENCIAS OBSERVADAS`.
 - No se tocó el DNS, SSL ni se eliminó el subdominio `www`. El icono de controles a la izquierda de la URL en Chrome es interfaz del navegador y no se reemplaza por el favicon de la página; este aparece en la pestaña/marcadores.
+
+## Auditoría y mejoras de visibilidad — 7 de noviembre de 2026
+
+- Dirección confirmada por el propietario: Calle Don Bosco y 10a Av. Norte, Santa Ana, El Salvador. Local de Imprenta Francia. Publicada en contacto, pie compartido y streetAddress de las 431 URL del sitemap; sincronizada en llms.txt y guanaprints-kb.json. Sin inventar horario, coordenadas ni condiciones.
+- Las 22 páginas de invitaciones reclasificadas que no tenían nodo del negocio ahora comparten su identidad estructurada oficial.
+- Dos pares de títulos repetidos se distinguen por su código: BOD-175/INV15-175 y BOD-69/INV15-69. Se conservan los 403 productos y las seis ocasiones. No se declara que esas imágenes sean duplicados.
+- scripts/normalizar_identidad.py conserva estos ajustes al regenerar; ejecución idempotente. El verificador SEO protege la dirección visible y estructurada.
+- Verificaciones locales: SEO y 13,964 enlaces/recursos, clasificación y feeds, pedidos por WhatsApp y teléfono anterior sin errores; 431 URL con dirección y ningún título repetido.
+- Directorios: WorldPlaces devuelve Server Error en navegador, incluso tras una recarga; no fue posible enviar corrección. FashionShops10 ya no muestra Guanaprints en la página de ropa examinada, aunque el buscador conserva una copia anterior. No se atribuye esa retirada a esta sesión.
+- Las URL generales de todos-los-productos mantienen su destino a portada: sin equivalencia documental para asignarlas a una categoría concreta, no se redirigen a productos inventados ni al buscador noindex.
+- Publicación pendiente de comprobar tras commit; GitHub/CI por sí solos no acreditan producción ni indexación. Siguiente prioridad externa: completar corrección de WorldPlaces cuando permita acceder y verificar perfiles oficiales en buscadores.

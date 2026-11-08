@@ -91,6 +91,12 @@ for page in ROOT.rglob('*.html'):
                     errors.append(f'{page}: FAQ no coincide con preguntas visibles')
             if item.get('@id') == BASE + '/#negocio' and item.get('telephone') != '+50372892625':
                 errors.append(f'{page}: teléfono estructurado incorrecto')
+            if item.get('@id') == BASE + '/#negocio' and item.get('address', {}).get('streetAddress') != 'Calle Don Bosco y 10a Av. Norte':
+                errors.append(f'{page}: dirección oficial estructurada ausente o incorrecta')
+    if not noindex and not any(n.get('@id') == BASE + '/#negocio' for n in graph_nodes):
+        errors.append(f'{page}: falta identidad estructurada del negocio')
+    if not noindex and 'Calle Don Bosco y 10a Av. Norte' not in source.split('</head>', 1)[-1]:
+        errors.append(f'{page}: falta dirección oficial visible')
     for node in graph_nodes:
         entity = node.get('mainEntity')
         if isinstance(entity, dict) and '@id' in entity and entity['@id'] not in ids:
