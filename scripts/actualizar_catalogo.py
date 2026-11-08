@@ -251,4 +251,5 @@ optimizar_seo()
 runpy.run_path(str(ROOT / 'scripts/optimizar_catalogos.py'), run_name='__main__')
 runpy.run_path(str(ROOT / 'scripts/mejorar_contenido_compra.py'), run_name='__main__')
 runpy.run_path(str(ROOT / 'scripts/enlazar_invitaciones_relacionadas.py'), run_name='__main__')
+runpy.run_path(str(ROOT / 'scripts/enlazar_relojes_relacionados.py'), run_name='__main__')
 

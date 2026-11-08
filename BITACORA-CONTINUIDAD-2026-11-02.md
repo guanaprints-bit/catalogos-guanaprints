@@ -167,3 +167,12 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - Bing conserva la autorización específica pendiente del turno anterior; «Haz más mejoras» no se interpretó como aprobación de compartir datos.
 
 - Publicación de navegación confirmada: /bodas/01 y /invitaciones/baby-shower/modelos/bod-175/ responden 200 con ruta nueva y tres recomendaciones; /invitaciones/aniversarios/modelos/bod-32/ responde 200 con ruta y sin recomendaciones falsas. Commit funcional a4755b9ee518696060b13f481d1e5893883dc746. Ajuste 46f0d39d52f20210f9e56b7989ce940cd79c9fd8: el control de fotografías sigue exigiendo una foto principal y separa del recuento las miniaturas de recomendaciones. No repetir estas verificaciones en la siguiente sesión.
+
+## Siguiente mejora: recomendaciones de relojes — 7 de noviembre de 2026
+
+- Las 240 fichas de relojes dejan de recomendar automáticamente los primeros tres productos de su categoría. Se priorizan artistas, equipos o temas existentes en títulos y hashtags aprobados.
+- 605 enlaces relacionados. Si hay otras variantes del artista/equipo, no se completa con una banda/equipo diferente. Cuando no hay variantes del tema, se muestran opciones de la misma colección con un encabezado que lo indica.
+- Ejemplos del cambio comprobados: Beatles → Beatles, AC/DC → sus otras dos variantes, FAS → FAS, Barcelona → Barcelona. Todas las relaciones conservan la categoría y excluyen la propia ficha.
+- Relaciones estructuradas isRelatedTo coherentes con enlaces visibles y acceso al catálogo de la colección. Script enlazar_relojes_relacionados.py integrado al final del generador.
+- Se conservan exactamente la fotografía principal, el texto del producto, precio, oferta y código; se reutilizan imágenes existentes con carga diferida. No se tocan estilos, velocidad ni inventario.
+- Solo se comprobó el cambio nuevo: 240 fichas con un bloque único, sin duplicados/autorreferencias/cruces de categoría; idempotencia y ejemplos concretos de artistas/equipos. No repetir auditorías aprobadas.
