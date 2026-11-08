@@ -165,3 +165,5 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - Relaciones isRelatedTo en Product coherentes con los enlaces visibles. Script enlazar_invitaciones_relacionadas.py integrado al final del generador, idempotente.
 - Solo se verificó el cambio nuevo: 163 fichas con ruta y bloque único; 480 destinos sin autorreferencias ni cruces de ocasión; imagen principal idéntica al estado anterior. No se repite auditoría, velocidad, Search Console ni Cloudflare.
 - Bing conserva la autorización específica pendiente del turno anterior; «Haz más mejoras» no se interpretó como aprobación de compartir datos.
+
+- Publicación de navegación confirmada: /bodas/01 y /invitaciones/baby-shower/modelos/bod-175/ responden 200 con ruta nueva y tres recomendaciones; /invitaciones/aniversarios/modelos/bod-32/ responde 200 con ruta y sin recomendaciones falsas. Commit funcional a4755b9ee518696060b13f481d1e5893883dc746. Ajuste 46f0d39d52f20210f9e56b7989ce940cd79c9fd8: el control de fotografías sigue exigiendo una foto principal y separa del recuento las miniaturas de recomendaciones. No repetir estas verificaciones en la siguiente sesión.
