@@ -183,3 +183,5 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - Se añadieron 42 reglas 301 para 21 invitaciones trasladadas o duplicadas, cubriendo rutas limpias y .html. Los destinos se tomaron de las canónicas y meta refresh existentes; se validaron contra fichas activas reales. No se inventan equivalencias. BOD-144 conserva su exclusión y no se redirige.
 - Se mantienen las 71 reglas anteriores. No se cambia inventario, diseño, velocidad ni configuración de DNS/Cloudflare. El generador generar_redirecciones_fichas.py se ejecuta al final del catálogo para conservar los traslados.
 - Comprobación nueva: 42 reglas sin origen duplicado, sin bucles y con destino canónico activo; generación idempotente. No repetir auditorías aprobadas.
+
+- Publicación verificada del commit 9f03ba883353c6135697c03f27fb18b36a6ffea0: las 42 rutas nuevas devuelven HTTP 301 directo al destino previsto, sin fallos. No repetir esta comprobación en próximas sesiones. La mejora de relaciones de los 240 relojes del commit 01d0ff878c098c357b02eea4caf511d94db9b779 también quedó publicada y comprobada en FAS, Beatles y AC/DC; se registran ambas como completadas.
