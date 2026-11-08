@@ -3,6 +3,51 @@
 # Los productos retirados sin equivalencia conservan HTTP 404 (sin redirigir a artículos distintos).
 
 # Rutas exactas y migración desde WooCommerce.
+# BEGIN fichas trasladadas: destinos canónicos comprobados
+/bodas/17 /invitaciones/baby-shower/modelos/bod-17/ 301
+/bodas/17.html /invitaciones/baby-shower/modelos/bod-17/ 301
+/bodas/24 /invitaciones/baby-shower/modelos/bod-24/ 301
+/bodas/24.html /invitaciones/baby-shower/modelos/bod-24/ 301
+/bodas/46 /invitaciones/baby-shower/modelos/bod-46/ 301
+/bodas/46.html /invitaciones/baby-shower/modelos/bod-46/ 301
+/bodas/172 /invitaciones/baby-shower/modelos/bod-172/ 301
+/bodas/172.html /invitaciones/baby-shower/modelos/bod-172/ 301
+/bodas/174 /invitaciones/baby-shower/modelos/bod-174/ 301
+/bodas/174.html /invitaciones/baby-shower/modelos/bod-174/ 301
+/bodas/175 /invitaciones/baby-shower/modelos/bod-175/ 301
+/bodas/175.html /invitaciones/baby-shower/modelos/bod-175/ 301
+/bodas/180 /invitaciones/baby-shower/modelos/bod-180/ 301
+/bodas/180.html /invitaciones/baby-shower/modelos/bod-180/ 301
+/bodas/69 /invitaciones/primera-comunion/modelos/bod-69/ 301
+/bodas/69.html /invitaciones/primera-comunion/modelos/bod-69/ 301
+/bodas/179 /invitaciones/primera-comunion/modelos/bod-179/ 301
+/bodas/179.html /invitaciones/primera-comunion/modelos/bod-179/ 301
+/bodas/37 /invitaciones/cumpleanos/modelos/bod-37/ 301
+/bodas/37.html /invitaciones/cumpleanos/modelos/bod-37/ 301
+/bodas/32 /invitaciones/aniversarios/modelos/bod-32/ 301
+/bodas/32.html /invitaciones/aniversarios/modelos/bod-32/ 301
+/bodas/192 /15-anos/modelos/192 301
+/bodas/192.html /15-anos/modelos/192 301
+/bodas/300 /15-anos/modelos/300 301
+/bodas/300.html /15-anos/modelos/300 301
+/15-anos/modelos/19 /bodas/modelos/inv15-19/ 301
+/15-anos/modelos/19.html /bodas/modelos/inv15-19/ 301
+/15-anos/modelos/69 /invitaciones/primera-comunion/modelos/inv15-69/ 301
+/15-anos/modelos/69.html /invitaciones/primera-comunion/modelos/inv15-69/ 301
+/15-anos/modelos/70 /bodas/modelos/inv15-70/ 301
+/15-anos/modelos/70.html /bodas/modelos/inv15-70/ 301
+/15-anos/modelos/170 /bodas/modelos/inv15-170/ 301
+/15-anos/modelos/170.html /bodas/modelos/inv15-170/ 301
+/15-anos/modelos/175 /invitaciones/baby-shower/modelos/inv15-175/ 301
+/15-anos/modelos/175.html /invitaciones/baby-shower/modelos/inv15-175/ 301
+/15-anos/modelos/185 /bodas/modelos/inv15-185/ 301
+/15-anos/modelos/185.html /bodas/modelos/inv15-185/ 301
+/15-anos/modelos/193 /bodas/193 301
+/15-anos/modelos/193.html /bodas/193 301
+/15-anos/modelos/55 /15-anos/modelos/51 301
+/15-anos/modelos/55.html /15-anos/modelos/51 301
+# END fichas trasladadas
+
 /index.html / 301
 /relojes /relojes/ 301
 /corte-laser /guias/cotizar-corte-grabado-laser-mdf/ 301

@@ -176,3 +176,10 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - Relaciones estructuradas isRelatedTo coherentes con enlaces visibles y acceso al catálogo de la colección. Script enlazar_relojes_relacionados.py integrado al final del generador.
 - Se conservan exactamente la fotografía principal, el texto del producto, precio, oferta y código; se reutilizan imágenes existentes con carga diferida. No se tocan estilos, velocidad ni inventario.
 - Solo se comprobó el cambio nuevo: 240 fichas con un bloque único, sin duplicados/autorreferencias/cruces de categoría; idempotencia y ejemplos concretos de artistas/equipos. No repetir auditorías aprobadas.
+
+## Mejora siguiente: redirecciones permanentes de fichas — 7 de noviembre de 2026
+
+- Hallazgo nuevo comprobado: /bodas/17 seguía devolviendo HTTP 200 con meta refresh, en vez de traslado HTTP permanente.
+- Se añadieron 42 reglas 301 para 21 invitaciones trasladadas o duplicadas, cubriendo rutas limpias y .html. Los destinos se tomaron de las canónicas y meta refresh existentes; se validaron contra fichas activas reales. No se inventan equivalencias. BOD-144 conserva su exclusión y no se redirige.
+- Se mantienen las 71 reglas anteriores. No se cambia inventario, diseño, velocidad ni configuración de DNS/Cloudflare. El generador generar_redirecciones_fichas.py se ejecuta al final del catálogo para conservar los traslados.
+- Comprobación nueva: 42 reglas sin origen duplicado, sin bucles y con destino canónico activo; generación idempotente. No repetir auditorías aprobadas.
