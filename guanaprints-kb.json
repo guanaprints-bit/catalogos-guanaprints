@@ -182,5 +182,19 @@
     "tipo": "WhatsApp",
     "url": "https://wa.me/50372892625",
     "chat_ia_en_sitio": false
-  }
+  },
+  "recursos_compra": [
+    {
+      "titulo": "Relojes personalizados con foto en El Salvador",
+      "url": "https://guanaprints.com/relojes-con-foto/"
+    },
+    {
+      "titulo": "Cómo elegir un regalo personalizado para tu familia",
+      "url": "https://guanaprints.com/guias/regalos-personalizados-familia/"
+    },
+    {
+      "titulo": "Qué datos enviar para tus invitaciones de boda o quince años",
+      "url": "https://guanaprints.com/guias/datos-invitaciones-boda-quince-anos/"
+    }
+  ]
 }

@@ -137,3 +137,14 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - El dominio guanaprints.com sirvió HTTP 200 y la dirección nueva sin parámetros de consulta en portada, contacto, invitaciones, INV15-175 y BOD-69. También se verificaron BOD-175, INV15-69, llms.txt y la base JSON con una consulta de revisión. Las cuatro fichas muestran sus códigos en títulos.
 - CI del commit: verificaciones de SEO, clasificación, WhatsApp, sintaxis, recursos, publicación, redirecciones y buscador aprobadas; prueba móvil todavía en curso al registrar esta entrada.
 - Esto acredita publicación y funcionamiento comprobado, no mejora de posiciones ni indexación completa.
+
+## Ampliación de contenido de compra — 7 de noviembre de 2026
+
+- El propietario da velocidad por resuelta al 100%; no volver a auditarla ni modificar su configuración. Pide expresamente no repetir verificaciones ya aprobadas. Comprobar únicamente cambios nuevos y su publicación.
+- Tres recursos nuevos: /relojes-con-foto/, /guias/regalos-personalizados-familia/ y /guias/datos-invitaciones-boda-quince-anos/. Enlaces desde portada, relojes, bodas, quince años y guías. Sin fotos familiares ni reseñas inventadas.
+- Se amplían las 403 fichas con datos para pedir por WhatsApp, código y personalización del modelo. Relojes: MDF de 29 cm y 6 días hábiles totales desde aprobación; bodas: 8 días hábiles; otras celebraciones: confirmar al cotizar. Se conservan precios, fotos e inventario.
+- Sitemap actualizado a 434 URL, llms.txt y base JSON sincronizados. Script mejorar_contenido_compra.py integrado al final de actualizar_catalogo.py; ejecución idempotente comprobada.
+- Verificación de los cambios: SEO/enlaces, clasificación, inventario y canal WhatsApp sin errores. No se repiten auditorías de velocidad ni Cloudflare.
+- Gmail conectado es guanaprints@gmail.com; búsqueda de avisos de Google/Bing desde 30 de octubre devuelve la verificación y alertas no críticas ya conocidas, sin posteriores. No sustituye los informes actuales.
+- En este navegador Google Search Console, Bing y Business Profile no tienen sesión activa. Search Console preparado con guanaprints@gmail.com seleccionado, pendiente autenticación segura. No se crean perfiles duplicados ni se declaran realizadas mejoras de paneles sin acceso. WorldPlaces conserva el bloqueo de servidor ya documentado; no repetir revisiones.
+- Fotografías familiares para promoción y testimonios quedan pendientes de material real autorizado. No usar imágenes privadas de encargos ni inventar puntuaciones.

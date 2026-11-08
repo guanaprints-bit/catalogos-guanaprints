@@ -67,6 +67,8 @@ for page in ROOT.rglob('*.html'):
                 ids.add(node_id)
             if item.get('@type') == 'Product':
                 products += 1
+                if 'data-gp-order-details="true"' not in source:
+                    errors.append(f'{page}: faltan datos de personalización y pedido')
                 if item.get('url') != canon[0] or item.get('offers', {}).get('url') != canon[0]:
                     errors.append(f'{page}: Product/Offer no coincide con canonical')
                 # Un catálogo de encargos por WhatsApp no debe anunciar existencias
