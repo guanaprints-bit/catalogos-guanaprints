@@ -130,3 +130,10 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - Directorios: WorldPlaces devuelve Server Error en navegador, incluso tras una recarga; no fue posible enviar corrección. FashionShops10 ya no muestra Guanaprints en la página de ropa examinada, aunque el buscador conserva una copia anterior. No se atribuye esa retirada a esta sesión.
 - Las URL generales de todos-los-productos mantienen su destino a portada: sin equivalencia documental para asignarlas a una categoría concreta, no se redirigen a productos inventados ni al buscador noindex.
 - Publicación pendiente de comprobar tras commit; GitHub/CI por sí solos no acreditan producción ni indexación. Siguiente prioridad externa: completar corrección de WorldPlaces cuando permita acceder y verificar perfiles oficiales en buscadores.
+
+### Publicación verificada de esta mejora
+
+- Commit funcional: 35f7ecd965cef3901e6638c4bbc63ef9d99b4f54.
+- El dominio guanaprints.com sirvió HTTP 200 y la dirección nueva sin parámetros de consulta en portada, contacto, invitaciones, INV15-175 y BOD-69. También se verificaron BOD-175, INV15-69, llms.txt y la base JSON con una consulta de revisión. Las cuatro fichas muestran sus códigos en títulos.
+- CI del commit: verificaciones de SEO, clasificación, WhatsApp, sintaxis, recursos, publicación, redirecciones y buscador aprobadas; prueba móvil todavía en curso al registrar esta entrada.
+- Esto acredita publicación y funcionamiento comprobado, no mejora de posiciones ni indexación completa.
