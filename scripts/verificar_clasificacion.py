@@ -121,7 +121,10 @@ for code in mapping:
   errors.append(f"WhatsApp flotante antiguo o ausente: {code}")
  if '<svg aria-hidden="true"' not in markup or '<span>WhatsApp</span>' not in markup:
   errors.append(f"WhatsApp sin SVG accesible en ficha reclasificada: {code}")
- photos=re.findall(r'<img\b[^>]*>',markup)
+ # Las recomendaciones son imágenes secundarias; preservar la prueba estricta
+ # de una única foto principal en la ficha.
+ main_markup=re.sub(r'<section class="section" data-gp-related-invitations="true">.*?</section>', '', markup, flags=re.S)
+ photos=re.findall(r'<img\b[^>]*>',main_markup)
  if len(photos)!=1:
   errors.append(f"Ficha {code}: se esperaba una foto principal")
  else:
