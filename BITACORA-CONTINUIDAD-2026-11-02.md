@@ -156,3 +156,12 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - Perfil administrado de Google con identificador 7116465222469373362: enlace de GitHub Pages sustituido por https://guanaprints.com/ y guardado. Continúa sin visibilidad pública hasta completar verificación. No se creó otro perfil ni se cambiaron horarios.
 - Bing: el usuario eligió Google como método de acceso. La revisión automática rechazó el clic de consentimiento «Continuar», porque no había aprobación explícita para compartir con bing.com nombre, imagen y correo guanaprints@gmail.com. Se dejó pendiente, sin eludir el bloqueo. Próximo paso: solicitar esa autorización específica; después continuar Bing. No se han importado propiedades ni dado accesos a Search Console.
 - La publicación, CI y notificación IndexNow del commit terminaron correctamente. La velocidad no se volvió a auditar. Fotografías privadas y reseñas no se publican sin material real autorizado. WorldPlaces sigue pendiente del bloqueo previamente documentado, sin nuevas revisiones.
+
+## Nueva mejora de navegación — 7 de noviembre de 2026
+
+- 163 invitaciones con ruta visible Inicio → ocasión → código y acceso a la categoría correspondiente.
+- 480 enlaces a otras fichas de la misma ocasión, con recomendaciones por coincidencias de estilo en títulos existentes. Cumpleaños y aniversario conservan su único modelo sin recomendar productos de otra ocasión como equivalentes.
+- Las recomendaciones usan miniaturas WebP existentes, carga diferida y dimensiones reales. No se añaden dependencias, CSS ni JavaScript. No se modifican fotos principales, precios ni inventario.
+- Relaciones isRelatedTo en Product coherentes con los enlaces visibles. Script enlazar_invitaciones_relacionadas.py integrado al final del generador, idempotente.
+- Solo se verificó el cambio nuevo: 163 fichas con ruta y bloque único; 480 destinos sin autorreferencias ni cruces de ocasión; imagen principal idéntica al estado anterior. No se repite auditoría, velocidad, Search Console ni Cloudflare.
+- Bing conserva la autorización específica pendiente del turno anterior; «Haz más mejoras» no se interpretó como aprobación de compartir datos.
