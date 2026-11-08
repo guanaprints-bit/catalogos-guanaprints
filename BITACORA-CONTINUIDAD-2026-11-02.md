@@ -148,3 +148,11 @@ Comenzar por la discrepancia entre producción y GitHub. Conservar el botón flo
 - Gmail conectado es guanaprints@gmail.com; búsqueda de avisos de Google/Bing desde 30 de octubre devuelve la verificación y alertas no críticas ya conocidas, sin posteriores. No sustituye los informes actuales.
 - En este navegador Google Search Console, Bing y Business Profile no tienen sesión activa. Search Console preparado con guanaprints@gmail.com seleccionado, pendiente autenticación segura. No se crean perfiles duplicados ni se declaran realizadas mejoras de paneles sin acceso. WorldPlaces conserva el bloqueo de servidor ya documentado; no repetir revisiones.
 - Fotografías familiares para promoción y testimonios quedan pendientes de material real autorizado. No usar imágenes privadas de encargos ni inventar puntuaciones.
+
+### Resultado publicado y acciones externas completadas
+
+- Publicación funcional: da3235e2b0cb6eb93e5202890a046e872de84cf7. Las tres páginas nuevas se enviaron a Google Search Console; las tres solicitudes respondieron «Se ha solicitado la indexación».
+- Se reenvió únicamente el sitemap actualizado por el contenido nuevo: Google confirmó envío correcto y 434 páginas descubiertas, lectura del 7 de noviembre de 2026.
+- Perfil administrado de Google con identificador 7116465222469373362: enlace de GitHub Pages sustituido por https://guanaprints.com/ y guardado. Continúa sin visibilidad pública hasta completar verificación. No se creó otro perfil ni se cambiaron horarios.
+- Bing: el usuario eligió Google como método de acceso. La revisión automática rechazó el clic de consentimiento «Continuar», porque no había aprobación explícita para compartir con bing.com nombre, imagen y correo guanaprints@gmail.com. Se dejó pendiente, sin eludir el bloqueo. Próximo paso: solicitar esa autorización específica; después continuar Bing. No se han importado propiedades ni dado accesos a Search Console.
+- La publicación, CI y notificación IndexNow del commit terminaron correctamente. La velocidad no se volvió a auditar. Fotografías privadas y reseñas no se publican sin material real autorizado. WorldPlaces sigue pendiente del bloqueo previamente documentado, sin nuevas revisiones.
