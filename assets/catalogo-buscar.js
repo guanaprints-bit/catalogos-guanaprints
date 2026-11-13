@@ -78,7 +78,7 @@
  };
  function render(){
   const words=normalize(input.value).split(/[^a-z0-9]+/).filter(Boolean);
-  const found=items.filter(item=>matches(item,words));
+  const found=items.filter(item=>matches(item,words)&&(!topic||normalize(item.dataset.search).split(/\s+/).includes(topic)));
   const visible=new Set(found.slice(0,limit));
   items.forEach(item=>{const shouldHide=!visible.has(item);if(item.hidden!==shouldHide)item.hidden=shouldHide;});
   feedback.textContent=`${found.length} ${found.length===1?'diseño encontrado':'diseños encontrados'}. Mostrando ${Math.min(found.length,limit)}.`;
@@ -105,7 +105,7 @@
  if(select)select.addEventListener('change',()=>{quickValue=select.value;syncQuick();limit=pageSize;render();saveSearch();});
  box.querySelector('[data-clear-search]')?.addEventListener('click',()=>{input.value='';if(select)select.value='';quickValue='';syncQuick();limit=pageSize;render();saveSearch();input.focus();});
  more.addEventListener('click',()=>{limit+=pageSize;render();});
- const params=new URLSearchParams(location.search);input.value=params.get('q')||'';
+ const params=new URLSearchParams(location.search);const requestedTopic=params.get('tema');const topicLink=[...document.querySelectorAll('[data-clock-topic]')].find(link=>link.dataset.clockTopic===requestedTopic);let topic=topicLink?.dataset.clockTopic||'';if(topicLink)topicLink.setAttribute('aria-current','true');input.value=params.get('q')||'';
  if(select&&[...select.options].some(o=>o.value===params.get('categoria')))select.value=params.get('categoria');quickValue=pageCategory?'':(params.get('tipo')==='relojes'?'relojes':(select?.value||''));syncQuick();
  let hash='';try{hash=decodeURIComponent(location.hash.slice(1));}catch{hash=location.hash.slice(1);}const index=items.findIndex(i=>i.id===hash);
  if(index>=0)limit=Math.max(limit,index+1);
