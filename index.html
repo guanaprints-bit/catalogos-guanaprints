@@ -23,14 +23,14 @@ header .wrap{justify-content:space-between;padding-block:12px}
 .logo b{color:var(--pink)}
 section{padding:clamp(48px,8vw,88px) 0}
 .hero .wrap,.cards,.steps,footer .wrap{display:grid;gap:28px}
-.hero .wrap{grid-template-columns:1.1fr .9fr;align-items:center}
+.hero .wrap{grid-template-columns:minmax(0,1.1fr) minmax(0,.9fr);align-items:center}
 .pill,.btn{display:inline-block;border:2px solid var(--ink);border-radius:999px;padding:10px 16px;font-weight:800}
 .pill{background:var(--sky)}
 .btn{background:var(--lime);box-shadow:4px 4px var(--ink);text-decoration:none}
 .btn:hover{transform:translateY(-2px)}
 .white{background:white}.pink{background:var(--pink)}
-.visual{position:relative;display:grid;place-items:center;aspect-ratio:1;width:min(100%,460px);margin:auto;background:#2455ff;border:2px solid;border-radius:58% 42% 61% 39%/45% 52% 48% 55%}
-.visual img{width:70%;aspect-ratio:1;object-fit:cover;border:2px solid;border-radius:50%;box-shadow:8px 8px var(--ink);animation:float 5s ease-in-out infinite}
+.visual{position:relative;width:min(100%,460px);min-width:0;aspect-ratio:1/1;margin:auto;background:#2455ff;border:2px solid;border-radius:50%}
+.visual img{position:absolute;inset:12%;display:block;width:76%;height:76%;object-fit:contain;border-radius:50%;animation:float 5s ease-in-out infinite}
 .price{position:absolute;bottom:6%;left:0;background:var(--sun)}
 @keyframes float{50%{transform:translateY(-12px) rotate(2deg)}}
 .strip{background:var(--ink);color:var(--lime);padding:16px 0;text-align:center;font-weight:800}
@@ -45,7 +45,7 @@ footer{background:var(--ink);color:white;padding:48px 0 72px}
 footer .wrap{grid-template-columns:2fr 1fr 1fr}
 .wa{position:fixed;right:18px;bottom:18px;z-index:30;background:#25d366}
 [id]{scroll-margin-top:120px}
-@media(max-width:760px){.hero .wrap,.cards,.steps,footer .wrap{grid-template-columns:1fr}header nav{display:none}}
+@media(max-width:760px){.hero .wrap,.cards,.steps,footer .wrap{grid-template-columns:minmax(0,1fr)}header nav{display:none}}
 @media(prefers-reduced-motion:reduce){.visual img{animation:none}.btn:hover{transform:none}}
 
 .catalog-links{padding:24px 0 16px}
