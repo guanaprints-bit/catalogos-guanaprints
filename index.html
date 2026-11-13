@@ -51,10 +51,13 @@ footer .wrap{grid-template-columns:2fr 1fr 1fr}
 .catalog-links{padding:24px 0 16px}
 .catalog-links h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:14px}
 .catalog-links__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
-.catalog-links__grid a{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:60px;padding:12px;border:2px solid var(--ink);border-radius:12px;background:var(--lime);box-shadow:3px 3px var(--ink);font-weight:800;text-decoration:none;line-height:1.2}
-.catalog-links__grid a:nth-child(2){background:var(--pink)}
-.catalog-links__grid a:nth-child(3){background:var(--sky)}
-.catalog-links__grid a:nth-child(4){background:var(--sun)}
+.catalog-links__grid a{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;overflow:hidden;padding:0;border:2px solid var(--ink);border-radius:16px;background:#fff;box-shadow:3px 3px var(--ink);font-weight:800;text-decoration:none;line-height:1.2}
+.catalog-links__grid img{display:block;width:100%;height:clamp(92px,15vw,180px);object-fit:contain;background:#faf7f2;border-bottom:2px solid var(--ink)}
+.catalog-links__label{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:1;padding:10px 12px;min-height:52px}
+.catalog-links__grid a:nth-child(1) .catalog-links__label{background:var(--lime)}
+.catalog-links__grid a:nth-child(2) .catalog-links__label{background:var(--pink)}
+.catalog-links__grid a:nth-child(3) .catalog-links__label{background:var(--sky)}
+.catalog-links__grid a:nth-child(4) .catalog-links__label{background:var(--sun)}
 .catalog-links__grid a:hover{box-shadow:5px 5px var(--ink)}
 .catalog-links__grid a:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
 @media(max-width:760px){.catalog-links__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-links__grid a{font-size:.95rem}}
@@ -66,10 +69,10 @@ footer .wrap{grid-template-columns:2fr 1fr 1fr}
 <section class="catalog-links wrap" aria-labelledby="catalog-links-title">
   <h2 id="catalog-links-title">Catálogos</h2>
   <div class="catalog-links__grid">
-    <a href="/relojes/">Relojes <span aria-hidden="true">→</span></a>
-    <a href="/bodas/">Bodas <span aria-hidden="true">→</span></a>
-    <a href="/15-anos/">Quince años <span aria-hidden="true">→</span></a>
-    <a href="/invitaciones/">Otras invitaciones <span aria-hidden="true">→</span></a>
+    <a href="/relojes/"><img src="/relojes/el-salvador/imagenes/esv-034.webp" alt="" width="320" height="220"><span class="catalog-links__label">Relojes personalizados<span aria-hidden="true">→</span></span></a>
+    <a href="/bodas/"><img src="/bodas/imagenes/03.jpg" alt="" width="320" height="220"><span class="catalog-links__label">Invitaciones de boda<span aria-hidden="true">→</span></span></a>
+    <a href="/15-anos/"><img src="/15-anos/miniaturas/01.webp" alt="" width="320" height="220"><span class="catalog-links__label">Invitaciones de quince años<span aria-hidden="true">→</span></span></a>
+    <a href="/invitaciones/"><img src="/bodas/imagenes/17.jpg" alt="" width="320" height="220"><span class="catalog-links__label">Otras invitaciones<span aria-hidden="true">→</span></span></a>
   </div>
 </section>
 <section class="hero"><div class="wrap"><div><span class="pill">Hecho en Santa Ana</span><h1>Regalos, merch e invitaciones que cuentan <mark>tu historia</mark>.</h1><p>Relojes, camisetas, tazas e invitaciones con tu foto, tu nombre o tu canción favorita. Diseñamos contigo y lo hacemos realidad.</p><p><strong>Envío gratis a todo El Salvador</strong> · Revisamos tu diseño antes de producir</p><div class="actions"><a class="btn pink" href="/relojes/">Ver relojes desde $20</a><a class="btn white" href="https://wa.me/50372892625?text=Hola%20Guanaprints%2C%20quiero%20informaci%C3%B3n.">Pedir por WhatsApp</a></div></div><div class="visual"><img src="/relojes/el-salvador/imagenes/esv-034.webp" alt="Reloj personalizado con la silueta de la Catedral de Santa Ana"><span class="pill price">Desde $20</span></div></div></section>
