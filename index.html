@@ -47,11 +47,31 @@ footer .wrap{grid-template-columns:2fr 1fr 1fr}
 [id]{scroll-margin-top:120px}
 @media(max-width:760px){.hero .wrap,.cards,.steps,footer .wrap{grid-template-columns:1fr}header nav{display:none}}
 @media(prefers-reduced-motion:reduce){.visual img{animation:none}.btn:hover{transform:none}}
+
+.catalog-links{padding:24px 0 16px}
+.catalog-links h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:14px}
+.catalog-links__grid{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:12px}
+.catalog-links__grid a{display:flex;align-items:center;justify-content:space-between;gap:8px;min-height:60px;padding:12px;border:2px solid var(--ink);border-radius:12px;background:var(--lime);box-shadow:3px 3px var(--ink);font-weight:800;text-decoration:none;line-height:1.2}
+.catalog-links__grid a:nth-child(2){background:var(--pink)}
+.catalog-links__grid a:nth-child(3){background:var(--sky)}
+.catalog-links__grid a:nth-child(4){background:var(--sun)}
+.catalog-links__grid a:hover{box-shadow:5px 5px var(--ink)}
+.catalog-links__grid a:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
+@media(max-width:760px){.catalog-links__grid{grid-template-columns:repeat(2,minmax(0,1fr))}.catalog-links__grid a{font-size:.95rem}}
 </style>
 </head>
 <body>
 <header><div class="wrap"><a class="logo" href="/">Guanaprints<b>.</b></a><nav aria-label="Principal"><a href="#regalos">Regalos</a><a href="#merch">Merch</a><a href="#invitaciones">Invitaciones</a></nav><a class="btn" href="https://wa.me/50372892625?text=Hola%20Guanaprints%2C%20quiero%20informaci%C3%B3n.">WhatsApp</a></div></header>
 <main>
+<section class="catalog-links wrap" aria-labelledby="catalog-links-title">
+  <h2 id="catalog-links-title">Catálogos</h2>
+  <div class="catalog-links__grid">
+    <a href="/relojes/">Relojes <span aria-hidden="true">→</span></a>
+    <a href="/bodas/">Bodas <span aria-hidden="true">→</span></a>
+    <a href="/15-anos/">Quince años <span aria-hidden="true">→</span></a>
+    <a href="/invitaciones/">Otras invitaciones <span aria-hidden="true">→</span></a>
+  </div>
+</section>
 <section class="hero"><div class="wrap"><div><span class="pill">Hecho en Santa Ana</span><h1>Regalos, merch e invitaciones que cuentan <mark>tu historia</mark>.</h1><p>Relojes, camisetas, tazas e invitaciones con tu foto, tu nombre o tu canción favorita. Diseñamos contigo y lo hacemos realidad.</p><p><strong>Envío gratis a todo El Salvador</strong> · Revisamos tu diseño antes de producir</p><div class="actions"><a class="btn pink" href="/relojes/">Ver relojes desde $20</a><a class="btn white" href="https://wa.me/50372892625?text=Hola%20Guanaprints%2C%20quiero%20informaci%C3%B3n.">Pedir por WhatsApp</a></div></div><div class="visual"><img src="/relojes/el-salvador/imagenes/esv-034.webp" alt="Reloj personalizado con la silueta de la Catedral de Santa Ana"><span class="pill price">Desde $20</span></div></div></section>
 <div class="strip">Regalos · Merch · Invitaciones · Relojes · Camisetas · Tazas · Quince años</div>
 <section><div class="wrap"><h2>Regalos, merch e invitaciones.</h2><div class="cards">
