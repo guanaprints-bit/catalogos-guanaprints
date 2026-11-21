@@ -38,12 +38,12 @@ section{padding:clamp(48px,8vw,88px) 0}
 .visual:is(:hover,:focus-visible,:active) img{transform:scale(1.035)}
 .visual:is(:hover,:focus-visible,:active) .price{background:var(--sun)}
 .strip{background:var(--ink);color:var(--lime);padding:16px 0;text-align:center;font-weight:800}
-.cards{grid-template-columns:repeat(2,minmax(0,1fr));margin-top:32px}
+.cards{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:32px}
 .steps{grid-template-columns:repeat(3,minmax(0,1fr));margin-top:32px}
 .card,.step{border:2px solid;border-radius:24px;overflow:hidden;box-shadow:6px 6px var(--ink);background:white}
 .card img{display:block;width:100%;aspect-ratio:4/3;object-fit:cover;border-bottom:2px solid}
-.card-images{display:grid;grid-template-columns:minmax(0,1fr);gap:8px;padding:8px;border-top:2px solid var(--ink)}
-.card-images img{display:block;width:100%;aspect-ratio:1/1;object-fit:cover;border-radius:10px}
+.category-photo{display:grid;place-items:center;overflow:hidden;width:100%;aspect-ratio:4/3;border-top:2px solid var(--ink);background:#fff}
+.category-photo img{display:block;width:100%;height:100%;object-fit:contain;border:0}
 .card div,.step{padding:24px}
 .card:nth-child(2),.cta{background:var(--pink)}
 .step:nth-child(1){background:var(--sky)}.step:nth-child(2){background:var(--lime)}.step:nth-child(3){background:var(--sun)}
@@ -82,9 +82,10 @@ footer .wrap{grid-template-columns:2fr 1fr 1fr}
 </section>
 <section class="hero"><div class="wrap"><div><span class="pill">Hecho en Santa Ana</span><h1>Relojes e invitaciones que cuentan <mark>tu historia</mark>.</h1><p>Relojes, camisetas, tazas e invitaciones con tu foto, tu nombre o tu canción favorita. Diseñamos contigo y lo hacemos realidad.</p><p><strong>Envío gratis a todo El Salvador</strong> · Revisamos tu diseño antes de producir</p><div class="actions"><a class="btn pink" href="/relojes/">Ver relojes desde $20</a><a class="btn white" href="https://wa.me/50372892625?text=Hola%20Guanaprints%2C%20quiero%20informaci%C3%B3n.">Pedir por WhatsApp</a></div></div></div></section>
 <div class="strip">Relojes · Invitaciones · Camisetas · Tazas · Llaveros</div>
-<section><div class="wrap"><h2>Relojes e invitaciones.</h2><div class="cards">
-<article class="card" id="relojes"><div><h3>Relojes</h3><p>Relojes personalizados de 29 cm en MDF, con tu foto o diseño favorito. Desde $20.</p><div class="actions"><a href="/relojes/">Ver catálogo de relojes</a><a href="https://wa.me/50372892625?text=Hola%20Guanaprints%2C%20quiero%20informaci%C3%B3n.">Consultar por WhatsApp</a></div></div><div class="card-images"><img src="/assets/portada/regalos.webp" alt="Reloj y regalos personalizados en madera" width="1400" height="1400" loading="lazy"></div></article>
-<article class="card" id="invitaciones"><img src="/bodas/imagenes/03.jpg" alt="Invitaciones personalizadas para celebraciones" loading="lazy"><div><h3>Invitaciones</h3><p>Encuentra un diseño para tu celebración.</p><div class="actions"><a href="/bodas/">Bodas</a><a href="/15-anos/">Quince años</a><a href="/invitaciones/">Otras celebraciones</a></div></div></article>
+<section><div class="wrap"><h2>Regalos, Merch y Promocionales</h2><div class="cards">
+<article class="card" id="regalos"><div><h3>Regalos</h3><p>Relojes personalizados de 29 cm, piezas en MDF y regalos con tu foto o dedicatoria. Desde $20.</p><a href="/relojes/">Ver diseños de relojes</a></div><div class="category-photo"><img src="/assets/portada/regalos.webp" alt="Relojes personalizados, piezas de madera y detalles de regalo" width="1400" height="1400" loading="lazy"></div></article>
+<article class="card" id="merch"><div><h3>Merch</h3><p>Camisetas, tazas, llaveros y prendas personalizadas con tu diseño, equipo o marca.</p><a href="https://wa.me/50372892625?text=Hola%20Guanaprints%2C%20quiero%20informaci%C3%B3n.">Consultar por WhatsApp</a></div><div class="category-photo"><img src="/assets/portada/merch.webp" alt="Camisetas personalizadas de Guanaprints" width="1400" height="1400" loading="lazy"></div></article>
+<article class="card" id="promocionales"><div><h3>Promocionales</h3><p>Termos, tazas, bolsas, libretas y artículos personalizados para tu marca o evento.</p><a href="https://wa.me/50372892625?text=Hola%20Guanaprints%2C%20quiero%20informaci%C3%B3n.">Cotizar por WhatsApp</a></div><div class="category-photo"><img src="/assets/portada/promocionales.webp" alt="Taza, termo, bolsa y cuaderno promocionales personalizados" width="1400" height="1400" loading="lazy"></div></article>
 </div></div></section>
 <section><div class="wrap"><h2>Tu pedido en 3 pasos</h2><div class="steps"><article class="step"><h3>1. Elige un diseño</h3><p>Explora el catálogo o cuéntanos tu idea.</p></article><article class="step"><h3>2. Cuéntanos para quién es</h3><p>Envíanos el nombre, la foto o la dedicatoria.</p></article><article class="step"><h3>3. Coordinamos tu pedido</h3><p>Confirmamos el diseño, el precio final y la fecha antes de producir.</p></article></div></div></section>
 <section class="cta"><div class="wrap"><h2>¿Tienes una idea en mente?</h2><p>Mándanos tu foto o tu frase y te preparamos una propuesta.</p><a class="btn white" href="https://wa.me/50372892625?text=Hola%20Guanaprints%2C%20quiero%20informaci%C3%B3n.">Escribir por WhatsApp</a></div></section>
