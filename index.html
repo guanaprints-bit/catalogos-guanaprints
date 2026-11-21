@@ -86,8 +86,6 @@ footer .wrap{grid-template-columns:2fr 1fr 1fr}
   border-radius:18px;
   box-shadow:4px 4px var(--ink);
 }
-.portada-video-toggle{display:block;margin:12px auto 0}
-.portada-video-toggle[hidden]{display:none}
 .catalog-links h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:14px}
 .catalog-links__grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
 .catalog-links__grid a{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;overflow:hidden;padding:0;border:2px solid var(--ink);border-radius:16px;background:#fff;box-shadow:3px 3px var(--ink);font-weight:800;text-decoration:none;line-height:1.2}
@@ -105,26 +103,12 @@ footer .wrap{grid-template-columns:2fr 1fr 1fr}
 <body>
 <header><div class="wrap"><a class="logo" href="/">Guanaprints<b>.</b></a><nav aria-label="Principal"><a href="#relojes">Relojes</a><a href="#invitaciones">Invitaciones</a></nav><a class="btn" href="https://wa.me/50372892625?text=Hola%20Guanaprints%2C%20quiero%20informaci%C3%B3n.">WhatsApp</a></div></header>
 <main><div class="gp-custom-message"><p>Escoge un producto y <strong>personalicémoslo</strong> para crear un detalle único.</p></div>
-<video class="portada-video" width="480" height="480" muted loop playsinline preload="metadata" aria-label="Figura personalizada de madera de Guanaprints">
-  <source src="/assets/portada/video-detalles.mp4" type="video/mp4">
+<video class="portada-video" width="480" height="480" muted loop playsinline preload="metadata" aria-label="Figura personalizada de madera de Guanaprints, $25">
+  <source src="/assets/portada/video-detalles.mp4?v=25" type="video/mp4">
 </video>
-<button type="button" class="btn portada-video-toggle" hidden>Reproducir video</button>
 <script>
-{
-  const video = document.querySelector('.portada-video');
-  const toggle = document.querySelector('.portada-video-toggle');
-  const updateLabel = () => {
-    toggle.textContent = video.paused ? 'Reproducir video' : 'Pausar video';
-  };
-  const play = () => video.play().catch(updateLabel);
-  video.addEventListener('play', updateLabel);
-  video.addEventListener('pause', updateLabel);
-  toggle.addEventListener('click', () => {
-    if (video.paused) play();
-    else video.pause();
-  });
-  toggle.hidden = false;
-  if (!matchMedia('(prefers-reduced-motion: reduce)').matches) play();
+if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
+  document.querySelector('.portada-video').play().catch(() => {});
 }
 </script>
 <section class="catalog-links wrap" aria-labelledby="catalog-links-title">
