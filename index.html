@@ -26,6 +26,13 @@ section{padding:clamp(48px,8vw,88px) 0}
 .hero .wrap{grid-template-columns:minmax(0,1fr);align-items:center}
 .pill,.btn{display:inline-block;border:2px solid var(--ink);border-radius:999px;padding:10px 16px;font-weight:800}
 .pill{background:var(--sky)}
+.hero{padding-block:clamp(24px,5vw,64px)}
+.hero-card{padding:clamp(18px,5vw,56px);margin-right:6px;border:2px solid var(--ink);border-radius:24px;background:var(--sky);box-shadow:6px 6px var(--ink)}
+.hero-card .pill{background:var(--lime)}
+.hero-card h1{font-size:clamp(2.25rem,8vw,6rem);line-height:1.12;margin:20px 0 16px}
+.hero-card h1 mark{background:var(--pink);padding-inline:.12em}
+.hero-card p{max-width:62ch}
+.hero-card p:last-child{margin-bottom:0}
 .btn{background:var(--lime);box-shadow:4px 4px var(--ink);text-decoration:none}
 .btn:hover{transform:translateY(-2px)}
 .white{background:white}.pink{background:var(--pink)}
@@ -80,7 +87,7 @@ footer .wrap{grid-template-columns:2fr 1fr 1fr}
     <a href="#relojes"><img src="/assets/portada/relojes-categoria.webp" alt="" width="360" height="360"><span class="catalog-links__label">Relojes<span aria-hidden="true">→</span></span></a>
   </div>
 </section>
-<section class="hero"><div class="wrap"><div><span class="pill">Hecho en El Salvador</span><h1>Detalles únicos</h1><p>Relojes, camisetas, tazas e invitaciones con tu foto, tu nombre o tu canción favorita. Diseñamos contigo y lo hacemos realidad.</p><p><strong>Envío gratis a todo El Salvador</strong> · Revisamos tu diseño antes de producir</p><div class="actions"><a class="btn pink" href="/relojes/">Ver relojes desde $20</a><a class="btn white" href="https://wa.me/50372892625?text=Hola%20Guanaprints%2C%20quiero%20informaci%C3%B3n.">Pedir por WhatsApp</a></div></div></div></section>
+<section class="hero"><div class="wrap"><div class="hero-card"><span class="pill">Hecho en El Salvador</span><h1>Detalles <mark>únicos</mark></h1><p>Relojes, camisetas, tazas e invitaciones con tu foto, tu nombre o tu canción favorita. Diseñamos contigo y lo hacemos realidad.</p><p><strong>Envío gratis a todo El Salvador</strong> · Revisamos tu diseño antes de producir</p></div></div></section>
 <div class="strip">Relojes · Invitaciones · Camisetas · Tazas · Llaveros</div>
 <section><div class="wrap"><h2>Regalos, Merch y Promocionales</h2><div class="cards">
 <article class="card" id="regalos"><div><h3>Regalos</h3><p>Relojes personalizados de 29 cm, piezas en MDF y regalos con tu foto o dedicatoria. Desde $20.</p><a href="/relojes/">Ver diseños de relojes</a></div><div class="category-photo"><img src="/assets/portada/regalos.webp" alt="Relojes personalizados, piezas de madera y detalles de regalo" width="1400" height="1400" loading="lazy"></div></article>
