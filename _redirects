@@ -121,3 +121,6 @@
 /product-category/relojes/deportes/page/* /relojes/deportes/ 301
 /product-category/compra-aqui/page/* / 301
 /product-category/dias-especiales/dia-del-padre/relojes/page/* /relojes/ 301
+
+# Redirecciones detectadas en Search Console.
+/tienda/bodas/ /bodas/ 301
