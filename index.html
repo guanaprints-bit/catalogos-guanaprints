@@ -93,13 +93,13 @@ footer .wrap{grid-template-columns:2fr 1fr 1fr}
   box-shadow:4px 4px var(--ink);
 }
 .catalog-links h2{font-size:clamp(1.8rem,4vw,2.8rem);margin-bottom:14px}
-.catalog-links__grid{display:grid;grid-template-columns:repeat(2,minmax(0,364px));gap:12px}
+.catalog-links__grid{display:grid;grid-template-columns:repeat(3,minmax(0,364px));gap:12px}
 .catalog-links__grid a{display:flex;flex-direction:column;align-items:stretch;justify-content:flex-start;gap:0;overflow:hidden;padding:0;border:2px solid var(--ink);border-radius:16px;background:#fff;box-shadow:3px 3px var(--ink);font-weight:800;text-decoration:none;line-height:1.2}
 .catalog-links__grid img{display:block;width:100%;height:auto;aspect-ratio:1;object-fit:contain;background:#faf7f2;border-bottom:2px solid var(--ink)}
 .catalog-links__label{display:flex;align-items:center;justify-content:space-between;gap:8px;flex:1;padding:10px 12px;min-height:52px}
 .catalog-links__grid a:nth-child(1) .catalog-links__label{background:var(--lime)}
 .catalog-links__grid a:nth-child(2) .catalog-links__label{background:var(--pink)}
-.catalog-links__grid a:nth-child(4) .catalog-links__label{background:var(--sun)}
+.catalog-links__grid a:nth-child(3) .catalog-links__label{background:var(--sun)}
 .catalog-links__grid a:hover{box-shadow:5px 5px var(--ink)}
 .catalog-links__grid a:focus-visible{outline:3px solid var(--ink);outline-offset:4px}
 @media(max-width:767px){.catalog-links__grid{grid-template-columns:minmax(0,1fr)}.catalog-links__grid a{font-size:1.25rem}}
@@ -108,7 +108,7 @@ footer .wrap{grid-template-columns:2fr 1fr 1fr}
 <link rel="stylesheet" href="/assets/catalogo-mobile.css">
 </head>
 <body>
-<header><div class="wrap"><a class="logo" href="/">Guanaprints<b>.</b></a><nav aria-label="Principal"><a href="#relojes">Relojes</a><a href="#invitaciones">Invitaciones</a></nav><a class="btn" href="https://wa.me/50372892625?text=Hola%20Guanaprints%2C%20quiero%20informaci%C3%B3n.">WhatsApp</a></div></header>
+<header><div class="wrap"><a class="logo" href="/">Guanaprints<b>.</b></a><nav aria-label="Principal"><a href="#relojes">Relojes</a><a href="#invitaciones">Invitaciones</a><a href="/bar-y-restaurante/">Bar y restaurante</a></nav><a class="btn" href="https://wa.me/50372892625?text=Hola%20Guanaprints%2C%20quiero%20informaci%C3%B3n.">WhatsApp</a></div></header>
 <main><div class="gp-custom-message"><p>Escoge un producto y <strong>personalicémoslo</strong> para crear un detalle único.</p></div>
 <video class="portada-video" width="480" height="480" muted loop playsinline preload="metadata" aria-label="Figura personalizada de madera de Guanaprints, $25">
   <source src="/assets/portada/video-detalles.mp4?v=25" type="video/mp4">
@@ -123,6 +123,7 @@ if (!matchMedia('(prefers-reduced-motion: reduce)').matches) {
   <div class="catalog-links__grid">
     <a href="#invitaciones"><img src="/assets/portada/invitaciones-categoria.webp" alt="" width="360" height="360"><span class="catalog-links__label">Invitaciones<span aria-hidden="true">→</span></span></a>
     <a href="#relojes"><img src="/assets/portada/relojes-categoria.webp" alt="" width="360" height="360"><span class="catalog-links__label">Relojes<span aria-hidden="true">→</span></span></a>
+    <a href="/bar-y-restaurante/"><img src="/assets/bar-y-restaurante/portada.webp" alt="" width="768" height="768"><span class="catalog-links__label">Bar y restaurante<span aria-hidden="true">→</span></span></a>
   </div>
 </section>
 <section class="hero"><div class="wrap"><div class="hero-card"><span class="pill">Hecho en El Salvador</span><h1>Detalles <mark>únicos</mark></h1><p>Relojes, camisetas, tazas e invitaciones con tu foto, tu nombre o tu canción favorita. Diseñamos contigo y lo hacemos realidad.</p><p><strong>Envío gratis a todo El Salvador</strong> · Revisamos tu diseño antes de producir</p></div></div></section>
