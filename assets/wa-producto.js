@@ -3,6 +3,7 @@
   'use strict';
   if (window.__gpWA) return;
   window.__gpWA = true;
+  const ETIQUETA_DISENO = 'Pide tu diseño aquí';
   const CONFIG = { telefono:'50372892625', producto:'.card, .product', boton:'a.wa-producto' };
   function limpiar(valor) { return String(valor || '').replace(/\s+/g, ' ').trim(); }
   function texto(elemento) { return limpiar(elemento?.textContent); }
@@ -97,10 +98,12 @@
       document.body.appendChild(enlace);
     }
     enlace.classList.add('floating-whatsapp');
-    enlace.href = 'https://wa.me/50372892625?text=' + encodeURIComponent('Hola Guanaprints, quiero información sobre sus productos.');
+    if (!enlaceWhatsApp(enlace)) {
+      enlace.href = 'https://wa.me/' + CONFIG.telefono + '?text=' + encodeURIComponent('Hola, Guanaprints. Quiero pedir un diseño personalizado.');
+    }
     enlace.target = '_blank';
     enlace.rel = 'noopener noreferrer';
-    enlace.setAttribute('aria-label', 'Escribir a Guanaprints por WhatsApp');
+    enlace.setAttribute('aria-label', ETIQUETA_DISENO + ' por WhatsApp');
     // Respetar el icono SVG de los botones estáticos; no borrar su contenido.
     // Los botones creados por JavaScript también reciben un SVG accesible.
     let icono = enlace.querySelector('svg');
@@ -120,16 +123,17 @@
       trazo.setAttribute('d', 'M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z');
       icono.appendChild(trazo);
       const etiqueta = document.createElement('span');
-      etiqueta.textContent = 'WhatsApp';
+      etiqueta.textContent = ETIQUETA_DISENO;
       enlace.replaceChildren(icono, etiqueta);
     } else {
-      const etiqueta = enlace.querySelector('span');
-      if (etiqueta) etiqueta.textContent = 'WhatsApp';
+      const etiqueta = enlace.querySelector('span') || document.createElement('span');
+      etiqueta.textContent = ETIQUETA_DISENO;
+      enlace.replaceChildren(icono, etiqueta);
     }
     if (!document.getElementById('gp-wa-global-css')) {
       const estilo = document.createElement('style');
       estilo.id = 'gp-wa-global-css';
-      estilo.textContent = '#gp-whatsapp-fixed, a.floating-whatsapp{display:flex!important;visibility:visible!important;opacity:1!important;position:fixed!important;right:14px!important;bottom:calc(14px + env(safe-area-inset-bottom, 0px))!important;left:auto!important;top:auto!important;transform:none!important;z-index:2147483647!important;pointer-events:auto!important;align-items:center!important;justify-content:center!important;min-height:52px!important;padding:12px 19px!important;background:#168b52!important;color:#fff!important;border:2px solid #fff!important;border-radius:999px!important;box-shadow:0 8px 26px #0004!important;font:700 16px/1.2 Arial,sans-serif!important;text-decoration:none!important;white-space:nowrap!important}';
+      estilo.textContent = '#gp-whatsapp-fixed, a.floating-whatsapp{display:flex!important;visibility:visible!important;opacity:1!important;position:fixed!important;right:14px!important;bottom:calc(14px + env(safe-area-inset-bottom, 0px))!important;left:auto!important;top:auto!important;transform:none!important;z-index:2147483647!important;pointer-events:auto!important;align-items:center!important;justify-content:center!important;min-height:52px!important;padding:12px 19px!important;background:#168b52!important;color:#fff!important;border:2px solid #fff!important;border-radius:999px!important;box-shadow:0 8px 26px #0004!important;font:700 16px/1.2 Arial,sans-serif!important;text-decoration:none!important;white-space:nowrap!important;gap:8px!important;max-width:calc(100vw - 28px)!important} @media(prefers-reduced-motion:no-preference){#gp-whatsapp-fixed,a.floating-whatsapp{animation:gp-wa-pulso 2.5s ease-out infinite!important}@keyframes gp-wa-pulso{0%,100%{box-shadow:0 8px 26px #0004}45%{box-shadow:0 8px 26px #0004,0 0 0 6px #25d36680}75%{box-shadow:0 8px 26px #0004,0 0 0 9px #25d36600}}}';
       document.head.appendChild(estilo);
     }
     const pendientes = new Set(); let programado = false;
