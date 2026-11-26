@@ -29,3 +29,31 @@ input,select{font:inherit;color:inherit;min-height:48px;width:min(100%,330px);bo
 .tools{display:flex;gap:16px}.tools label{flex:1}.tools input,.tools select{width:100%}.intro .cta{margin-top:8px}.tags{color:#564669}.breadcrumbs{margin-bottom:24px}.intro .details{min-width:0}
 @media(max-width:767px){.tools{flex-direction:column;gap:0}}
 
+
+/* Las fichas abren con la fotografía completa; el catálogo conserva su portada. */
+main:has(> .intro > .details) {
+  width: 100%;
+  padding-top: 12px;
+}
+main:has(> .intro > .details) > .breadcrumbs,
+.intro:has(> .details) > .details {
+  width: min(100% - 32px, 1160px);
+  margin-inline: auto;
+}
+.intro:has(> .details) {
+  grid-template-columns: minmax(0, 1fr);
+  align-items: start;
+}
+.intro:has(> .details) > img {
+  grid-row: 1;
+  width: 100%;
+  height: auto;
+  max-height: calc(100svh - 115px);
+  object-fit: contain;
+  border: 0;
+  border-radius: 0;
+}
+.intro > .details > h1 {
+  font-size: clamp(1.8rem, 4vw, 3.25rem);
+  line-height: 1.1;
+}
