@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """Auditoría de cada ficha de Guanaprints: pedidos solo por WhatsApp.
 
-Comprueba enlaces de pedido dentro del artículo del producto (no basta con
-el botón flotante compartido) y evita que aparezca un checkout externo.
+Comprueba los enlaces de pedido dentro del bloque visible del producto (no basta
+con el botón flotante compartido) y evita que aparezca un checkout externo.
 No edita el diseño, los productos ni los enlaces: solo comprueba.
 """
 from __future__ import annotations
@@ -19,8 +19,12 @@ JSONLD = re.compile(
     r'<script\b[^>]*application/ld\+json[^>]*>(.*?)</script>', re.S | re.I
 )
 ARTICLE = re.compile(
-    r'<article\b[^>]*class=["\'][^"\']*\bproduct\b[^"\']*["\'][^>]*>'
+    r'<article\\b[^>]*class=["\\'][^"\\']*\\bproduct\\b[^"\\']*["\\'][^>]*>'
     r'(.*?)</article>', re.S | re.I
+)
+PRODUCT_DETAIL = re.compile(
+    r'<section\\b[^>]*class=["\\'][^"\\']*\\bintro\\b[^"\\']*["\\'][^>]*>'
+    r'(.*?)</section>', re.S | re.I
 )
 LINK = re.compile(r'<a\b[^>]*\bhref=["\']([^"\']+)["\']', re.I)
 CHECKOUT = re.compile(r'/(?:cart|checkout|pagar|comprar)(?:/|$)|(?:add-to-cart=)', re.I)
@@ -51,11 +55,11 @@ def main() -> None:
             continue
         products += 1
         rel = file.relative_to(ROOT).as_posix()
-        article = ARTICLE.search(source)
-        if article is None:
-            invalid.append(f"{rel}: falta el artículo visible del producto")
+        product_block = ARTICLE.search(source) or PRODUCT_DETAIL.search(source)
+        if product_block is None:
+            invalid.append(f"{rel}: falta el bloque visible del producto")
             continue
-        links = [html.unescape(u) for u in LINK.findall(article.group(1))]
+        links = [html.unescape(u) for u in LINK.findall(product_block.group(1))]
         phones = [p for u in links if (p := whatsapp_phone(u)) is not None]
         if OFFICIAL_PHONE not in phones:
             invalid.append(f"{rel}: no hay enlace de pedido al WhatsApp oficial en el producto")
@@ -70,7 +74,7 @@ def main() -> None:
     result = {"fichas_productos": products, "whatsapp_oficial": OFFICIAL_PHONE,
               "errores": invalid}
     print(json.dumps(result, ensure_ascii=False, indent=2))
-    if products != 403 or invalid:
+    if products != 564 or invalid:
         raise SystemExit("Verificación WhatsApp fallida: revisar fichas antes de publicar")
 
 
