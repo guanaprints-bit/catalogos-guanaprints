@@ -19,12 +19,12 @@ JSONLD = re.compile(
     r'<script\b[^>]*application/ld\+json[^>]*>(.*?)</script>', re.S | re.I
 )
 ARTICLE = re.compile(
-    r'<article\\b[^>]*class=["\\'][^"\\']*\\bproduct\\b[^"\\']*["\\'][^>]*>'
-    r'(.*?)</article>', re.S | re.I
+    r"""<article\b[^>]*class=["'][^"']*\bproduct\b[^"']*["'][^>]*>(.*?)</article>""",
+    re.S | re.I,
 )
 PRODUCT_DETAIL = re.compile(
-    r'<section\\b[^>]*class=["\\'][^"\\']*\\bintro\\b[^"\\']*["\\'][^>]*>'
-    r'(.*?)</section>', re.S | re.I
+    r"""<section\b[^>]*class=["'][^"']*\bintro\b[^"']*["'][^>]*>(.*?)</section>""",
+    re.S | re.I,
 )
 LINK = re.compile(r'<a\b[^>]*\bhref=["\']([^"\']+)["\']', re.I)
 CHECKOUT = re.compile(r'/(?:cart|checkout|pagar|comprar)(?:/|$)|(?:add-to-cart=)', re.I)
