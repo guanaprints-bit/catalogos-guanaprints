@@ -6,6 +6,7 @@ Esta comprobación solo lee URLs; reporta diferencias sin bloquear el despliegue
 """
 import json
 import socket
+from concurrent.futures import ThreadPoolExecutor, as_completed
 import urllib.error
 import urllib.request
 import xml.etree.ElementTree as ET
@@ -16,7 +17,9 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://guanaprints.com"
 PATHS = [
     "/", "/invitaciones/", "/buscar/", "/robots.txt",
-    "/sitemap.xml", "/assets/catalogo-buscar.js", "/bar-y-restaurante/", "/llms.txt", "/guanaprints-kb.json",
+    "/sitemap.xml", "/assets/catalogo-buscar.js", "/bar-y-restaurante/", "/religiosos/",
+    "/religiosos/modelos/virgen-de-guadalupe-g3d/", "/assets/religiosos/portada.webp",
+    "/assets/religiosos/modelos/virgen-de-guadalupe-g3d.webp", "/llms.txt", "/guanaprints-kb.json",
     "/favicon.ico", "/favicon-32x32.png",
 ]
 results = []
@@ -79,8 +82,73 @@ if invitations:
 
 search = pages["/buscar/"].get("html", "")
 if search:
-    require(pages["/buscar/"], "403 diseños" in search, "buscador general no muestra sus 403 diseños activos")
+    require(pages["/buscar/"], "450 diseños" in search, "buscador general no muestra sus 450 diseños indexables")
     require(pages["/buscar/"], "Otras invitaciones" in search, "buscador sin acceso a otras ocasiones")
+
+religious = pages["/religiosos/"].get("html", "")
+if religious:
+    require(pages["/religiosos/"], religious.count('<article class="card"') == 47,
+            "catálogo Religiosos no contiene las 47 fichas")
+    require(pages["/religiosos/"], 'href="/religiosos/"' in home,
+            "la portada no enlaza la categoría Religiosos")
+    require(pages["/religiosos/"], "Pide tu diseño aquí" in religious and "floating-whatsapp" in religious,
+            "falta el botón flotante de WhatsApp")
+    require(pages["/religiosos/"], "CollectionPage" in religious and "ItemList" in religious and "BreadcrumbList" in religious,
+            "faltan datos estructurados de colección o navegación")
+    require(pages["/religiosos/"], "envío gratis" not in religious.lower(),
+            "la categoría Religiosos anuncia envío gratis")
+product = pages["/religiosos/modelos/virgen-de-guadalupe-g3d/"].get("html", "")
+if product:
+    require(pages["/religiosos/modelos/virgen-de-guadalupe-g3d/"], "<h1>Virgen de Guadalupe</h1>" in product and "Product" in product,
+            "la ficha individual no carga su producto y datos estructurados")
+    require(pages["/religiosos/modelos/virgen-de-guadalupe-g3d/"], product.find('class="full-photo"') < product.find('class="details"'),
+            "la foto no aparece antes de los detalles")
+    require(pages["/religiosos/modelos/virgen-de-guadalupe-g3d/"], "Pide tu diseño aquí" in product,
+            "ficha individual sin botón flotante de WhatsApp")
+for relative in ("/assets/religiosos/portada.webp", "/assets/religiosos/modelos/virgen-de-guadalupe-g3d.webp"):
+    result = pages[relative]
+    if not result.get("error"):
+        require(result, result.get("status") == 200 and "image/webp" in result.get("content_type", ""),
+                f"recurso gráfico inválido: {relative}")
+
+# Revisar en producción cada ficha, su foto completa y la miniatura WebP.
+manifest_path = ROOT / "religiosos/manifest.json"
+if manifest_path.is_file():
+    try:
+        manifest = json.loads(manifest_path.read_text(encoding="utf-8"))
+        remote_checks = []
+        with ThreadPoolExecutor(max_workers=12) as pool:
+            futures = {}
+            for item in manifest:
+                for kind, relative in (
+                    ("ficha", item["ruta"]),
+                    ("foto", item["imagen"]),
+                    ("miniatura", item["miniatura"]),
+                ):
+                    futures[pool.submit(fetch, BASE + relative)] = (item, kind, relative)
+            for future in as_completed(futures):
+                item, kind, relative = futures[future]
+                try:
+                    result = future.result()
+                except Exception as error:
+                    result = {"url": BASE + relative, "error": str(error)[:160]}
+                if result.get("error") or result.get("status") != 200:
+                    problems.append(f"Religiosos página {item['pagina']} {kind}: HTTP/error {result.get('status', result.get('error'))}")
+                    continue
+                if kind == "ficha":
+                    markup = result.get("html", "")
+                    if f'<h1>{item["nombre"]}</h1>' not in markup or '"@type":"Product"' not in markup:
+                        problems.append(f"Religiosos página {item['pagina']}: nombre o Schema Product incorrecto")
+                    if item["imagen"] not in markup or 'Pide tu diseño aquí' not in markup:
+                        problems.append(f"Religiosos página {item['pagina']}: foto principal o WhatsApp ausente")
+                elif "image/webp" not in result.get("content_type", ""):
+                    problems.append(f"Religiosos página {item['pagina']} {kind}: tipo distinto de WebP")
+                remote_checks.append((item["pagina"],kind))
+        results.append({"categoria":"/religiosos/","fichas_verificadas":len({n for n,k in remote_checks if k=="ficha"}),
+                        "fotos_verificadas":len({n for n,k in remote_checks if k=="foto"}),
+                        "miniaturas_verificadas":len({n for n,k in remote_checks if k=="miniatura"}),"status":"200"})
+    except (OSError, json.JSONDecodeError, KeyError) as error:
+        problems.append(f"Religiosos: no se pudo leer el manifiesto local para auditar todas las rutas: {error}")
 
 bar = pages["/bar-y-restaurante/"].get("html", "")
 if bar:
@@ -97,6 +165,11 @@ if knowledge_text:
         item = next((item for item in knowledge.get("productos", []) if item.get("id") == "bar-y-restaurante"), None)
         require(pages["/guanaprints-kb.json"], bool(item and item.get("disenos") == 161),
                 "la base de conocimiento no refleja las 161 fichas de Bar y restaurante")
+        religious_item = next((item for item in knowledge.get("productos", []) if item.get("id") == "articulos-religiosos"), None)
+        require(pages["/guanaprints-kb.json"], bool(religious_item and religious_item.get("disenos") == 47 and religious_item.get("url") == "https://guanaprints.com/religiosos/"),
+                "la base de conocimiento no refleja los artículos religiosos")
+        require(pages["/guanaprints-kb.json"], "únicamente" in knowledge.get("negocio", {}).get("envio", ""),
+                "la base de conocimiento no limita el envío gratis a relojes")
     except json.JSONDecodeError:
         problems.append("/guanaprints-kb.json: JSON público no válido")
 

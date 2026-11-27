@@ -5,7 +5,7 @@
     "ubicacion": "Santa Ana, El Salvador, en el local de Imprenta Francia",
     "whatsapp": "+50372892625",
     "whatsapp_link": "https://wa.me/50372892625",
-    "envio": "Gratis a todo El Salvador",
+    "envio": "El envío gratis aplica únicamente a los relojes personalizados; el costo de envío de otros productos se consulta por WhatsApp.",
     "facebook": "https://www.facebook.com/guanaprints/",
     "instagram": "https://www.instagram.com/guanaprints/",
     "horario": null,
@@ -24,13 +24,14 @@
       "Relojes de pared personalizados",
       "Invitaciones de boda",
       "Invitaciones de quince años",
-      "Productos personalizados para bares y restaurantes"
+      "Productos personalizados para bares y restaurantes",
+      "Artículos religiosos en MDF y decoración religiosa"
     ],
     "canal_exclusivo_de_pedidos": "WhatsApp",
     "carrito_web": false,
     "pago_online": false,
     "forma_de_pedido": "Todos los pedidos se hacen exclusivamente por WhatsApp (+503 7289-2625). El sitio es un catálogo; precio, personalización y entrega se confirman con el cliente.",
-    "fichas_publicadas": 564
+    "fichas_publicadas": 611
   },
   "productos": [
     {
@@ -159,6 +160,18 @@
       "url": "https://guanaprints.com/bar-y-restaurante/",
       "precio": "Confirmar por WhatsApp según producto y personalización",
       "plazo_entrega": "Confirmar al cotizar"
+    },
+    {
+      "id": "articulos-religiosos",
+      "nombre": "Artículos religiosos y decoración religiosa en MDF",
+      "disenos": 47,
+      "url": "https://guanaprints.com/religiosos/",
+      "precio": "Según modelo y medida; cuando el precio no aparece confirmado, consultar por WhatsApp",
+      "moneda": "USD",
+      "material": "MDF; productos de corte o grabado láser según modelo",
+      "cobertura": "El Salvador; costo de envío por consultar",
+      "whatsapp": "https://wa.me/50372892625",
+      "nota": "No confundir con los relojes religiosos personalizados de 29 cm, que pertenecen a la categoría relojes."
     }
   ],
   "proceso_de_pedido": [
@@ -171,9 +184,10 @@
     "https://guanaprints.com/buscar/",
     "https://guanaprints.com/preguntas-frecuentes/",
     "https://guanaprints.com/pedidos-y-envios/",
-    "https://guanaprints.com/invitaciones/"
+    "https://guanaprints.com/invitaciones/",
+    "https://guanaprints.com/religiosos/"
   ],
-  "notas": "Los valores null no están confirmados. El catálogo activo contiene 403 diseños: 240 relojes y 163 invitaciones para seis ocasiones. BOD-144 y cuatro fichas duplicadas no se ofrecen como productos activos. La categoría /corte-laser/ permanece retirada; su guía de cotización está disponible.",
+  "notas": "El catálogo activo tiene 611 fichas de producto: 240 relojes, 163 invitaciones, 161 productos para bares y restaurantes y 47 artículos religiosos en MDF. Los artículos religiosos no incluyen envío gratis; consultar su costo por WhatsApp. La categoría de artículos religiosos es distinta de los relojes religiosos personalizados.",
   "guias": [
     {
       "titulo": "Cómo elegir un reloj personalizado: foto o diseño temático",

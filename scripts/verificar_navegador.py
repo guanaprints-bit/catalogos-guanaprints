@@ -59,6 +59,8 @@ def check_search(query, expected=None, minimum=None, zero=False):
 
 
 check_search("?tipo=relojes", expected=240)
+check_search("?categoria=articulos-religiosos", expected=47)
+check_search("?categoria=religiosos", expected=3)
 check_search("?q=" + quote("Beatles"), minimum=1)
 check_search("?q=" + quote("INV15-69"), minimum=1)
 check_search("?q=" + quote("zzzz-sin-producto-guanaprints"), expected=0, zero=True)

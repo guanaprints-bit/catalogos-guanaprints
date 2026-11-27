@@ -77,8 +77,14 @@ for page in ROOT.rglob('*.html'):
                 offer = item.get('offers', {})
                 if 'availability' in offer or 'shippingDetails' in offer:
                     errors.append(f'{page}: oferta anuncia compra o existencias online')
-                if offer and (offer.get('@type') != 'Offer' or not offer.get('price') or offer.get('priceCurrency') != 'USD'):
-                    errors.append(f'{page}: la oferta estructurada debe incluir precio y moneda válidos')
+                if offer and offer.get('@type') == 'Offer':
+                    if not offer.get('price') or offer.get('priceCurrency') != 'USD':
+                        errors.append(f'{page}: la oferta estructurada debe incluir precio y moneda válidos')
+                elif offer and offer.get('@type') == 'AggregateOffer':
+                    if not offer.get('lowPrice') or not offer.get('highPrice') or offer.get('priceCurrency') != 'USD' or int(offer.get('offerCount', 0)) < 2:
+                        errors.append(f'{page}: la oferta agregada debe incluir rango, cantidad y moneda válidos')
+                elif offer:
+                    errors.append(f'{page}: tipo de oferta estructurada no reconocido')
                 if item.get('@id') != canon[0] + '#producto':
                     errors.append(f'{page}: Product sin identidad estable')
             if item.get('@type') == 'ItemList':
@@ -120,8 +126,8 @@ textmap = set((ROOT / 'sitemap.txt').read_text().splitlines())
 if sitemap != urls or textmap != urls:
     errors.append(f'Sitemaps inconsistentes: XML {len(sitemap)}, TXT {len(textmap)}, páginas {len(urls)}')
 search_markup = (ROOT / 'buscar/index.html').read_text(encoding='utf-8')
-if search_markup.count('<article class="card"') != 403:
-    errors.append('Buscador general: se esperan 403 tarjetas; Bar y restaurante se filtra en su catálogo propio')
+if search_markup.count('<article class="card"') != 450:
+    errors.append('Buscador general: se esperan 450 tarjetas; Bar y restaurante se filtra en su catálogo propio')
 if '/bodas/144' in search_markup or '/bodas/144' in (ROOT / 'bodas/index.html').read_text(encoding='utf-8'):
     errors.append('BOD-144 reapareció en los catálogos públicos')
 for retired in ["/bodas/144","/bodas/17","/bodas/24","/bodas/46","/bodas/172","/bodas/174","/bodas/175","/bodas/180","/bodas/69","/bodas/179","/bodas/37","/bodas/32","/bodas/192","/bodas/300","/15-anos/modelos/19","/15-anos/modelos/69","/15-anos/modelos/70","/15-anos/modelos/170","/15-anos/modelos/175","/15-anos/modelos/185","/15-anos/modelos/193","/15-anos/modelos/55"]:
@@ -143,14 +149,18 @@ for cat,expected in (('baby-shower',8),('primera-comunion',3),('cumpleanos',1),(
     found=listing.count('<article class="card"')
     if found!=expected:
         errors.append(f'Categoría invitaciones/{cat}: {found} tarjetas; se esperaban {expected}')
+religious_listing=(ROOT / 'religiosos' / 'index.html').read_text(encoding='utf-8')
+religious_count=religious_listing.count('<article class="card"')
+if religious_count != 47:
+    errors.append(f'Categoría religiosos: {religious_count} tarjetas; se esperaban 47')
 bar_listing=(ROOT / 'bar-y-restaurante' / 'index.html').read_text(encoding='utf-8')
 bar_count=bar_listing.count('<article class="card"')
 if bar_count != 161:
     errors.append(f'Categoría bar-y-restaurante: {bar_count} tarjetas; se esperaban 161')
 if BASE + '/bodas/144' in sitemap:
     errors.append('BOD-144 no debe estar en el sitemap')
-if products != 564:
-    errors.append(f'Inventario de fichas incorrecto: {products}, se esperaban 564')
+if products != 611:
+    errors.append(f'Inventario de fichas incorrecto: {products}, se esperaban 611')
 # Validar destinos obligatorios sin bloquear nuevas redirecciones legítimas.
 rules = {}
 for raw in (ROOT / '_redirects').read_text(encoding='utf-8').splitlines():
@@ -273,6 +283,7 @@ for relative in ('index.html', 'contacto/index.html', 'nosotros/index.html'):
         catalog = business[0].get('hasOfferCatalog', {}).get('itemListElement', [])
         required = {BASE + '/relojes/', BASE + '/bodas/', BASE + '/15-anos/', BASE + '/invitaciones/'}
         required.add(BASE + '/bar-y-restaurante/')
+        required.add(BASE + '/religiosos/')
         if {item.get('url') for item in catalog} != required:
             errors.append(f'Catálogo de organización inconsistente: {relative}')
 if 'mailto:guanaprints@gmail.com' not in (ROOT / 'contacto/index.html').read_text(encoding='utf-8'):
@@ -295,7 +306,7 @@ for rel in ("index.html", "nosotros/index.html", "contacto/index.html"):
 knowledge = json.loads((ROOT / "guanaprints-kb.json").read_text(encoding="utf-8"))
 if knowledge.get("negocio", {}).get("tipo_negocio") != "Tienda de regalos personalizados":
     errors.append("Base de conocimiento con categoría comercial antigua")
-if knowledge.get("negocio", {}).get("fichas_publicadas") != 564:
+if knowledge.get("negocio", {}).get("fichas_publicadas") != 611:
     errors.append("Base de conocimiento con inventario activo desactualizado")
 bar = next((item for item in knowledge.get("productos", []) if item.get("id") == "bar-y-restaurante"), None)
 if not bar or bar.get("disenos") != 161 or bar.get("url") != BASE + "/bar-y-restaurante/":

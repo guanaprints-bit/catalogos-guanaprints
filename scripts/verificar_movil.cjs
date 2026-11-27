@@ -9,6 +9,7 @@ const TARGETS=[
   {path:'/invitaciones/',selector:'.grid > .card',min:2},
   {path:'/invitaciones/baby-shower/',selector:'#productos > .card',min:2},
   {path:'/buscar/',selector:'#productos > .card',min:2},
+  {path:'/religiosos/',selector:'.grid > .card',min:2},
 ];
 (async()=>{
  let browser;

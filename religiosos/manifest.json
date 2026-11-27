@@ -1,0 +1,1043 @@
+[
+  {
+    "pagina": 1,
+    "codigo": "G3D",
+    "nombre": "Virgen de Guadalupe",
+    "descripcion": "Figura religiosa",
+    "grupo": "V",
+    "medidas": [
+      "22.2 × 37 cm",
+      "15.9 × 27 cm",
+      "9.6 × 16 cm"
+    ],
+    "precios_catalogo": [
+      20,
+      14,
+      8
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/virgen-de-guadalupe-g3d/",
+    "imagen": "/assets/religiosos/modelos/virgen-de-guadalupe-g3d.webp",
+    "miniatura": "/assets/religiosos/miniaturas/virgen-de-guadalupe-g3d.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 2,
+    "codigo": "PNC1",
+    "nombre": "Padre Nuestro con Cristo",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "20.3 × 34.6 cm",
+      "28.6 × 46.5 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": true,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/padre-nuestro-con-cristo-pnc1/",
+    "imagen": "/assets/religiosos/modelos/padre-nuestro-con-cristo-pnc1.webp",
+    "miniatura": "/assets/religiosos/miniaturas/padre-nuestro-con-cristo-pnc1.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 3,
+    "codigo": "PNS",
+    "nombre": "Padre Nuestro con sol",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "19.8 × 32.8 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/padre-nuestro-con-sol-pns/",
+    "imagen": "/assets/religiosos/modelos/padre-nuestro-con-sol-pns.webp",
+    "miniatura": "/assets/religiosos/miniaturas/padre-nuestro-con-sol-pns.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 4,
+    "codigo": "PNC2",
+    "nombre": "Padre Nuestro clásico",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "20 × 34 cm",
+      "28.5 × 48 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": true,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/padre-nuestro-clasico-pnc2/",
+    "imagen": "/assets/religiosos/modelos/padre-nuestro-clasico-pnc2.webp",
+    "miniatura": "/assets/religiosos/miniaturas/padre-nuestro-clasico-pnc2.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 5,
+    "codigo": "PNC5",
+    "nombre": "Padre Nuestro con Jesús",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "20.3 × 34.6 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/padre-nuestro-con-jesus-pnc5/",
+    "imagen": "/assets/religiosos/modelos/padre-nuestro-con-jesus-pnc5.webp",
+    "miniatura": "/assets/religiosos/miniaturas/padre-nuestro-con-jesus-pnc5.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 6,
+    "codigo": "PNAM",
+    "nombre": "Árbol Padre Nuestro circular",
+    "descripcion": "Árbol calado",
+    "grupo": "A",
+    "medidas": [
+      "33.9 × 33.9 cm"
+    ],
+    "precios_catalogo": [
+      20
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/arbol-padre-nuestro-circular-pnam/",
+    "imagen": "/assets/religiosos/modelos/arbol-padre-nuestro-circular-pnam.webp",
+    "miniatura": "/assets/religiosos/miniaturas/arbol-padre-nuestro-circular-pnam.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 7,
+    "codigo": "PNAS",
+    "nombre": "Árbol Padre Nuestro grande",
+    "descripcion": "Árbol calado",
+    "grupo": "A",
+    "medidas": [
+      "41.5 × 47.7 cm"
+    ],
+    "precios_catalogo": [
+      20
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/arbol-padre-nuestro-grande-pnas/",
+    "imagen": "/assets/religiosos/modelos/arbol-padre-nuestro-grande-pnas.webp",
+    "miniatura": "/assets/religiosos/miniaturas/arbol-padre-nuestro-grande-pnas.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 8,
+    "codigo": "PNAX",
+    "nombre": "Árbol Padre Nuestro compacto",
+    "descripcion": "Árbol calado",
+    "grupo": "A",
+    "medidas": [
+      "23.9 × 27.6 cm"
+    ],
+    "precios_catalogo": [
+      20
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/arbol-padre-nuestro-compacto-pnax/",
+    "imagen": "/assets/religiosos/modelos/arbol-padre-nuestro-compacto-pnax.webp",
+    "miniatura": "/assets/religiosos/miniaturas/arbol-padre-nuestro-compacto-pnax.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 9,
+    "codigo": "PNAP",
+    "nombre": "Árbol Padre Nuestro con aves",
+    "descripcion": "Árbol calado",
+    "grupo": "A",
+    "medidas": [
+      "31.5 × 26.4 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/arbol-padre-nuestro-con-aves-pnap/",
+    "imagen": "/assets/religiosos/modelos/arbol-padre-nuestro-con-aves-pnap.webp",
+    "miniatura": "/assets/religiosos/miniaturas/arbol-padre-nuestro-con-aves-pnap.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 10,
+    "codigo": null,
+    "nombre": "Padre Nuestro eucarístico",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "20.3 × 34.6 cm",
+      "28.6 × 46.5 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": true,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/padre-nuestro-eucaristico/",
+    "imagen": "/assets/religiosos/modelos/padre-nuestro-eucaristico.webp",
+    "miniatura": "/assets/religiosos/miniaturas/padre-nuestro-eucaristico.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 11,
+    "codigo": "PNC6",
+    "nombre": "Padre Nuestro con rostro de Cristo",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "20.7 × 34.8 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/padre-nuestro-con-rostro-de-cristo-pnc6/",
+    "imagen": "/assets/religiosos/modelos/padre-nuestro-con-rostro-de-cristo-pnc6.webp",
+    "miniatura": "/assets/religiosos/miniaturas/padre-nuestro-con-rostro-de-cristo-pnc6.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 12,
+    "codigo": "PNC9",
+    "nombre": "Padre Nuestro con retrato de Jesús",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "18.1 × 34.9 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/padre-nuestro-con-retrato-de-jesus-pnc9/",
+    "imagen": "/assets/religiosos/modelos/padre-nuestro-con-retrato-de-jesus-pnc9.webp",
+    "miniatura": "/assets/religiosos/miniaturas/padre-nuestro-con-retrato-de-jesus-pnc9.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 13,
+    "codigo": "PNC11",
+    "nombre": "Padre Nuestro con cruz central",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "21 × 34.7 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/padre-nuestro-con-cruz-central-pnc11/",
+    "imagen": "/assets/religiosos/modelos/padre-nuestro-con-cruz-central-pnc11.webp",
+    "miniatura": "/assets/religiosos/miniaturas/padre-nuestro-con-cruz-central-pnc11.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 14,
+    "codigo": "PNC3",
+    "nombre": "Padre Nuestro hágase tu voluntad",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "19.4 × 33.5 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/padre-nuestro-hagase-tu-voluntad-pnc3/",
+    "imagen": "/assets/religiosos/modelos/padre-nuestro-hagase-tu-voluntad-pnc3.webp",
+    "miniatura": "/assets/religiosos/miniaturas/padre-nuestro-hagase-tu-voluntad-pnc3.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 15,
+    "codigo": "PNIN",
+    "nombre": "Padre Nuestro en inglés",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "19.8 × 32.8 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/padre-nuestro-en-ingles-pnin/",
+    "imagen": "/assets/religiosos/modelos/padre-nuestro-en-ingles-pnin.webp",
+    "miniatura": "/assets/religiosos/miniaturas/padre-nuestro-en-ingles-pnin.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 16,
+    "codigo": "PNC12",
+    "nombre": "Padre Nuestro con niño orando",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "19.8 × 32.8 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/padre-nuestro-con-nino-orando-pnc12/",
+    "imagen": "/assets/religiosos/modelos/padre-nuestro-con-nino-orando-pnc12.webp",
+    "miniatura": "/assets/religiosos/miniaturas/padre-nuestro-con-nino-orando-pnc12.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 17,
+    "codigo": "PNC13",
+    "nombre": "Padre Nuestro con niña orando",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "19.8 × 32.8 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/padre-nuestro-con-nina-orando-pnc13/",
+    "imagen": "/assets/religiosos/modelos/padre-nuestro-con-nina-orando-pnc13.webp",
+    "miniatura": "/assets/religiosos/miniaturas/padre-nuestro-con-nina-orando-pnc13.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 18,
+    "codigo": "AGC3",
+    "nombre": "Cruz Ángel de mi Guarda",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "19.8 × 32.8 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-angel-de-mi-guarda-agc3/",
+    "imagen": "/assets/religiosos/modelos/cruz-angel-de-mi-guarda-agc3.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-angel-de-mi-guarda-agc3.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 19,
+    "codigo": "AGC1",
+    "nombre": "Cruz Ángel de mi Guarda con figura",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "19.8 × 32.8 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-angel-de-mi-guarda-con-figura-agc1/",
+    "imagen": "/assets/religiosos/modelos/cruz-angel-de-mi-guarda-con-figura-agc1.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-angel-de-mi-guarda-con-figura-agc1.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 20,
+    "codigo": null,
+    "nombre": "Cruz Ángel de mi Guarda tipográfica",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "19.8 × 32.8 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-angel-de-mi-guarda-tipografica/",
+    "imagen": "/assets/religiosos/modelos/cruz-angel-de-mi-guarda-tipografica.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-angel-de-mi-guarda-tipografica.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 21,
+    "codigo": "AG3",
+    "nombre": "Ángel de la Guarda de perfil",
+    "descripcion": "Ángel calado",
+    "grupo": "V",
+    "medidas": [
+      "17.3 × 33.9 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/angel-de-la-guarda-de-perfil-ag3/",
+    "imagen": "/assets/religiosos/modelos/angel-de-la-guarda-de-perfil-ag3.webp",
+    "miniatura": "/assets/religiosos/miniaturas/angel-de-la-guarda-de-perfil-ag3.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 22,
+    "codigo": "AGA",
+    "nombre": "Árbol Ángel de la Guarda",
+    "descripcion": "Árbol calado",
+    "grupo": "A",
+    "medidas": [
+      "21.7 × 25.9 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/arbol-angel-de-la-guarda-aga/",
+    "imagen": "/assets/religiosos/modelos/arbol-angel-de-la-guarda-aga.webp",
+    "miniatura": "/assets/religiosos/miniaturas/arbol-angel-de-la-guarda-aga.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 23,
+    "codigo": "AGN2",
+    "nombre": "Ángel de la Guarda con aureola",
+    "descripcion": "Ángel calado",
+    "grupo": "V",
+    "medidas": [
+      "18.2 × 33.9 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/angel-de-la-guarda-con-aureola-agn2/",
+    "imagen": "/assets/religiosos/modelos/angel-de-la-guarda-con-aureola-agn2.webp",
+    "miniatura": "/assets/religiosos/miniaturas/angel-de-la-guarda-con-aureola-agn2.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 24,
+    "codigo": "AGB",
+    "nombre": "Ángel de la Guarda con alas abiertas",
+    "descripcion": "Ángel calado",
+    "grupo": "V",
+    "medidas": [
+      "23.6 × 21.8 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/angel-de-la-guarda-con-alas-abiertas-agb/",
+    "imagen": "/assets/religiosos/modelos/angel-de-la-guarda-con-alas-abiertas-agb.webp",
+    "miniatura": "/assets/religiosos/miniaturas/angel-de-la-guarda-con-alas-abiertas-agb.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 25,
+    "codigo": "DTC2",
+    "nombre": "Cruz Dios te Salve Reina",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "16 × 27.6 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-dios-te-salve-reina-dtc2/",
+    "imagen": "/assets/religiosos/modelos/cruz-dios-te-salve-reina-dtc2.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-dios-te-salve-reina-dtc2.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 26,
+    "codigo": "DT3",
+    "nombre": "Virgencita Ave María",
+    "descripcion": "Figura religiosa",
+    "grupo": "V",
+    "medidas": [
+      "17.6 × 33.8 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/virgencita-ave-maria-dt3/",
+    "imagen": "/assets/religiosos/modelos/virgencita-ave-maria-dt3.webp",
+    "miniatura": "/assets/religiosos/miniaturas/virgencita-ave-maria-dt3.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 27,
+    "codigo": "DTC",
+    "nombre": "Cruz Ave María con Virgen",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "19.9 × 33.8 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-ave-maria-con-virgen-dtc/",
+    "imagen": "/assets/religiosos/modelos/cruz-ave-maria-con-virgen-dtc.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-ave-maria-con-virgen-dtc.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 28,
+    "codigo": "DTC4",
+    "nombre": "Cruz Ave María con silueta",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "19.6 × 33.9 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-ave-maria-con-silueta-dtc4/",
+    "imagen": "/assets/religiosos/modelos/cruz-ave-maria-con-silueta-dtc4.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-ave-maria-con-silueta-dtc4.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 29,
+    "codigo": "DTC1",
+    "nombre": "Cruz Ave María Jesús",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "19.5 × 33.3 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-ave-maria-jesus-dtc1/",
+    "imagen": "/assets/religiosos/modelos/cruz-ave-maria-jesus-dtc1.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-ave-maria-jesus-dtc1.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 30,
+    "codigo": "JEP2",
+    "nombre": "Cruz Jesús",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "20.6 × 39.3 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-jesus-jep2/",
+    "imagen": "/assets/religiosos/modelos/cruz-jesus-jep2.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-jesus-jep2.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 31,
+    "codigo": "JC1",
+    "nombre": "Cruz con rostro de Jesús",
+    "descripcion": "Cruz grabada",
+    "grupo": "C",
+    "medidas": [
+      "19.4 × 33.6 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-con-rostro-de-jesus-jc1/",
+    "imagen": "/assets/religiosos/modelos/cruz-con-rostro-de-jesus-jc1.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-con-rostro-de-jesus-jc1.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 32,
+    "codigo": "AGC5",
+    "nombre": "Cruz Ángel grabado",
+    "descripcion": "Cruz grabada",
+    "grupo": "C",
+    "medidas": [
+      "20.2 × 33.5 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-angel-grabado-agc5/",
+    "imagen": "/assets/religiosos/modelos/cruz-angel-grabado-agc5.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-angel-grabado-agc5.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 33,
+    "codigo": "OAL",
+    "nombre": "Cruz Bendición de los alimentos",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "19.7 × 34.2 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-bendicion-de-los-alimentos-oal/",
+    "imagen": "/assets/religiosos/modelos/cruz-bendicion-de-los-alimentos-oal.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-bendicion-de-los-alimentos-oal.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 34,
+    "codigo": "EENP",
+    "nombre": "Cruz Santísima Trinidad",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "27 × 31.5 cm",
+      "21.8 × 22 cm"
+    ],
+    "precios_catalogo": [
+      12,
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-santisima-trinidad-eenp/",
+    "imagen": "/assets/religiosos/modelos/cruz-santisima-trinidad-eenp.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-santisima-trinidad-eenp.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 35,
+    "codigo": "GLOR",
+    "nombre": "Cruz Gloria al Padre",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "19.3 × 33.8 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-gloria-al-padre-glor/",
+    "imagen": "/assets/religiosos/modelos/cruz-gloria-al-padre-glor.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-gloria-al-padre-glor.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 36,
+    "codigo": "NTT2",
+    "nombre": "Cruz Nada te Turbe",
+    "descripcion": "Cruz calada",
+    "grupo": "C",
+    "medidas": [
+      "21.3 × 33.8 cm"
+    ],
+    "precios_catalogo": [
+      7
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/cruz-nada-te-turbe-ntt2/",
+    "imagen": "/assets/religiosos/modelos/cruz-nada-te-turbe-ntt2.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-nada-te-turbe-ntt2.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 38,
+    "codigo": null,
+    "nombre": "Catedral de Santa Ana",
+    "descripcion": "Fachada decorativa",
+    "grupo": "M",
+    "medidas": [
+      "33.7 × 38.6 cm",
+      "23.9 × 25.7 cm"
+    ],
+    "precios_catalogo": [
+      20,
+      15
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/catedral-de-santa-ana/",
+    "imagen": "/assets/religiosos/modelos/catedral-de-santa-ana.webp",
+    "miniatura": "/assets/religiosos/miniaturas/catedral-de-santa-ana.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 39,
+    "codigo": null,
+    "nombre": "Teatro de Santa Ana",
+    "descripcion": "Fachada decorativa",
+    "grupo": "M",
+    "medidas": [
+      "48 × 33.1 cm"
+    ],
+    "precios_catalogo": [
+      20
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/teatro-de-santa-ana/",
+    "imagen": "/assets/religiosos/modelos/teatro-de-santa-ana.webp",
+    "miniatura": "/assets/religiosos/miniaturas/teatro-de-santa-ana.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 40,
+    "codigo": null,
+    "nombre": "Templo de la Sagrada Familia",
+    "descripcion": "Fachada decorativa",
+    "grupo": "M",
+    "medidas": [
+      "48.1 × 20.7 cm"
+    ],
+    "precios_catalogo": [
+      20
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/templo-de-la-sagrada-familia/",
+    "imagen": "/assets/religiosos/modelos/templo-de-la-sagrada-familia.webp",
+    "miniatura": "/assets/religiosos/miniaturas/templo-de-la-sagrada-familia.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 41,
+    "codigo": null,
+    "nombre": "Palacio Municipal de Santa Tecla",
+    "descripcion": "Fachada decorativa",
+    "grupo": "M",
+    "medidas": [
+      "48 × 18.7 cm"
+    ],
+    "precios_catalogo": [
+      20
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/palacio-municipal-de-santa-tecla/",
+    "imagen": "/assets/religiosos/modelos/palacio-municipal-de-santa-tecla.webp",
+    "miniatura": "/assets/religiosos/miniaturas/palacio-municipal-de-santa-tecla.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 42,
+    "codigo": null,
+    "nombre": "Iglesia de San Andrés Apóstol",
+    "descripcion": "Fachada decorativa",
+    "grupo": "M",
+    "medidas": [
+      "46 × 35.8 cm"
+    ],
+    "precios_catalogo": [
+      20
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/iglesia-de-san-andres-apostol/",
+    "imagen": "/assets/religiosos/modelos/iglesia-de-san-andres-apostol.webp",
+    "miniatura": "/assets/religiosos/miniaturas/iglesia-de-san-andres-apostol.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 43,
+    "codigo": null,
+    "nombre": "Catedral de Nuestra Señora de la Paz",
+    "descripcion": "Fachada decorativa",
+    "grupo": "M",
+    "medidas": [
+      "33.2 × 30.4 cm"
+    ],
+    "precios_catalogo": [
+      20
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/catedral-de-nuestra-senora-de-la-paz/",
+    "imagen": "/assets/religiosos/modelos/catedral-de-nuestra-senora-de-la-paz.webp",
+    "miniatura": "/assets/religiosos/miniaturas/catedral-de-nuestra-senora-de-la-paz.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 44,
+    "codigo": null,
+    "nombre": "Iglesia El Carmen de Santa Tecla",
+    "descripcion": "Fachada decorativa",
+    "grupo": "M",
+    "medidas": [
+      "33.8 × 40.8 cm"
+    ],
+    "precios_catalogo": [
+      20
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/iglesia-el-carmen-de-santa-tecla/",
+    "imagen": "/assets/religiosos/modelos/iglesia-el-carmen-de-santa-tecla.webp",
+    "miniatura": "/assets/religiosos/miniaturas/iglesia-el-carmen-de-santa-tecla.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 45,
+    "codigo": null,
+    "nombre": "Catedral Metropolitana de San Salvador",
+    "descripcion": "Fachada decorativa",
+    "grupo": "M",
+    "medidas": [
+      "13.3 × 48 cm"
+    ],
+    "precios_catalogo": [
+      20
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/catedral-metropolitana-de-san-salvador/",
+    "imagen": "/assets/religiosos/modelos/catedral-metropolitana-de-san-salvador.webp",
+    "miniatura": "/assets/religiosos/miniaturas/catedral-metropolitana-de-san-salvador.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 46,
+    "codigo": null,
+    "nombre": "Palacio Municipal de Santa Ana",
+    "descripcion": "Fachada decorativa",
+    "grupo": "M",
+    "medidas": [
+      "47.8 × 13.4 cm"
+    ],
+    "precios_catalogo": [
+      20
+    ],
+    "precio_confirmar": false,
+    "revision_arte": false,
+    "ruta": "/religiosos/modelos/palacio-municipal-de-santa-ana/",
+    "imagen": "/assets/religiosos/modelos/palacio-municipal-de-santa-ana.webp",
+    "miniatura": "/assets/religiosos/miniaturas/palacio-municipal-de-santa-ana.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 48,
+    "codigo": null,
+    "nombre": "Cruz con oraciones y templo",
+    "descripcion": "Cruz decorativa",
+    "grupo": "C",
+    "medidas": [
+      "19.8 × 32.8 cm"
+    ],
+    "precios_catalogo": [],
+    "precio_confirmar": true,
+    "revision_arte": true,
+    "ruta": "/religiosos/modelos/cruz-con-oraciones-y-templo/",
+    "imagen": "/assets/religiosos/modelos/cruz-con-oraciones-y-templo.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-con-oraciones-y-templo.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  },
+  {
+    "pagina": 50,
+    "codigo": null,
+    "nombre": "Cruz grabada con iglesia",
+    "descripcion": "Cruz grabada",
+    "grupo": "C",
+    "medidas": [
+      "19.8 × 32.8 cm"
+    ],
+    "precios_catalogo": [],
+    "precio_confirmar": true,
+    "revision_arte": true,
+    "ruta": "/religiosos/modelos/cruz-grabada-con-iglesia/",
+    "imagen": "/assets/religiosos/modelos/cruz-grabada-con-iglesia.webp",
+    "miniatura": "/assets/religiosos/miniaturas/cruz-grabada-con-iglesia.webp",
+    "width": 1440,
+    "height": 1075,
+    "thumb_width": 560,
+    "thumb_height": 418
+  }
+]
