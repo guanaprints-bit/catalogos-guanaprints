@@ -12,12 +12,13 @@ Los siguientes catálogos se pueden añadir como nuevas carpetas en la raíz. Pu
 ## Catálogo y navegación actuales
 
 - Inicio visual: `index.html`.
-- Buscador de los 403 productos: `buscar/`.
+- Buscador de los 564 productos: `buscar/`.
 - Relojes: `relojes/`, con nueve categorías y 240 fichas individuales en `relojes/modelos/`.
 - Bodas: `bodas/`, con 84 modelos.
 - Quince años: `15-anos/`, con 66 modelos.
 - Otras invitaciones: `invitaciones/` con baby shower (8), primera comunión (3), cumpleaños (1) y aniversarios (1).
-- Corte láser: categoría retirada; consultar `guias/cotizar-corte-grabado-laser-mdf/`.
+- Bar y restaurante: `bar-y-restaurante/`, con 161 fichas individuales para productos promocionales y personalizados.
+- Corte láser: categoría retirada; la guía disponible explica cómo solicitar una cotización.
 
 Todos los pedidos se coordinan por WhatsApp. No hay carrito ni pago en la web.
 En teléfonos se muestra siempre un solo producto por fila.

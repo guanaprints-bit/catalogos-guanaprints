@@ -37,14 +37,14 @@ BUSINESS = {
     '@type': ['LocalBusiness', 'Store'], '@id': BASE + '/#negocio',
     'name': 'Guanaprints', 'url': BASE + '/', 'telephone': PHONE, 'email': 'guanaprints@gmail.com',
     'description': "Guanaprints es una tienda de regalos personalizados en Santa Ana, El Salvador. Ofrece relojes de pared personalizados en MDF de 29 cm, invitaciones de boda y quince años, y corte y grabado láser en MDF.",
-    'keywords': "tienda de regalos personalizados, regalos personalizados en Santa Ana, relojes de pared personalizados, invitaciones de boda, invitaciones de quince años",
+    'keywords': "tienda de regalos personalizados, regalos personalizados en Santa Ana, relojes de pared personalizados, invitaciones de boda, invitaciones de quince años, productos personalizados para bares y restaurantes",
     'slogan': "Regalos personalizados hechos en El Salvador",
     'image': BASE + '/relojes/el-salvador/imagenes/esv-034.webp',
     'address': {'@type': 'PostalAddress', 'streetAddress': STREET_ADDRESS, 'addressLocality': 'Santa Ana', 'addressRegion': 'Santa Ana', 'addressCountry': 'SV'},
     'areaServed': {'@type': 'Country', 'name': 'El Salvador'},
     'sameAs': ['https://www.facebook.com/guanaprints/', 'https://www.instagram.com/guanaprints/'],
     'contactPoint': {'@type': 'ContactPoint', 'telephone': PHONE, 'email': 'guanaprints@gmail.com', 'contactType': 'ventas', 'availableLanguage': 'es', 'areaServed': 'SV', 'url': 'https://wa.me/50372892625'},
-    'hasOfferCatalog': {"@type":"OfferCatalog","name":"Catálogo de regalos personalizados Guanaprints","itemListElement":[{"@type":"OfferCatalog","name":"Relojes personalizados de pared de 29 cm","url":"https://guanaprints.com/relojes/"},{"@type":"OfferCatalog","name":"Invitaciones de boda","url":"https://guanaprints.com/bodas/"},{"@type":"OfferCatalog","name":"Invitaciones de quince años","url":"https://guanaprints.com/15-anos/"},{"@type":"OfferCatalog","name":"Invitaciones para otras celebraciones","url":"https://guanaprints.com/invitaciones/"}]},
+    'hasOfferCatalog': {"@type":"OfferCatalog","name":"Catálogo de regalos personalizados Guanaprints","itemListElement":[{"@type":"OfferCatalog","name":"Relojes personalizados de pared de 29 cm","url":"https://guanaprints.com/relojes/"},{"@type":"OfferCatalog","name":"Invitaciones de boda","url":"https://guanaprints.com/bodas/"},{"@type":"OfferCatalog","name":"Invitaciones de quince años","url":"https://guanaprints.com/15-anos/"},{"@type":"OfferCatalog","name":"Invitaciones para otras celebraciones","url":"https://guanaprints.com/invitaciones/"},{"@type":"OfferCatalog","name":"Productos personalizados para bares y restaurantes","url":"https://guanaprints.com/bar-y-restaurante/"}]},
 }
 
 NAV = '<nav aria-label="Información de Guanaprints"><a href="/nosotros/">Sobre Guanaprints</a> · <a href="/contacto/">Contacto</a> · <a href="/como-personalizar/">Cómo personalizar</a> · <a href="/preguntas-frecuentes/">Preguntas frecuentes</a> · <a href="/pedidos-y-envios/">Pedidos y entregas</a></nav>'

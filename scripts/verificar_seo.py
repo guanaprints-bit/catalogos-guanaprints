@@ -49,8 +49,9 @@ for page in ROOT.rglob('*.html'):
             urls.add(canon[0])
     if len(re.findall(r'<h1\b', source)) != 1:
         errors.append(f'{page}: cantidad incorrecta de H1')
-    if not re.search(r'<link[^>]*catalogo-mobile.css[^>]*></head>', source):
-        errors.append(f'{page}: hoja móvil no es la última del head')
+    stylesheets = [a.get('href', '') for t, a in doc.tags if t == 'link' and 'stylesheet' in a.get('rel', '').lower().split()]
+    if not stylesheets or 'catalogo-mobile.css' not in stylesheets[-1]:
+        errors.append(f'{page}: la última hoja de estilos no es catalogo-mobile.css')
     if 'data-gp-business-info="true"' not in source:
         errors.append(f'{page}: sin contacto compartido')
     ids = set()
@@ -69,15 +70,15 @@ for page in ROOT.rglob('*.html'):
                 products += 1
                 if 'data-gp-order-details="true"' not in source:
                     errors.append(f'{page}: faltan datos de personalización y pedido')
-                if item.get('url') != canon[0] or item.get('offers', {}).get('url') != canon[0]:
+                if item.get('url') != canon[0] or (item.get('offers') and item['offers'].get('url') != canon[0]):
                     errors.append(f'{page}: Product/Offer no coincide con canonical')
                 # Un catálogo de encargos por WhatsApp no debe anunciar existencias
                 # físicas ni usar datos específicos del checkout del sitio.
                 offer = item.get('offers', {})
                 if 'availability' in offer or 'shippingDetails' in offer:
                     errors.append(f'{page}: oferta anuncia compra o existencias online')
-                if offer.get('@type') != 'Offer' or not offer.get('price') or offer.get('priceCurrency') != 'USD':
-                    errors.append(f'{page}: falta oferta informativa con precio base')
+                if offer and (offer.get('@type') != 'Offer' or not offer.get('price') or offer.get('priceCurrency') != 'USD'):
+                    errors.append(f'{page}: la oferta estructurada debe incluir precio y moneda válidos')
                 if item.get('@id') != canon[0] + '#producto':
                     errors.append(f'{page}: Product sin identidad estable')
             if item.get('@type') == 'ItemList':
@@ -119,8 +120,8 @@ textmap = set((ROOT / 'sitemap.txt').read_text().splitlines())
 if sitemap != urls or textmap != urls:
     errors.append(f'Sitemaps inconsistentes: XML {len(sitemap)}, TXT {len(textmap)}, páginas {len(urls)}')
 search_markup = (ROOT / 'buscar/index.html').read_text(encoding='utf-8')
-if search_markup.count('<article class="card"') != 403:
-    errors.append('Buscador: se esperan 403 tarjetas tras reclasificar 17 diseños y retirar 4 duplicados')
+if search_markup.count('<article class="card"') != 564:
+    errors.append('Buscador: se esperan 564 tarjetas del inventario activo actual')
 if '/bodas/144' in search_markup or '/bodas/144' in (ROOT / 'bodas/index.html').read_text(encoding='utf-8'):
     errors.append('BOD-144 reapareció en los catálogos públicos')
 for retired in ["/bodas/144","/bodas/17","/bodas/24","/bodas/46","/bodas/172","/bodas/174","/bodas/175","/bodas/180","/bodas/69","/bodas/179","/bodas/37","/bodas/32","/bodas/192","/bodas/300","/15-anos/modelos/19","/15-anos/modelos/69","/15-anos/modelos/70","/15-anos/modelos/170","/15-anos/modelos/175","/15-anos/modelos/185","/15-anos/modelos/193","/15-anos/modelos/55"]:
@@ -137,15 +138,15 @@ for cat,expected in (('bodas',84),('15-anos',66)):
     found=listing.count('<article class="card"')
     if found!=expected:
         errors.append(f'Categoría {cat}: {found} tarjetas; se esperaban {expected}')
-for cat,expected in (('baby-shower',8),('primera-comunion',3),('cumpleanos',1),('aniversarios',1)):
+for cat,expected in (('baby-shower',8),('primera-comunion',3),('cumpleanos',1),('aniversarios',1),('bar-y-restaurante',161)):
     listing=(ROOT / 'invitaciones' / cat / 'index.html').read_text(encoding='utf-8')
     found=listing.count('<article class="card"')
     if found!=expected:
         errors.append(f'Categoría {cat}: {found} tarjetas; se esperaban {expected}')
 if BASE + '/bodas/144' in sitemap:
     errors.append('BOD-144 no debe estar en el sitemap')
-if products != 403:
-    errors.append(f'Inventario de fichas incorrecto: {products}, se esperaban 403')
+if products != 564:
+    errors.append(f'Inventario de fichas incorrecto: {products}, se esperaban 564')
 # Validar destinos obligatorios sin bloquear nuevas redirecciones legítimas.
 rules = {}
 for raw in (ROOT / '_redirects').read_text(encoding='utf-8').splitlines():
@@ -204,7 +205,7 @@ for source, destination in required_redirects.items():
 # y el antiguo corte láser no debe parecer una categoría de productos.
 for relative in (
     'index.html', 'relojes/index.html', 'bodas/index.html',
-    '15-anos/index.html', 'buscar/index.html',
+    '15-anos/index.html', 'bar-y-restaurante/index.html', 'buscar/index.html',
     'contacto/index.html', 'nosotros/index.html',
     'como-personalizar/index.html', 'guias/index.html',
     'preguntas-frecuentes/index.html', 'pedidos-y-envios/index.html',
@@ -267,6 +268,7 @@ for relative in ('index.html', 'contacto/index.html', 'nosotros/index.html'):
     else:
         catalog = business[0].get('hasOfferCatalog', {}).get('itemListElement', [])
         required = {BASE + '/relojes/', BASE + '/bodas/', BASE + '/15-anos/', BASE + '/invitaciones/'}
+        required.add(BASE + '/bar-y-restaurante/')
         if {item.get('url') for item in catalog} != required:
             errors.append(f'Catálogo de organización inconsistente: {relative}')
 if 'mailto:guanaprints@gmail.com' not in (ROOT / 'contacto/index.html').read_text(encoding='utf-8'):
@@ -289,6 +291,11 @@ for rel in ("index.html", "nosotros/index.html", "contacto/index.html"):
 knowledge = json.loads((ROOT / "guanaprints-kb.json").read_text(encoding="utf-8"))
 if knowledge.get("negocio", {}).get("tipo_negocio") != "Tienda de regalos personalizados":
     errors.append("Base de conocimiento con categoría comercial antigua")
+if knowledge.get("negocio", {}).get("fichas_publicadas") != 564:
+    errors.append("Base de conocimiento con inventario activo desactualizado")
+bar = next((item for item in knowledge.get("productos", []) if item.get("id") == "bar-y-restaurante"), None)
+if not bar or bar.get("disenos") != 161 or bar.get("url") != BASE + "/bar-y-restaurante/":
+    errors.append("Base de conocimiento sin catálogo Bar y restaurante actualizado")
 # El icono del Torogoz debe ser el mismo que el de la marca.
 favicon_ico = ROOT / 'favicon.ico'
 favicon_png = ROOT / 'favicon-32x32.png'

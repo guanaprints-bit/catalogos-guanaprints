@@ -23,12 +23,14 @@
       "Regalos personalizados",
       "Relojes de pared personalizados",
       "Invitaciones de boda",
-      "Invitaciones de quince años"
+      "Invitaciones de quince años",
+      "Productos personalizados para bares y restaurantes"
     ],
     "canal_exclusivo_de_pedidos": "WhatsApp",
     "carrito_web": false,
     "pago_online": false,
-    "forma_de_pedido": "Todos los pedidos se hacen exclusivamente por WhatsApp (+503 7289-2625). El sitio es un catálogo; precio, personalización y entrega se confirman con el cliente."
+    "forma_de_pedido": "Todos los pedidos se hacen exclusivamente por WhatsApp (+503 7289-2625). El sitio es un catálogo; precio, personalización y entrega se confirman con el cliente.",
+    "fichas_publicadas": 564
   },
   "productos": [
     {
@@ -149,6 +151,14 @@
       "nombre": "Corte y grabado láser en MDF",
       "url": "https://guanaprints.com/guias/cotizar-corte-grabado-laser-mdf/",
       "precio": "Cotizar con medidas, cantidad e idea"
+    },
+    {
+      "id": "bar-y-restaurante",
+      "nombre": "Productos personalizados para bares y restaurantes",
+      "disenos": 161,
+      "url": "https://guanaprints.com/bar-y-restaurante/",
+      "precio": "Confirmar por WhatsApp según producto y personalización",
+      "plazo_entrega": "Confirmar al cotizar"
     }
   ],
   "proceso_de_pedido": [

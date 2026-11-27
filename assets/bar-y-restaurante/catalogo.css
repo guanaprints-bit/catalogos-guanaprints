@@ -57,3 +57,5 @@ main:has(> .intro > .details) > .breadcrumbs,
   font-size: clamp(1.8rem, 4vw, 3.25rem);
   line-height: 1.1;
 }
+
+.gp-business-contact{border-top:2px solid;padding-block:20px 88px;font-size:.95rem}.gp-business-contact p{max-width:75ch}.gp-business-contact nav{justify-content:flex-start;gap:8px}.gp-business-contact a{min-height:44px;display:inline-flex;align-items:center}
