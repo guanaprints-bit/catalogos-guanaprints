@@ -12,7 +12,7 @@ Los siguientes catálogos se pueden añadir como nuevas carpetas en la raíz. Pu
 ## Catálogo y navegación actuales
 
 - Inicio visual: `index.html`.
-- Buscador de los 564 productos: `buscar/`.
+- Buscador general de 403 diseños: `buscar/`. Bar y restaurante dispone de búsqueda y filtro propios para sus 161 fichas.
 - Relojes: `relojes/`, con nueve categorías y 240 fichas individuales en `relojes/modelos/`.
 - Bodas: `bodas/`, con 84 modelos.
 - Quince años: `15-anos/`, con 66 modelos.

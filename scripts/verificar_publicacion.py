@@ -16,7 +16,7 @@ ROOT = Path(__file__).resolve().parents[1]
 BASE = "https://guanaprints.com"
 PATHS = [
     "/", "/invitaciones/", "/buscar/", "/robots.txt",
-    "/sitemap.xml", "/assets/catalogo-buscar.js",
+    "/sitemap.xml", "/assets/catalogo-buscar.js", "/bar-y-restaurante/", "/llms.txt", "/guanaprints-kb.json",
     "/favicon.ico", "/favicon-32x32.png",
 ]
 results = []
@@ -69,8 +69,8 @@ for relative in PATHS:
 
 home = pages["/"].get("html", "")
 if home:
-    require(pages["/"], 'href="/invitaciones/"' in home, "portada sin enlace a otras invitaciones")
-    require(pages["/"], "Regalos que cuentan historias." in home, "portada sin texto comercial esperado")
+    require(pages["/"], ('href="/#invitaciones"' in home or 'href="/invitaciones/"' in home), "portada sin enlace a otras invitaciones")
+    require(pages["/"], "Diseñamos contigo y lo hacemos realidad." in home, "portada sin el mensaje comercial actual")
 
 invitations = pages["/invitaciones/"].get("html", "")
 if invitations:
@@ -79,8 +79,26 @@ if invitations:
 
 search = pages["/buscar/"].get("html", "")
 if search:
-    require(pages["/buscar/"], "403 diseños" in search, "buscador no muestra inventario de 403")
+    require(pages["/buscar/"], "403 diseños" in search, "buscador general no muestra sus 403 diseños activos")
     require(pages["/buscar/"], "Otras invitaciones" in search, "buscador sin acceso a otras ocasiones")
+
+bar = pages["/bar-y-restaurante/"].get("html", "")
+if bar:
+    require(pages["/bar-y-restaurante/"], "161 diseños" in bar and bar.count('<article class="card"') == 161,
+            "catálogo Bar y restaurante no muestra sus 161 fichas")
+llms = pages["/llms.txt"].get("html", "")
+if llms:
+    require(pages["/llms.txt"], "[Bar y restaurante]" in llms,
+            "llms.txt no incluye el catálogo Bar y restaurante")
+knowledge_text = pages["/guanaprints-kb.json"].get("html", "")
+if knowledge_text:
+    try:
+        knowledge = json.loads(knowledge_text)
+        item = next((item for item in knowledge.get("productos", []) if item.get("id") == "bar-y-restaurante"), None)
+        require(pages["/guanaprints-kb.json"], bool(item and item.get("disenos") == 161),
+                "la base de conocimiento no refleja las 161 fichas de Bar y restaurante")
+    except json.JSONDecodeError:
+        problems.append("/guanaprints-kb.json: JSON público no válido")
 
 robots = pages["/robots.txt"].get("html", "")
 if robots:

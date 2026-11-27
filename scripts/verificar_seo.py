@@ -72,8 +72,8 @@ for page in ROOT.rglob('*.html'):
                     errors.append(f'{page}: faltan datos de personalización y pedido')
                 if item.get('url') != canon[0] or (item.get('offers') and item['offers'].get('url') != canon[0]):
                     errors.append(f'{page}: Product/Offer no coincide con canonical')
-                # Un catálogo de encargos por WhatsApp no debe anunciar existencias
-                # físicas ni usar datos específicos del checkout del sitio.
+                # Los pedidos se cotizan por WhatsApp. Solo marcar Offer cuando la página
+                # publique un precio verificable; no inventar precios ni existencias.
                 offer = item.get('offers', {})
                 if 'availability' in offer or 'shippingDetails' in offer:
                     errors.append(f'{page}: oferta anuncia compra o existencias online')
@@ -120,8 +120,8 @@ textmap = set((ROOT / 'sitemap.txt').read_text().splitlines())
 if sitemap != urls or textmap != urls:
     errors.append(f'Sitemaps inconsistentes: XML {len(sitemap)}, TXT {len(textmap)}, páginas {len(urls)}')
 search_markup = (ROOT / 'buscar/index.html').read_text(encoding='utf-8')
-if search_markup.count('<article class="card"') != 564:
-    errors.append('Buscador: se esperan 564 tarjetas del inventario activo actual')
+if search_markup.count('<article class="card"') != 403:
+    errors.append('Buscador general: se esperan 403 tarjetas; Bar y restaurante se filtra en su catálogo propio')
 if '/bodas/144' in search_markup or '/bodas/144' in (ROOT / 'bodas/index.html').read_text(encoding='utf-8'):
     errors.append('BOD-144 reapareció en los catálogos públicos')
 for retired in ["/bodas/144","/bodas/17","/bodas/24","/bodas/46","/bodas/172","/bodas/174","/bodas/175","/bodas/180","/bodas/69","/bodas/179","/bodas/37","/bodas/32","/bodas/192","/bodas/300","/15-anos/modelos/19","/15-anos/modelos/69","/15-anos/modelos/70","/15-anos/modelos/170","/15-anos/modelos/175","/15-anos/modelos/185","/15-anos/modelos/193","/15-anos/modelos/55"]:
@@ -138,11 +138,15 @@ for cat,expected in (('bodas',84),('15-anos',66)):
     found=listing.count('<article class="card"')
     if found!=expected:
         errors.append(f'Categoría {cat}: {found} tarjetas; se esperaban {expected}')
-for cat,expected in (('baby-shower',8),('primera-comunion',3),('cumpleanos',1),('aniversarios',1),('bar-y-restaurante',161)):
+for cat,expected in (('baby-shower',8),('primera-comunion',3),('cumpleanos',1),('aniversarios',1)):
     listing=(ROOT / 'invitaciones' / cat / 'index.html').read_text(encoding='utf-8')
     found=listing.count('<article class="card"')
     if found!=expected:
-        errors.append(f'Categoría {cat}: {found} tarjetas; se esperaban {expected}')
+        errors.append(f'Categoría invitaciones/{cat}: {found} tarjetas; se esperaban {expected}')
+bar_listing=(ROOT / 'bar-y-restaurante' / 'index.html').read_text(encoding='utf-8')
+bar_count=bar_listing.count('<article class="card"')
+if bar_count != 161:
+    errors.append(f'Categoría bar-y-restaurante: {bar_count} tarjetas; se esperaban 161')
 if BASE + '/bodas/144' in sitemap:
     errors.append('BOD-144 no debe estar en el sitemap')
 if products != 564:
