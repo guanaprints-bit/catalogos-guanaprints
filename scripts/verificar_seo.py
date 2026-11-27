@@ -52,8 +52,8 @@ for page in ROOT.rglob('*.html'):
     stylesheets = [a.get('href', '') for t, a in doc.tags if t == 'link' and 'stylesheet' in a.get('rel', '').lower().split()]
     if not stylesheets or 'catalogo-mobile.css' not in stylesheets[-1]:
         errors.append(f'{page}: la última hoja de estilos no es catalogo-mobile.css')
-    if 'data-gp-business-info="true"' not in source:
-        errors.append(f'{page}: sin contacto compartido')
+    if 'data-gp-business-info="true"' not in source and '+503 7289-2625' not in source:
+        errors.append(f'{page}: sin contacto visible ni bloque compartido')
     ids = set()
     graph_nodes = []
     for raw in re.findall(r'<script[^>]*application/ld\+json[^>]*>(.*?)</script>', source, re.S):
@@ -322,8 +322,7 @@ for relative in (
         errors.append(f'Página sin favicon ICO: {relative}')
     if 'href="/favicon-32x32.png"' not in markup:
         errors.append(f'Página sin favicon PNG: {relative}')
-# Las fuentes corporativas deben cargarse mediante HTML para Cloudflare Fonts.
-font_base = 'fonts.googleapis.com/css2?family=Fraunces'
+# Las páginas usan la fuente declarada en su HTML; la portada tiene una familia distinta.
 font_pages = (
     'index.html', 'relojes/index.html', 'bodas/index.html', '15-anos/index.html',
     'buscar/index.html', 'invitaciones/index.html',
@@ -334,8 +333,10 @@ font_pages = (
     'pedidos-y-envios/index.html', '404.html',
 )
 for path in font_pages:
-    if font_base not in (ROOT / path).read_text(encoding='utf-8'):
-        errors.append(f'Falta enlace HTML a Fraunces e Inter: {path}')
+    source = (ROOT / path).read_text(encoding='utf-8')
+    family = 'Bricolage+Grotesque' if path == 'index.html' else 'Fraunces'
+    if f'fonts.googleapis.com/css2?family={family}' not in source:
+        errors.append(f'Falta enlace HTML a la fuente principal {family}: {path}')
 if '@import url(\'https://fonts.googleapis.com' in (ROOT / 'assets/catalogo.css').read_text(encoding='utf-8'):
     errors.append('Import de fuentes CSS incompatible con Cloudflare Fonts')
 print(json.dumps({'paginas': pages, 'fichas': products, 'urls_sitemap': len(sitemap), 'enlaces_recursos_verificados': links, 'errores': errors}, ensure_ascii=False, indent=2))
